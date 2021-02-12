@@ -1,0 +1,22 @@
+body {
+    font-family: IRANSans, serif;
+    position: relative;
+}
+
+.black-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60%;
+    background-color: rgba(10, 10, 10, 0.8);
+    z-index: -1;
+}
+
+.huge-margin {
+    margin: 128px;
+}
+
+.form-height {
+    height: 26rem;
+}

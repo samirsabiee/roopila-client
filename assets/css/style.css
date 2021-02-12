@@ -1,15 +1,16 @@
 @font-face {
     font-family: IRANSans;
-    src: url("../fonts/IRANSans/IRANSans.ttf");
+    src: url("~static/fonts/IRANSans/IRANSans.ttf");
 }
 
 @font-face {
     font-family: BMajidSh;
-    src: url("../fonts/BMajidSh/BMajidSh.ttf");
+    src: url("~static/fonts/BMajidSh/BMajidSh.ttf");
 }
 
 body {
     font-family: IRANSans, serif;
+  direction: rtl;
 }
 
 a {

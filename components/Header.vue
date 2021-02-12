@@ -2,36 +2,36 @@
  <div>
    <ul class="col-12 bg-light d-flex flex-row justify-content-start align-items-center header fixed-top">
      <li>
-       <a href="/" class="header-item d-flex flex-row justify-content-center align-items-center mr-2">لگوی شرکت</a>
+       <nuxt-link to="/" ref="/index" class="header-item d-flex flex-row justify-content-center align-items-center mr-2">لگوی شرکت</nuxt-link>
      </li>
      <li class="menu-item">
        <p class="header-item p-0 m-0 text-center">خدمات</p>
        <ul class="subMenu bg-light d-flex flex-column">
          <li>
-           <a href="/consulting" class="header-item text-center">مشاوره</a>
+           <nuxt-link to="/consulting" class="header-item text-center">مشاوره</nuxt-link>
          </li>
          <li>
-           <a href="/transport" class="header-item text-center">حمل و نقل</a>
+           <nuxt-link to="/transport"  class="header-item text-center">حمل و نقل</nuxt-link>
          </li>
          <li>
-           <a href="/clearance" class="header-item text-center">ترخیص کالا</a>
+           <nuxt-link to="/clearance" class="header-item text-center">ترخیص کالا</nuxt-link>
          </li>
        </ul>
      </li>
      <li>
-       <a href="/formRequest" class="header-item d-flex flex-row justify-content-center align-items-center">فرم سفارش</a>
+       <nuxt-link to="/formRequest" class="header-item d-flex flex-row justify-content-center align-items-center">فرم سفارش</nuxt-link>
      </li>
      <li>
-       <a href="/gallery" class="header-item d-flex flex-row justify-content-center align-items-center">گالری</a>
+       <nuxt-link to="/gallery" class="header-item d-flex flex-row justify-content-center align-items-center">گالری</nuxt-link>
      </li>
      <li>
-       <a href="/lastNews" class="header-item d-flex flex-row justify-content-center align-items-center">آخرین اخبار</a>
+       <nuxt-link to="/news" class="header-item d-flex flex-row justify-content-center align-items-center">آخرین اخبار</nuxt-link>
      </li>
      <li>
-       <a href="/aboutus" class="header-item d-flex flex-row justify-content-center align-items-center">درباره ما</a>
+       <nuxt-link to="/aboutus" class="header-item d-flex flex-row justify-content-center align-items-center">درباره ما</nuxt-link>
      </li>
      <li>
-       <a href="/contactus" class="header-item d-flex flex-row justify-content-center align-items-center">تماس با ما</a>
+       <nuxt-link to="/contactus" class="header-item d-flex flex-row justify-content-center align-items-center">تماس با ما</nuxt-link>
      </li>
    </ul>
  </div>

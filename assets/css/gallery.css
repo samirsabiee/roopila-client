@@ -1,0 +1,22 @@
+body {
+    font-family: IRANSans, serif;
+}
+
+.category-item {
+    border: 1px white solid;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.box-item {
+    width: 12rem;
+    height: 12rem;
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+.font-xsmall {
+    font-size: 12px;
+}

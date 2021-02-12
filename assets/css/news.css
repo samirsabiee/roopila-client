@@ -1,0 +1,22 @@
+.news-box {
+    position: relative;
+    width: 18rem;
+    height: 12rem;
+    margin: 4px;
+}
+
+.darkLayer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.category-font-size {
+    font-size: 14px;
+}
+
+.date-font-size {
+    font-size: 12px;
+}

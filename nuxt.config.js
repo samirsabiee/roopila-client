@@ -11,13 +11,15 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/style.css'
+    '~/assets/css/style.css',
+    '~/assets/css/footer.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

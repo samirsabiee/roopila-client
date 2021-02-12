@@ -1,0 +1,39 @@
+body {
+    font-family: IRANSans, serif;
+}
+
+.top-image {
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+#imgContainer {
+    position: relative;
+}
+
+#featureBox {
+    position: absolute;
+    left: 20%;
+    top: 70%;
+    border-radius: 1rem;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.main_feature {
+    width: 8em;
+    height: 8rem;
+    border-radius: 4rem;
+    position: absolute;
+    top: -4rem;
+    right: 6rem;
+    background-color: bisque;
+    padding: 1rem;
+}
+
+.pt-4rem {
+    padding-top: 4rem;
+}
