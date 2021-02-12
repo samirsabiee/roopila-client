@@ -9,14 +9,14 @@
               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseZero"
               aria-expanded="true" aria-controls="collapseZero">
               <i class="fas fa-tachometer-alt" style="font-size: 1rem;"></i>
-              <a href="/admin/dashboard">داشبورد</a>
+              <nuxt-link to="/admin/dashboard" >داشبورد</nuxt-link>
               </button>
             </h5>
           </div>
 
           <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/dashboard">نمای کلی</a>
+              <nuxt-link to="/admin/dashboard">نمای کلی</nuxt-link>
             </div>
           </div>
         </div>
@@ -25,14 +25,14 @@
             <h5 class="mb-0">
               <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               <i class="fas fa-users" style="font-size: 1rem;"></i>
-              <a href="/admin/users">کاربران</a>
+              <nuxt-link to="/admin/users">کاربران</nuxt-link>
               </button>
             </h5>
           </div>
 
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/users">کاربران</a>
+              <nuxt-link to="/admin/users">کاربران</nuxt-link>
             </div>
           </div>
         </div>
@@ -41,14 +41,14 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"  aria-controls="collapseTwo">
               <i class="far fa-newspaper" style="font-size: 1rem;"></i>
-              <a href="/admin/news">اخبار</a>
+              <nuxt-link to="/admin/news/news">اخبار</nuxt-link>
               </button>
             </h5>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <p><a href="/admin/news">تمامی خبرها</a></p>
-              <p><a href="/admin/news/add">افزودن خبر</a></p>
+              <p><nuxt-link to="/admin/news/news">تمامی خبرها</nuxt-link></p>
+              <p><nuxt-link to="/admin/news/newNews">افزودن خبر</nuxt-link></p>
             </div>
           </div>
         </div>
@@ -74,15 +74,15 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
               <i class="fab fa-first-order-alt" style="font-size: 1rem;"></i>
-              <a href="/admin/orders">سفارشات</a>
+              <nuxt-link to="/admin/orders">سفارشات</nuxt-link>
               </button>
             </h5>
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/orders">
+              <nuxt-link to="/admin/orders">
                 <p>همه سفارشات</p>
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -91,15 +91,15 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
               <i class="far fa-money-bill-alt" style="font-size: 1rem;"></i>
-              <a href="/admin/payments">تراکنشات</a>
+              <nuxt-link to="/admin/payments">تراکنشات</nuxt-link>
               </button>
             </h5>
           </div>
           <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/payments">
+              <nuxt-link to="/admin/payments">
                 <p>همه تراکنشات</p>
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -108,15 +108,15 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
               <i class="fas fa-camera" style="font-size: 1rem;"></i>
-              <a href="/admin/gallery">گالری</a>
+              <nuxt-link to="/admin/gallery">گالری</nuxt-link>
               </button>
             </h5>
           </div>
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/gallery">
+              <nuxt-link to="/admin/gallery">
                 <p>تصاویر ما</p>
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -125,18 +125,18 @@
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
               <i class="fab fa-think-peaks" style="font-size: 1rem;"></i>
-              <a href="/admin/aboutus">متفرقه</a>
+              <nuxt-link to="/admin/aboutus">متفرقه</nuxt-link>
               </button>
             </h5>
           </div>
           <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
             <div class="card-body">
-              <a href="/admin/aboutus">
+              <nuxt-link to="/admin/aboutus">
                 <p>درباره ما</p>
-              </a>
-              <a href="/admin/contactus">
+              </nuxt-link>
+              <nuxt-link to="/admin/contactus">
                 <p>تماس با ما</p>
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>

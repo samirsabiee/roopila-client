@@ -3,9 +3,10 @@
 </template>
 
 <script>
-    export default {
-        name: "payments"
-    }
+  export default {
+    name: "payments",
+    layout: "admin"
+  }
 </script>
 
 <style scoped>
