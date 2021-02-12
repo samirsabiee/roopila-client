@@ -1,0 +1,187 @@
+@font-face {
+    font-family: IRANSans;
+    src: url("../fonts/IRANSans/IRANSans.ttf");
+}
+
+@font-face {
+    font-family: BMajidSh;
+    src: url("../fonts/BMajidSh/BMajidSh.ttf");
+}
+
+body {
+    font-family: IRANSans, serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item:hover .subMenu {
+    visibility: visible;
+}
+
+li {
+    display: inline;
+}
+
+.subMenu {
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    text-align: center;
+    z-index: 1000;
+    overflow: visible;
+}
+
+.subMenu li {
+    margin-top: 1rem;
+    width: 8rem;
+}
+
+.heading-font-family {
+    font-family: BMajidSh, serif;
+}
+
+.heading-height {
+    height: 5rem;
+}
+
+.header {
+    height: 4rem;
+    overflow: visible;
+}
+
+.header-item {
+    cursor: pointer;
+    width: 8rem;
+}
+
+#sliderContainer {
+    position: relative;
+    z-index: -1;
+}
+
+#sliderContainer>div {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#sliderContainer>div div {
+    position: absolute;
+    height: 100%;
+    top: 33%;
+    right: 10%;
+}
+
+.slider {
+    height: 52rem !important;
+}
+
+.image-option {
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.img-cover-center {
+    object-fit: cover;
+    object-position: center;
+}
+
+.spanHeight {
+    height: 6rem;
+}
+
+.spanHalfHeight {
+    height: 3rem;
+}
+
+.spanStyle-start {
+    transform: skew(20deg);
+    margin-right: -20px;
+}
+
+.spanStyle-end {
+    transform: skew(-20deg);
+    margin-left: -20px;
+}
+
+.circle-div {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 6rem;
+    border: 2px solid rgb(230, 160, 31);
+}
+
+.small-circle-div {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 4.5rem;
+}
+
+.btn-request {
+    border-radius: 2rem;
+}
+
+.gallery-column-height {
+    height: 32rem;
+}
+
+.gallery-column-height:hover {
+    cursor: pointer;
+}
+
+.gallery-cell-height {
+    height: 16rem;
+    border-bottom: 1px black solid;
+    border-right: 1px black solid;
+}
+
+.gallery-circle-cell {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+}
+
+.aboutUs-section-height {
+    height: 34rem;
+}
+
+.icon-size {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.icon-size-medium {
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon-size-xsmall {
+    width: 1rem;
+    height: 1rem
+}
+
+.header-height-margin-top {
+    margin-top: 4.1rem;
+}
