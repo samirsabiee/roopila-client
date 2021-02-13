@@ -2,144 +2,138 @@
 <div>
   <div class="d-flex flex-row justify-content-start align-items-start p-0">
     <div class="col-12 p-0">
-      <div id="accordion">
-        <div class="card">
-          <div class="card-header" id="headingZero">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseZero"
-              aria-expanded="true" aria-controls="collapseZero">
-              <i class="fas fa-tachometer-alt" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/dashboard" >داشبورد</nuxt-link>
-              </button>
-            </h5>
-          </div>
+      <div class="accordion" role="tablist">
 
-          <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordion">
-            <div class="card-body">
-              <nuxt-link to="/admin/dashboard">نمای کلی</nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              <i class="fas fa-users" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/users">کاربران</nuxt-link>
-              </button>
-            </h5>
-          </div>
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" v-b-toggle.accordion-1 variant="light">
+              <i class="fas fa-tachometer-alt mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/dashboard" >داشبورد</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+            <b-card-body>
+              <nuxt-link to="/admin/dashboard" >نمای کلی</nuxt-link>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
 
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-2 variant="light">
+              <i class="fas fa-users mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/users">کاربران</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <nuxt-link to="/admin/users">کاربران</nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"  aria-controls="collapseTwo">
-              <i class="far fa-newspaper" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/news/news">اخبار</nuxt-link>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-3 variant="light">
+              <i class="far fa-newspaper mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/news/news">اخبار</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <p><nuxt-link to="/admin/news/news">تمامی خبرها</nuxt-link></p>
               <p><nuxt-link to="/admin/news/newNews">افزودن خبر</nuxt-link></p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              <i class="fab fa-servicestack" style="font-size: 1rem;"></i>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-4 variant="light">
+              <i class="fab fa-servicestack mr-3 ml-3" style="font-size: 1rem;"></i>
               خدمات
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <p>مشاوره</p>
               <p>حمل و نقل</p>
               <p>ترخیص کالا</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingFour">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              <i class="fab fa-first-order-alt" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/orders">سفارشات</nuxt-link>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-            <div class="card-body">
-              <nuxt-link to="/admin/orders">
-                <p>همه سفارشات</p>
-              </nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingFive">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              <i class="far fa-money-bill-alt" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/payments">تراکنشات</nuxt-link>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-            <div class="card-body">
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-5 variant="light">
+              <i class="fab fa-first-order-alt mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/orders">سفارشات</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
+              <nuxt-link to="/admin/orders"><p>همه سفارشات</p></nuxt-link>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-6 variant="light">
+              <i class="far fa-money-bill-alt mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/payments">تراکنشات</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-6" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <nuxt-link to="/admin/payments">
                 <p>همه تراکنشات</p>
               </nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingSix">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-              <i class="fas fa-camera" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/gallery">گالری</nuxt-link>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-            <div class="card-body">
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-7 variant="light">
+              <i class="fas fa-camera mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/gallery">گالری</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-7" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <nuxt-link to="/admin/gallery">
                 <p>تصاویر ما</p>
               </nuxt-link>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingSeven">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-              <i class="fab fa-think-peaks" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/aboutus">متفرقه</nuxt-link>
-              </button>
-            </h5>
-          </div>
-          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
-            <div class="card-body">
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+
+
+        <b-card no-body class="mb-1">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-row class="p-3" block v-b-toggle.accordion-8 variant="light">
+              <i class="fab fa-think-peaks mr-3" style="font-size: 1rem;"></i>
+              <nuxt-link class="mr-3" to="/admin/aboutus">متفرقه</nuxt-link>
+            </b-row>
+          </b-card-header>
+          <b-collapse id="accordion-8" accordion="my-accordion" role="tabpanel">
+            <b-card-body>
               <nuxt-link to="/admin/aboutus">
                 <p>درباره ما</p>
               </nuxt-link>
               <nuxt-link to="/admin/contactus">
                 <p>تماس با ما</p>
               </nuxt-link>
-            </div>
-          </div>
-        </div>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
       </div>
     </div>
   </div>

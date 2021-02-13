@@ -5,7 +5,7 @@
     <div class="col-2 d-flex flex-column p-0">
       <AdminSidebar/>
     </div>
-    <div class="col-10 d-flex flex-column">
+    <div class="col-10 d-flex flex-column p-0">
       <Nuxt/>
     </div>
   </div>
