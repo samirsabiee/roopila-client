@@ -1,29 +1,29 @@
 <template>
-  <div class="d-flex flex-column justify-content-start align-items-center">
-    <div class="col bg-light d-flex flex-row justify-content-around align-items-center rounded p-3">
-      <span class="border border-primary rounded text-primary pt-1 pb-1 pr-3 pl-3">محل کار</span>
-      <span>اوغات فراغت</span>
-      <span>قدیمی</span>
-      <span>تقدیرات و گواهی ها</span>
-      <span>جدی</span>
-      <i class="fas fa-plus-square"></i>
-    </div>
-    <b-row >
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light"></b-col>
-      <b-col class="gallery-box-item bg-light d-flex flex-row justify-content-center align-items-center" style="font-size: 2rem;"><i class="fas fa-plus-square"></i></b-col>
+  <b-container fluid>
+    <b-row class="bg-light p-3">
+      <b-col cols="1" class="text-center border border-primary rounded text-primary pt-1 pb-1 pr-3 pl-3">محل کار</b-col>
+      <b-col>اوغات فراغت</b-col>
+      <b-col>قدیمی</b-col>
+      <b-col>تقدیرات و گواهی ها</b-col>
+      <b-col>جدی</b-col>
+      <b-col><i class="fas fa-plus-square"></i></b-col>
     </b-row>
-  </div>
+    <b-row align="center" class="justify-content-center" >
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
+      <b-col cols="2" class="gallery-box-item bg-light m-1 p-5" style="font-size: 2rem;"><i class="fas fa-plus-square"></i></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

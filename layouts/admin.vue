@@ -1,15 +1,15 @@
 <template>
-<div>
+<b-container fluid class="p-0">
   <AdminHeader/>
-  <div class="d-flex flex-row">
-    <div class="col-2 d-flex flex-column p-0">
+  <b-row>
+    <b-col cols="2" class="p-0">
       <AdminSidebar/>
-    </div>
-    <div class="col-10 d-flex flex-column p-0">
+    </b-col>
+    <b-col cols="10" class="p-0">
       <Nuxt/>
-    </div>
-  </div>
-</div>
+    </b-col>
+  </b-row>
+</b-container>
 </template>
 
 <script>

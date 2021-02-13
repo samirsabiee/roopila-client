@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex flex-column justify-content-start align-items-center">
-    <div class="form-group p-0 col">
+  <b-container fluid>
+    <div class="form-group p-0 mt-3">
       <input class="form-control" type="text" name="search" id="search" placeholder="جستجو">
     </div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped text-center">
       <thead>
       <tr>
         <th>#</th>
@@ -29,7 +29,7 @@
       </tr>
       </tbody>
     </table>
-  </div>
+  </b-container>
 </template>
 
 <script>

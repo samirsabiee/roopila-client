@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex flex-row justify-content-start align-items-start bg-light mt-3 p-3">
-    <div class="col-9 d-flex flex-column justify-content-start align-items-start">
+  <b-row class="bg-light mt-3 p-3">
+    <b-col cols="9">
       <div class="form-group col">
         <input class="form-control" type="text" placeholder="عنوان خبر">
       </div>
@@ -21,8 +21,8 @@
       <div class="form-group col-2">
         <input class="form-control" type="submit" value="ذخیره سازی">
       </div>
-    </div>
-    <div class="col-3">
+    </b-col>
+    <b-col cols="3">
       <div>
         <h4 class="text-center">افزودن دسته بندی</h4>
         <hr class="w-100">
@@ -32,8 +32,8 @@
         <button class="btn btn-success btn-block">افزودن</button>
 
       </div>
-    </div>
-  </div>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

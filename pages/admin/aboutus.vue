@@ -1,35 +1,33 @@
 <template>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-     <div class="embed-responsive embed-responsive-21by9">
-        <iframe class="embed-responsive-item p-0 m-0 w-100" allowfullscreen src="" controls></iframe>
-    </div>
-    <div>
-        <h1>stored</h1>
-    </div>
+  <b-container fluid class="p-0">
+    <b-embed
+      type="iframe"
+      aspect="21by9"
+      src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+      allowfullscreen></b-embed>
 
-    <h5>انتخاب ویدیو پس زمینه بخش بالایی</h5>
-    <div class="d-flex flex-row justify-content-center align-items-center video-height bg-light w-100">
-      <div class="choose-video-box d-flex flex-row justify-content-center align-items-center">
-        <i class="fas fa-plus-square" style="font-size: 2rem;"></i>
-        <input class="inputUpload" type="file" id="inputUpload" name="inputUpload">
-      </div>
-    </div>
+    <h5 class="text-center">انتخاب ویدیو پس زمینه بخش بالایی</h5>
+    <b-row class="video-height bg-light w-100">
+      <b-col class="choose-video-box d-flex flex-row justify-content-center align-items-center">
+        <input type="file">
+      </b-col>
+    </b-row>
 
-    <hr class="w-100">
-    <h5>بیانیه مدیر عامل</h5>
-    <div class="d-flex flex-row justify-content-center align-items-center w-100 mt-3">
-      <div class="col-6 d-flex flex-row justify-content-center align-items-center manager-image-height bg-light p-2">
+    <hr class="w-75">
+    <h5 class="text-center">بیانیه مدیر عامل</h5>
+    <b-row class="mt-3">
+      <b-col cols="6" class="manager-image-height bg-light p-2">
         <div class="choose-video-box d-flex flex-row justify-content-center align-items-center">
           <i class="fas fa-plus-square" style="font-size: 2rem;"></i>
           <input class="inputUpload" type="file" id="inputUpload2" name="inputUpload">
         </div>
-      </div>
-      <div class="col-6 form-group p-2 m-0 overflow-hidden">
-        <textarea class="form-control w-100" name="ceo-content" id="ceo-content" rows="20" placeholder="متن بیانیه"></textarea>
-      </div>
-    </div>
+      </b-col>
+      <b-col cols="6" class="p-2 m-0 overflow-hidden">
+        <b-form-textarea rows="20" placeholder="متن بیانیه"></b-form-textarea>
+      </b-col>
+    </b-row>
 
-  </div>
+  </b-container>
 </template>
 
 <script>

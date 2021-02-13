@@ -1,28 +1,28 @@
 <template>
-  <div class="container col-12">
-    <div class="d-flex flex-row justify-content-around align-items-center mt-5">
-      <div class="col-3 bg-light rect-box rounded p-3 d-flex flex-column justify-content-center">
+  <b-container fluid class="mt-5">
+    <b-row no-gutters >
+      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column justify-content-center align-items-center">
         <h5>مجموع کاربران</h5>
         <h1 class="text-left">100,000</h1>
-      </div>
-      <div class="col-3 bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center">
+      </b-col>
+      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع سفارشات</h5>
         <h1 class="text-left">50,000</h1>
-      </div>
-      <div class="col-3 bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center">
+      </b-col>
+      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع تراکنش ها</h5>
         <h1 class="text-left">49,000</h1>
-      </div>
-      <div class="col-3 bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center">
+      </b-col>
+      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع اخبار</h5>
         <h1 class="text-left">1000</h1>
-      </div>
-    </div>
-    <div class="d-flex flex-row justify-content-around align-items-center mt-5">
-      <div class="col-6 bg-light rounded p-3">
-        <h5>آخرین سفارشات</h5>
+      </b-col>
+    </b-row>
+    <b-row no-gutters align-h="center" class="mt-3">
+      <b-col class="bg-light rounded p-3">
+        <h5 align="center">آخرین سفارشات</h5>
         <hr>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped text-center">
           <thead>
           <tr>
             <th>#</th>
@@ -40,11 +40,11 @@
           </tr>
           </tbody>
         </table>
-      </div>
-      <div class="col-6 bg-light rounded p-3 mr-1">
-        <h5>آخرین تراکنش ها</h5>
+      </b-col>
+      <b-col class="bg-light rounded p-3 mr-1">
+        <h5 align="center">آخرین تراکنش ها</h5>
         <hr>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped text-center">
           <thead>
           <tr>
             <th>#</th>
@@ -64,9 +64,9 @@
           </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
