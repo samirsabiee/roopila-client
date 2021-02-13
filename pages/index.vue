@@ -4,10 +4,10 @@
       <img class="img-fluid slider image-option w-100" src="static/img/slider.jpg" alt="slider">
       <div class="d-flex flex-column justify-content-center w-100 align-items-center">
         <div class="d-flex flex-column justify-content-start">
-          <h4 id="myText" class="text-white"></h4>
-          <p class="text-white">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
-          <p class="text-white">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
-          <p class="text-white">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <h4 id="myText" class="text-white text-right">{{rem}}</h4>
+          <p class="text-white text-right">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <p class="text-white text-right">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <p class="text-white text-right">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
         </div>
       </div>
     </div>
@@ -180,15 +180,16 @@
       </div>
       <div class="d-flex flex-row justify-content-center align-items-center aboutUs-section-height">
         <div class="col-1 h-100 p-0">
-          <div class="col-6 d-flex flex-column bg-success justify-content-end align-items-center h-100">
+          <div class="h2 col-6 d-flex flex-column bg-success justify-content-end align-items-center h-100">
+            <b-icon icon="instagram"></b-icon>
             <img class="icon-size" src="static/img/icons/twitter.png" alt="twitter">
             <img class="icon-size" src="static/img/icons/insta.png" alt="insta">
             <img class="icon-size" src="static/img/icons/linkedin.png" alt="linkedin">
             <img class="icon-size" src="static/img/icons/whatsapp.png" alt="whatsapp">
           </div>
         </div>
-        <div class="col-11">
-          <form>
+        <div  class="col-11">
+          <form class="text-right">
             <div class="form-group">
               <label for="name">نام و نام خانوادگی<span class="text-success">*</span></label>
               <input type="text" class="form-control" id="name">
@@ -211,6 +212,48 @@
 
 <script>
 export default {
+  data() {
+    return {
+      ac:0,
+      txt: ['روپیلا' , 'روپیلا تجارتی مطمٔن' , 'روپیلا همیار شما در تسهیل امور واردات'],
+      rem:'',
+      i:0,
+      idWrite:0,
+      idRemove:0
+    }
+  },
+  mounted() {
+    console.log('Mounted...............................')
+    this.idWrite = setInterval(this.typeWriter,150)
+  },
+  methods: {
+    typeWriter() {
+      if (this.i < this.txt[this.ac].length) {
+        //document.getElementById("myText").innerHTML += this.txt[this.ac].charAt(this.i);
+        this.rem += this.txt[this.ac].charAt(this.i);
+        this.i++;
+      } else {
+        clearInterval(this.idWrite);
+        this.i = this.txt[this.ac].length;
+        this.idRemove = setInterval(this.textRemover, 50);
+      }
+    },
+    textRemover(){
+      if (this.i > 0) {
+        this.rem = this.txt[this.ac].substr(0, this.i);
+        this.i--;
+        //document.getElementById("myText").innerHTML = this.rem;
+      } else {
+        clearInterval(this.idRemove);
+        this.i = 1;
+        this.ac++;
+        if (this.ac >= this.txt.length) {
+          this.ac = 0;
+        }
+        this.idWrite = setInterval(this.typeWriter, 150);
+      }
+    }
+  },
 }
 </script>
 
