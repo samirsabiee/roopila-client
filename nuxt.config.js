@@ -24,6 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    //{src:'~plugins/auth.js',mode:'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,7 +40,8 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    '@nuxtjs/apollo'
   ],
   auth: {
     resetOnError: true,
@@ -78,7 +80,13 @@ export default {
       home: '/'
     },
   },
-
+  apollo:{
+    clientConfigs:{
+      default:{
+        httpEndpoint:'http://localhost:3001/roopila'
+      }
+    }
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://localhost:3001',

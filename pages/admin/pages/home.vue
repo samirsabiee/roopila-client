@@ -17,7 +17,8 @@
     </b-row>
     <b-button block v-b-toggle.collapse-1 variant="primary">ویرایش محتوای صفحه</b-button>
     <b-collapse id="collapse-1" class="mt-2">
-      <b-form-textarea @change="fillMovementText" @keyup="fillMovementText" v-model="inputMovementText" ></b-form-textarea>
+      <b-form-textarea @keypress="fillMovementText" @keyup="fillMovementText"
+                       v-model="inputMovementText"></b-form-textarea>
       <div id="sliderContainer" class="col-12 p-0">
         <img class="img-fluid slider image-option w-100" src="static/img/slider.jpg" alt="slider">
         <div class="d-flex flex-column justify-content-center w-100 align-items-center">
@@ -290,7 +291,7 @@
                 <label for="message">متن پیام<span class="text-success">*</span></label>
                 <textarea class="form-control" id="message" rows="3"></textarea>
               </div>
-              <input class="btn btn-success" type="submit" value="ارسال پیام">
+              <a class="btn btn-success">ارسال پیام</a>
             </form>
           </div>
         </div>
@@ -299,17 +300,44 @@
       <b-button align-self="center" variant="outline-success">ذخیره تغییرات</b-button>
 
     </b-collapse>
+
+<!--    <ul>-->
+<!--      <li v-for="user in users.users" :key="user.id">-->
+<!--        {{user.fname }} - {{user.lname}}-->
+<!--      </li>-->
+<!--    </ul>-->
+
   </b-container>
 
 </template>
 
 <script>
+  import gql from 'graphql-tag'
+
   export default {
     name: "home",
     layout: "admin",
+    apollo: {
+      users: gql`
+        query users {
+          users {
+            users{
+              fname
+              lname
+            }
+            paginate{
+            total
+            limit
+            page
+            pages
+            }
+          }
+        }
+      `
+    },
     data() {
       return {
-        inputMovementText:'روپیلا, روپیلا تجارتی مطمئن, روپیلا همیار شما در تهیل امور واردت',
+        inputMovementText: 'روپیلا, روپیلا تجارتی مطمئن, روپیلا همیار شما در تهیل امور واردت',
         movementText: ['روپیلا', 'روپیلا تجارتی مطمئن', 'روپیلا همیار شما در تهیل امور واردت'],
         pageContent: {
           slider: {expert: 'چکیده ای از صفحه'},
