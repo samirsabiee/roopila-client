@@ -17,12 +17,14 @@
     </b-row>
     <b-button block v-b-toggle.collapse-1 variant="primary">ویرایش محتوای صفحه</b-button>
     <b-collapse id="collapse-1" class="mt-2">
+      <b-form-textarea @change="fillMovementText" @keyup="fillMovementText" v-model="inputMovementText" ></b-form-textarea>
       <div id="sliderContainer" class="col-12 p-0">
         <img class="img-fluid slider image-option w-100" src="static/img/slider.jpg" alt="slider">
         <div class="d-flex flex-column justify-content-center w-100 align-items-center">
           <div class="d-flex flex-column justify-content-start">
             <h4 id="myText" class="text-white text-right"></h4>
-            <b-form-text text-variant="white" class="text-right" tag="h4" v-text="pageContent.slider.expert"></b-form-text>
+            <b-form-text text-variant="white" class="text-right" tag="h4"
+                         v-text="pageContent.slider.expert"></b-form-text>
           </div>
         </div>
       </div>
@@ -57,8 +59,10 @@
           <b-modal hide-footer id="modal-s1-title">
             <b-form-input v-model="pageContent.services.s1.title"></b-form-input>
           </b-modal>
-          <p v-b-modal.modal-s1-content v-text="pageContent.services.s1.content" class="text-center">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
-          <b-modal hide-footer size="lg"  id="modal-s1-content">
+          <p v-b-modal.modal-s1-content v-text="pageContent.services.s1.content" class="text-center">متن لورم اپیزوم متن
+            لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم
+            متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <b-modal hide-footer size="lg" id="modal-s1-content">
             <b-form-textarea v-model="pageContent.services.s1.content"></b-form-textarea>
           </b-modal>
         </div>
@@ -72,8 +76,10 @@
           <b-modal hide-footer id="modal-s2-title">
             <b-form-input v-model="pageContent.services.s2.title"></b-form-input>
           </b-modal>
-          <p v-b-modal.modal-s2-content v-text="pageContent.services.s2.content">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
-          <b-modal hide-footer size="lg"  id="modal-s2-content">
+          <p v-b-modal.modal-s2-content v-text="pageContent.services.s2.content">متن لورم اپیزوم متن لورم اپیزوم متن
+            لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم
+            متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <b-modal hide-footer size="lg" id="modal-s2-content">
             <b-form-textarea v-model="pageContent.services.s2.content"></b-form-textarea>
           </b-modal>
         </div>
@@ -87,8 +93,10 @@
           <b-modal hide-footer id="modal-s3-title">
             <b-form-input v-model="pageContent.services.s3.title"></b-form-input>
           </b-modal>
-          <p v-b-modal.modal-s3-content v-text="pageContent.services.s3.content">متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
-          <b-modal hide-footer size="lg"  id="modal-s3-content">
+          <p v-b-modal.modal-s3-content v-text="pageContent.services.s3.content">متن لورم اپیزوم متن لورم اپیزوم متن
+            لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم
+            متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم</p>
+          <b-modal hide-footer size="lg" id="modal-s3-content">
             <b-form-textarea v-model="pageContent.services.s3.content"></b-form-textarea>
           </b-modal>
         </div>
@@ -103,7 +111,8 @@
         <b-modal hide-footer id="modal-fr-caption">
           <b-form-textarea size="sm" v-model="pageContent.formRequest.caption"></b-form-textarea>
         </b-modal>
-        <a v-b-modal.modal-fr-button v-text="pageContent.formRequest.button" class="col-4 btn btn-outline-success btn-request m-2"></a>
+        <a v-b-modal.modal-fr-button v-text="pageContent.formRequest.button"
+           class="col-4 btn btn-outline-success btn-request m-2"></a>
         <b-modal hide-footer id="modal-fr-button">
           <b-form-input v-model="pageContent.formRequest.button"></b-form-input>
         </b-modal>
@@ -134,7 +143,8 @@
               <input type="file" class="custom-file-input"/>
             </div>
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy1-text v-text="pageContent.gallery.box1.text" class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy1-text v-text="pageContent.gallery.box1.text"
+                  class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy1-text">
                 <b-form-input v-model="pageContent.gallery.box1.text"></b-form-input>
               </b-modal>
@@ -142,7 +152,8 @@
           </div>
           <div class="col-2 d-flex flex-column gallery-column-height p-0">
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy2-text v-text="pageContent.gallery.box2.text" class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy2-text v-text="pageContent.gallery.box2.text"
+                  class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy2-text">
                 <b-form-input v-model="pageContent.gallery.box2.text"></b-form-input>
               </b-modal>
@@ -156,7 +167,8 @@
               <input type="file" class="custom-file-input"/>
             </div>
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy3-text v-text="pageContent.gallery.box3.text" class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy3-text v-text="pageContent.gallery.box3.text"
+                  class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy3-text">
                 <b-form-input v-model="pageContent.gallery.box3.text"></b-form-input>
               </b-modal>
@@ -164,7 +176,8 @@
           </div>
           <div class="col-2 d-flex flex-column gallery-column-height p-0">
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy4-text v-text="pageContent.gallery.box4.text" class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy4-text v-text="pageContent.gallery.box4.text"
+                  class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy4-text">
                 <b-form-input v-model="pageContent.gallery.box4.text"></b-form-input>
               </b-modal>
@@ -178,7 +191,8 @@
               <input type="file" class="custom-file-input"/>
             </div>
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy5-text v-text="pageContent.gallery.box5.text" class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy5-text v-text="pageContent.gallery.box5.text"
+                  class="text-center text-white gallery-circle-cell bg-success d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy5-text">
                 <b-form-input v-model="pageContent.gallery.box5.text"></b-form-input>
               </b-modal>
@@ -186,7 +200,8 @@
           </div>
           <div class="col-2 d-flex flex-column gallery-column-height p-0">
             <div class="gallery-cell-height d-flex flex-row justify-content-center align-items-center">
-              <h5 v-b-modal.modal-gy6-text v-text="pageContent.gallery.box6.text" class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
+              <h5 v-b-modal.modal-gy6-text v-text="pageContent.gallery.box6.text"
+                  class="text-center text-white gallery-circle-cell bg-dark d-flex flex-row justify-content-center align-items-center m-2"></h5>
               <b-modal hide-footer id="modal-gy6-text">
                 <b-form-input v-model="pageContent.gallery.box6.text"></b-form-input>
               </b-modal>
@@ -206,7 +221,8 @@
             <span class="col-5 bg-success spanHalfHeight spanStyle-start"></span>
           </div>
           <div class="col-2 d-flex flex-row justify-content-center align-items-end heading-height">
-            <h4 v-b-modal.modal-as-title v-text="pageContent.aboutUs.title" class="heading-font-family text-white">درباره ما</h4>
+            <h4 v-b-modal.modal-as-title v-text="pageContent.aboutUs.title" class="heading-font-family text-white">
+              درباره ما</h4>
             <b-modal hide-footer id="modal-as-title">
               <b-form-input v-model="pageContent.aboutUs.title"></b-form-input>
             </b-modal>
@@ -238,7 +254,8 @@
             <span class="col-5 bg-success spanHalfHeight spanStyle-start"></span>
           </div>
           <div class="col-2 d-flex flex-row justify-content-center align-items-end heading-height">
-            <h4 v-b-modal.modal-cs-title v-text="pageContent.contactUs.title" class="heading-font-family text-white">تماس با ما</h4>
+            <h4 v-b-modal.modal-cs-title v-text="pageContent.contactUs.title" class="heading-font-family text-white">
+              تماس با ما</h4>
             <b-modal hide-footer id="modal-cs-title">
               <b-form-input v-model="pageContent.contactUs.title"></b-form-input>
             </b-modal>
@@ -259,7 +276,7 @@
               <i class="fab fa-whatsapp"></i>
             </div>
           </div>
-          <div  class="col-11">
+          <div class="col-11">
             <form class="text-right">
               <div class="form-group">
                 <label for="name">نام و نام خانوادگی<span class="text-success">*</span></label>
@@ -279,68 +296,77 @@
         </div>
       </div>
 
+      <b-button align-self="center" variant="outline-success">ذخیره تغییرات</b-button>
+
     </b-collapse>
   </b-container>
 
 </template>
 
 <script>
-    export default {
-        name: "home",
-        layout:"admin",
-      data() {
-        return {
-          pageContent: {
-            slider:{ expert:''},
-            services:{
-              title:'خدمات ما',
-              s1:{
-                icon:'',
-                title:'مشاوره',
-                content:'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
-              },
-              s2:{
-                icon:'',
-                title:'حمل نقل',
-                content:'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
-              },
-              s3:{
-                icon:'',
-                title:'ترخیص کالا',
-                content:'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
-              },
+  export default {
+    name: "home",
+    layout: "admin",
+    data() {
+      return {
+        inputMovementText:'روپیلا, روپیلا تجارتی مطمئن, روپیلا همیار شما در تهیل امور واردت',
+        movementText: ['روپیلا', 'روپیلا تجارتی مطمئن', 'روپیلا همیار شما در تهیل امور واردت'],
+        pageContent: {
+          slider: {expert: ''},
+          services: {
+            title: 'خدمات ما',
+            s1: {
+              icon: '',
+              title: 'مشاوره',
+              content: 'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
             },
-            formRequest:{
-              title:'بخش درخواست کالا',
-              caption:'شما می توانید کالای خود را برای ورود به کشور از ما در خواست کنید',
-              button:'انتقال به فرم ارسال سفارش'
+            s2: {
+              icon: '',
+              title: 'حمل نقل',
+              content: 'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
             },
-            gallery:{
-              title:'گالری تصاویر ما',
-              box1:{image:'',text:'برنامه ریزی دقیق'},
-              box2:{image:'',text:'مطالعه مفید'},
-              box3:{image:'',text:'مشورت و هماهنگی'},
-              box4:{image:'',text:'پیشروی با امکانات روز'},
-              box5:{image:'',text:'صفا و صمیمیت'},
-              box6:{image:'',text:'هدف های بلند مدت'}
+            s3: {
+              icon: '',
+              title: 'ترخیص کالا',
+              content: 'متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم متن لورم اپیزوم'
             },
-            aboutUs:{
-              title:'درباره ما',
-              image:'',
-              content:'متن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره ما'
-            },
-            contactUs:{
-              title:'تماس با ما'
-            }
+          },
+          formRequest: {
+            title: 'بخش درخواست کالا',
+            caption: 'شما می توانید کالای خود را برای ورود به کشور از ما در خواست کنید',
+            button: 'انتقال به فرم ارسال سفارش'
+          },
+          gallery: {
+            title: 'گالری تصاویر ما',
+            box1: {image: '', text: 'برنامه ریزی دقیق'},
+            box2: {image: '', text: 'مطالعه مفید'},
+            box3: {image: '', text: 'مشورت و هماهنگی'},
+            box4: {image: '', text: 'پیشروی با امکانات روز'},
+            box5: {image: '', text: 'صفا و صمیمیت'},
+            box6: {image: '', text: 'هدف های بلند مدت'}
+          },
+          aboutUs: {
+            title: 'درباره ما',
+            image: '',
+            content: 'متن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره مامتن توضیحاتی کوتاه از درباره ما'
+          },
+          contactUs: {
+            title: 'تماس با ما'
           }
         }
-      },
-      methods: {
-        store() {
-
-        }
-      },
-    }
+      }
+    },
+    methods: {
+      fillMovementText() {
+        this.movementText = this.inputMovementText.split(',')
+      }
+    },
+    computed: {
+      mText() {
+        return this.movementText.toString()
+      }
+    },
+  }
 </script>
 
 <style scoped>
@@ -348,11 +374,13 @@
   .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
   }
-  .custom-file-input{
+
+  .custom-file-input {
     width: 100%;
     height: 100%;
     cursor: pointer;
   }
+
   .custom-file-input::before {
     content: 'Select some files';
     display: inline-block;
@@ -367,9 +395,11 @@
     font-weight: 700;
     font-size: 10pt;
   }
+
   .custom-file-input:hover::before {
     border-color: black;
   }
+
   .custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
