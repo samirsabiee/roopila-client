@@ -55,7 +55,7 @@
     <div class="co-12 d-flex flex-column justify-content-center align-items-center bg-dark p-5">
       <h5 class="m-2 text-white">بخش درخواست کالا</h5>
       <h6 class="m-2 text-white">شما می توانید کالای خود را برای ورود به کشور از ما در خواست کنید</h6>
-      <a href="/formRequest" class="col-4 btn btn-outline-success btn-request m-2">انتقال به فرم ارسال سفارش</a>
+      <nuxt-link to="/formRequest" class="col-4 btn btn-outline-success btn-request m-2">انتقال به فرم ارسال سفارش</nuxt-link>
     </div>
 
     <div class="d-flex flex-column">
@@ -258,42 +258,4 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #dd0033;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
