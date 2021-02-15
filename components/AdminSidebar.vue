@@ -54,14 +54,14 @@
           <b-card-header header-tag="header" class="p-1" role="tab">
             <b-row class="p-3" block v-b-toggle.accordion-4 variant="light">
               <i class="fab fa-servicestack mr-3 ml-3" style="font-size: 1rem;"></i>
-              خدمات
+              <nuxt-link to="/admin/pages/services/consulting">خدمات</nuxt-link>
             </b-row>
           </b-card-header>
           <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
             <b-card-body>
-              <p>مشاوره</p>
-              <p>حمل و نقل</p>
-              <p>ترخیص کالا</p>
+              <nuxt-link to="/admin/pages/services/consulting"><p>مشاوره</p></nuxt-link>
+              <nuxt-link to="/admin/pages/services/transport"><p>حمل نقل</p></nuxt-link>
+              <nuxt-link to="/admin/pages/services/clearance"><p>ترخیص کالا</p></nuxt-link>
             </b-card-body>
           </b-collapse>
         </b-card>
