@@ -1,5 +1,4 @@
 export default (context) => {
-  console.log('CTX.........',context)
   return {
     httpEndpoint: 'http://localhost:3001/roopila',
     httpLinkOptions: {

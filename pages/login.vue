@@ -15,7 +15,7 @@
       data() {
         return {
           form:{
-            email:'samirsabiee@gmail.com',
+            email:'pinelights4@gmailcom',
             password:'A123456z@'
           }
         }
@@ -24,6 +24,7 @@
         async login() {
           try{
             await this.$auth.loginWith('express',{data:this.form})
+            await this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
             this.$auth.redirect('dashboard')
             this.$bvToast.toast(`Welcome ${this.$auth.user.email}`,{
               title:'Login Success',
