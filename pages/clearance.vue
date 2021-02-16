@@ -68,7 +68,7 @@
 
       <div class="d-flex flex-row justify-content-center align-items-start">
         <table class="table table-bordered table-striped m-5">
-          <tbody>
+          <tbody class="text-center">
           <tr>
             <th>اصطلاح گمرکی</th>
             <td>شرح توضیحات اصطلاح</td>

@@ -1,4 +1,4 @@
-<template>
+<template v-if="this.$auth.loggedIn">
 <b-container fluid class="p-0">
   <AdminHeader/>
   <b-row>

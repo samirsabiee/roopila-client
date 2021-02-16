@@ -24,8 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    //{src:'~plugins/auth.js',mode:'client'}
-    '~plugins/apollo.js'
+    {src:'~plugins/apollo.js',mode:'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -56,7 +55,7 @@ export default {
         provider: 'laravel/jwt',
         url: 'http://localhost:3001',
         endpoints: {
-          login: { url: '/login', method: 'post' },
+          login: { url: '/login', method: 'post'},
           refresh: { url: '/refresh', method: 'get' },
           logout: { url: '/logout', method: 'get' },
           user: { url: '/me', method: 'get' }
@@ -78,12 +77,18 @@ export default {
       login: '/',
       logout: '/',
       callback: '/',
-      home: '/'
+      home: '/',
+      dashboard:'/admin/dashboard'
     },
   },
   apollo:{
     clientConfigs:{
-      default:'~/plugins/apollo.js'
+      default:{
+        httpEndpoint: 'http://localhost:3001/roopila',
+        httpLinkOptions: {
+          headers: {'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMWUyMWI1YWNkNzc2MTk3MGJjYjY1MCIsInJvbGUiOjIsImlhdCI6MTYxMzQ3MzE0MiwiZXhwIjoxNjEzNTU5NTQyfQ.tyGhTGkQzNyoiS9wwanf9qaDRwk4jCbDB6N5bQTotoA'}
+        }
+      }
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -270,7 +270,6 @@
         <div class="d-flex flex-row justify-content-center align-items-center aboutUs-section-height">
           <div class="col-1 h-100 p-0">
             <div class="h2 col-6 d-flex flex-column bg-success justify-content-end align-items-center h-100">
-              <b-icon icon="instagram"></b-icon>
               <i class="fab fa-twitter-square"></i>
               <i class="fab fa-instagram"></i>
               <i class="fab fa-linkedin"></i>
@@ -324,6 +323,7 @@
             users{
               fname
               lname
+              email
             }
             paginate{
             total

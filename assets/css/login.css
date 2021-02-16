@@ -1,0 +1,22 @@
+html,
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+.d-absolute {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100vh;
+}
+
+.user_face {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+    object-fit: cover;
+    object-position: center;
+}
