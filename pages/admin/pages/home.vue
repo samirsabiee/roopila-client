@@ -317,7 +317,8 @@
     name: "home",
     layout: "admin",
     apollo: {
-      users: gql`
+      users: {
+        query:gql`
         query users {
           users {
             users{
@@ -333,10 +334,19 @@
             }
           }
         }
-      `
+      `,
+        context(){
+          return {
+            headers:{
+              'authorization':this.token
+            }
+          }
+        }
+      }
     },
     data() {
       return {
+        token:this.getToken,
         inputMovementText: 'روپیلا, روپیلا تجارتی مطمئن, روپیلا همیار شما در تهیل امور واردت',
         movementText: ['روپیلا', 'روپیلا تجارتی مطمئن', 'روپیلا همیار شما در تهیل امور واردت'],
         pageContent: {
@@ -390,6 +400,9 @@
       }
     },
     computed: {
+      getToken(){
+        return this.$apolloHelpers.getToken('apollo-token')
+      },
       mText() {
         return this.movementText.toString()
       }

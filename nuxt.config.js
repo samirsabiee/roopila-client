@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~plugins/apollo.js'
+    // '~plugins/apollo.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -83,7 +83,9 @@ export default {
   },
   apollo:{
     clientConfigs:{
-      default:'~/plugins/apollo.js'
+      default:{
+        httpEndpoint: 'http://localhost:3001/roopila'
+      }
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

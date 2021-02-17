@@ -15,8 +15,8 @@
       data() {
         return {
           form:{
-            email:'pinelights4@gmailcom',
-            password:'A123456z@'
+            email:'samsab@gmailcom',
+            password:'A12345678z@'
           }
         }
       },
