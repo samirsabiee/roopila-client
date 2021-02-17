@@ -15,7 +15,7 @@
       data() {
         return {
           form:{
-            email:'samsab@gmailcom',
+            email:'samsab@gmail.com',
             password:'A12345678z@'
           }
         }
