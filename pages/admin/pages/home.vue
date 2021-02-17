@@ -311,30 +311,14 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag'
+  import {users} from '../../../graphql/users'
 
   export default {
     name: "home",
     layout: "admin",
     apollo: {
       users: {
-        query:gql`
-        query users {
-          users {
-            users{
-              fname
-              lname
-              email
-            }
-            paginate{
-            total
-            limit
-            page
-            pages
-            }
-          }
-        }
-      `,
+        query:users,
         context(){
           return {
             headers:{

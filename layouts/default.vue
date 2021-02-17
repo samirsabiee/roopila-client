@@ -2,7 +2,7 @@
   <div>
     <Header/>
     <Nuxt />
-  <Footer v-if="this.$route.name !== 'login'"/>
+  <Footer v-if="this.$route.name !== 'login' && this.$route.name !== 'register'"/>
   </div>
 </template>
 <script>
