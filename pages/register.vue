@@ -40,7 +40,7 @@
             })
           }catch (e) {
             this.$bvToast.toast(e.message,{
-              title:'Login Failed',
+              title:'Register Not Completed',
               noAutoHide:true
             })
           }
