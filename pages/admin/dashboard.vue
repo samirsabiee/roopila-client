@@ -70,9 +70,39 @@
 </template>
 
 <script>
+    import {dashboard} from "../../graphql/dashboard";
+
     export default {
         name: "dashboard",
-        layout:"admin"
+        layout:"admin",
+      apollo:{
+        dashboard: {
+          query:dashboard,
+          context(){
+            return {
+              headers:{
+                'authorization':this.token
+              }
+            }
+          }
+        }
+      },
+      data() {
+        return {
+          token:this.getToken,
+          totalUsers: '',
+          totalOrders:'',
+          totalPayments:'',
+          totalNews:'',
+          lastOrders: null,
+          lastPayments:null
+        }
+      },
+      computed: {
+        getToken() {
+          return this.$apolloHelpers.getToken('apollo-token')
+        }
+      },
     }
 </script>
 
