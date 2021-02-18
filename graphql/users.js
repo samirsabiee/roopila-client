@@ -6,6 +6,12 @@ export const users = gql`
             users{
               fname
               lname
+              profile{
+                melicode
+              }
+              orders{
+                id
+              }
               email
             }
             paginate{

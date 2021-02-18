@@ -7,10 +7,19 @@ query dashboard {
     totalPayments
     totalNews
     lastOrders{
+      user{
+        fname
+      }
+      status
       itemName
     }
     lastPayments{
       pursuitNumber
+      paymentStatus
+      amountPay
+      user{
+        fname
+      }
     }
   }
 }

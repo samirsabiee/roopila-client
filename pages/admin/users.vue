@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid v-if="!$apollo.queries.users.loading">
     <b-row>
       <b-col>
         <b-form-input class="m-3" placeholder="جستجوی کاربر"></b-form-input>
@@ -14,24 +14,40 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>سمیر سبیعی</td>
-            <td>3490299221</td>
-            <td>20</td>
+          <tr v-for="(user,index) in users.users" :key="index">
+            <td>{{++index}}</td>
+            <td>{{user.fname}} {{user.lname}}</td>
+            <td v-if="user.profile !== null && user.profile.melicode !== null"> {{user.profile.melicode}} </td>
+            <td v-else> - </td>
+            <td v-if="user.orders !== null">{{user.orders.length}}</td>
             <td><i class="fas fa-eye"></i></td>
           </tr>
           </tbody>
         </table>
+        <b-pagination align="center" v-model="users.paginate.page" :total-rows="10" :per-page="users.paginate.pages"></b-pagination>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
+    import {users} from "../../graphql/users";
+
     export default {
         name: "users",
-      layout:"admin"
+      layout:"admin",
+      apollo: {
+        users: {
+          query:users,
+          variables(){
+            return{
+              page:1,
+              limit:20
+            }
+          }
+        }
+
+      },
     }
 </script>
 

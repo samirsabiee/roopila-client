@@ -1,21 +1,21 @@
 <template>
-  <b-container fluid class="mt-5">
-    <b-row no-gutters >
+  <b-container fluid class="mt-5" v-if="!$apollo.queries.dashboard.loading">
+    <b-row no-gutters>
       <b-col class="bg-light rect-box rounded p-3 d-flex flex-column justify-content-center align-items-center">
         <h5>مجموع کاربران</h5>
-        <h1 class="text-left">100,000</h1>
+        <h1 class="text-left">{{dashboard.totalUsers}}</h1>
       </b-col>
       <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع سفارشات</h5>
-        <h1 class="text-left">50,000</h1>
+        <h1 class="text-left">{{dashboard.totalOrders}}</h1>
       </b-col>
       <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع تراکنش ها</h5>
-        <h1 class="text-left">49,000</h1>
+        <h1 class="text-left">{{dashboard.totalPayments}}</h1>
       </b-col>
       <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع اخبار</h5>
-        <h1 class="text-left">1000</h1>
+        <h1 class="text-left">{{dashboard.totalNews}}</h1>
       </b-col>
     </b-row>
     <b-row no-gutters align-h="center" class="mt-3">
@@ -32,11 +32,11 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>ایفون pro</td>
-            <td>خریده شده</td>
-            <td>علیپور</td>
+          <tr v-for="(order,index) in dashboard.lastOrders" :key="index">
+            <td>{{++index}}</td>
+            <td>{{order.itemName}}</td>
+            <td>{{order.status}}</td>
+            <td v-if="order.user !== null">{{order.user.fname}}</td>
           </tr>
           </tbody>
         </table>
@@ -55,12 +55,12 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>2545</td>
-            <td>پرداخت شده</td>
-            <td>31,000,000</td>
-            <td>علیپور</td>
+          <tr v-for="(payment,index) in dashboard.lastPayments" :key="index">
+            <td>{{++index}}</td>
+            <td>{{payment.pursuitNumber}}</td>
+            <td>{{payment.paymentStatus}}</td>
+            <td>{{payment.amountPay}}</td>
+            <td v-if="payment.user !== null">{{payment.user.fname}}</td>
           </tr>
           </tbody>
         </table>
@@ -77,19 +77,11 @@
         layout:"admin",
       apollo:{
         dashboard: {
-          query:dashboard,
-          context(){
-            return {
-              headers:{
-                'authorization':this.token
-              }
-            }
-          }
+          query:dashboard
         }
       },
       data() {
         return {
-          token:this.getToken,
           totalUsers: '',
           totalOrders:'',
           totalPayments:'',
@@ -97,12 +89,7 @@
           lastOrders: null,
           lastPayments:null
         }
-      },
-      computed: {
-        getToken() {
-          return this.$apolloHelpers.getToken('apollo-token')
-        }
-      },
+      }
     }
 </script>
 
