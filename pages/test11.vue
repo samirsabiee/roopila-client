@@ -12,7 +12,7 @@
                     <span class="badge badge-success rounded mr-1">ورژن 1.6</span>
                     <span class="content"> ساختن <span class="text-primary">هر سایتی </span> فقط با - لندریک.</span>
                   </div>
-                  <h1 class="heading mb-3">پیشرو کسب و کار دیجیتال برای <span class="element text-primary" data-elements="آژانسی, نرم افزار, تکنولوژی, استدیو, صفحات وب"></span> ساختن</h1>
+                  <h1 class="heading mb-3">پیشرو کسب و کار دیجیتال برای <span class="element text-primary" data-elements="آژانسی, نرم افزار, تکنولوژی, استدیو, صفحات وب , تجارت آنلاین"></span> ساختن</h1>
                   <p class="para-desc text-muted">کمپین خود را راه اندازی کنید و از تخصص ما در زمینه طراحی و مدیریت تبدیل صفحه محور بوت استرپ و اچ تی ام ال بهره مند شوید.</p>
                   <div class="mt-4">
                     <a href="javascript:void(0)" class="btn btn-outline-primary rounded"><i class="mdi mdi-google-my-business"></i> فروشگاه خود را درست کنید</a>

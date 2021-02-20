@@ -1,8 +1,13 @@
 import jQuery from 'jquery'
-import('jquery')
-import('~/assets/js/bootstrap.bundle.min.js')
-import('~/assets/js/jquery.easing.min.js')
-import('~/assets/js/scrollspy.min.js')
+import('./bootstrap.bundle.min.js')
+import('./jquery.easing.min.js')
+import('./scrollspy.min.js')
+import('./jquery.magnific-popup.min.js')
+import('./magnific.init.js')
+import('./typed.js')
+import('./typed.init.js')
+import('./counter.init.js')
+import('./parallax.js')
 !(function (_0x2e0dd9) {
   "use strict";
   _0x2e0dd9(window)["on"]("load", function () {
