@@ -12,19 +12,20 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css' }
+      { rel: 'stylesheet', type: 'text/css', href: 'https://use.fontawesome.com/releases/v5.7.0/css/all.css' },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/style.css',
-    '~/assets/css/footer.css'
+    '@mdi/font/css/materialdesignicons.css',
+    '~/assets/css/style-rtl.css'
   ],
+
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    // '~plugins/apollo.js'
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -41,8 +42,11 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
   ],
+
+  loading: '~/components/loading.vue',
+
   auth: {
     resetOnError: true,
     defaultStrategy: 'express',
@@ -81,6 +85,7 @@ export default {
       dashboard:'/admin/dashboard'
     },
   },
+
   apollo:{
     clientConfigs:{
       default:{
