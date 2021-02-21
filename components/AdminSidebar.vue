@@ -52,23 +52,6 @@
 
         <b-card no-body class="mb-1">
           <b-card-header header-tag="header" class="p-1" role="tab">
-            <b-row class="p-3" block v-b-toggle.accordion-4 variant="light">
-              <i class="fab fa-servicestack mr-3 ml-3" style="font-size: 1rem;"></i>
-              <nuxt-link to="/admin/pages/services/consulting">خدمات</nuxt-link>
-            </b-row>
-          </b-card-header>
-          <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
-            <b-card-body>
-              <nuxt-link to="/admin/pages/services/consulting"><p>مشاوره</p></nuxt-link>
-              <nuxt-link to="/admin/pages/services/transport"><p>حمل نقل</p></nuxt-link>
-              <nuxt-link to="/admin/pages/services/clearance"><p>ترخیص کالا</p></nuxt-link>
-            </b-card-body>
-          </b-collapse>
-        </b-card>
-
-
-        <b-card no-body class="mb-1">
-          <b-card-header header-tag="header" class="p-1" role="tab">
             <b-row class="p-3" block v-b-toggle.accordion-5 variant="light">
               <i class="fab fa-first-order-alt mr-3" style="font-size: 1rem;"></i>
               <nuxt-link class="mr-3" to="/admin/orders">سفارشات</nuxt-link>
@@ -110,29 +93,6 @@
             <b-card-body>
               <nuxt-link to="/admin/gallery">
                 <p>تصاویر ما</p>
-              </nuxt-link>
-            </b-card-body>
-          </b-collapse>
-        </b-card>
-
-
-        <b-card no-body class="mb-1">
-          <b-card-header header-tag="header" class="p-1" role="tab">
-            <b-row class="p-3" block v-b-toggle.accordion-8 variant="light">
-              <i class="fab fa-chrome mr-3" style="font-size: 1rem;"></i>
-              <nuxt-link class="mr-3" to="/admin/pages/home">برگه ها</nuxt-link>
-            </b-row>
-          </b-card-header>
-          <b-collapse id="accordion-8" accordion="my-accordion" role="tabpanel">
-            <b-card-body>
-              <nuxt-link to="/admin/pages/home">
-                <p>خانه</p>
-              </nuxt-link>
-              <nuxt-link to="/admin/pages/aboutus">
-                <p>درباره ما</p>
-              </nuxt-link>
-              <nuxt-link to="/admin/pages/contactus">
-                <p>تماس با ما</p>
               </nuxt-link>
             </b-card-body>
           </b-collapse>

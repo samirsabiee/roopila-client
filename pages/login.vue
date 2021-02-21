@@ -20,13 +20,12 @@
                     <div class="text-center">
                       <h4 class="mb-4">ورود</h4>
                     </div>
-                    <form class="login-form">
                       <div class="row">
                         <div class="col-lg-12">
                           <div class="form-group position-relative">
                             <label>ایمیل شما <span class="text-danger">*</span></label>
                             <i class="mdi mdi-account ml-3 icons"></i>
-                            <input type="email" class="form-control pl-5" placeholder="ایمیل" name="email" required="">
+                            <input type="email" class="form-control pl-5" v-model="form.email" placeholder="ایمیل">
                           </div>
                         </div>
 
@@ -34,7 +33,7 @@
                           <div class="form-group position-relative">
                             <label>رمز عبور <span class="text-danger">*</span></label>
                             <i class="mdi mdi-key ml-3 icons"></i>
-                            <input type="password" class="form-control pl-5" placeholder="رمز عبور" required="">
+                            <input type="password" class="form-control pl-5" placeholder="رمز عبور" v-model="form.password">
                           </div>
                         </div>
 
@@ -48,7 +47,7 @@
                           </div>
                         </div>
                         <div class="col-lg-12 mb-0">
-                          <button class="btn btn-primary w-100">ورود</button>
+                          <button @click="login" class="btn btn-primary w-100">ورود</button>
                         </div>
                         <div class="col-lg-12 mt-4 text-center">
                           <h6>و یا از طریق</h6>
@@ -62,7 +61,6 @@
                           <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <a href="page-login.html" class="text-dark font-weight-bold">وارد شوید</a></p>
                         </div>
                       </div>
-                    </form>
                   </div><!---->
                 </div> <!--end col-->
               </div><!--end row-->
@@ -77,7 +75,33 @@
 <script>
     export default {
         name: "login",
-        layout:"layout2"
+        layout:"layout2",
+      data() {
+        return {
+          form:{
+            email:'samsab@gmail.com',
+            password:'A12345678z@'
+          }
+        }
+      },
+      methods: {
+        async login() {
+          try{
+            await this.$auth.loginWith('express',{data:this.form})
+            await this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
+            this.$auth.redirect('dashboard')
+            this.$bvToast.toast(`Welcome ${this.$auth.user.email}`,{
+              title:'Login Success',
+              noAutoHide:true
+            })
+          }catch (e) {
+            this.$bvToast.toast(e.message,{
+              title:'Login Failed',
+              noAutoHide:true
+            })
+          }
+        }
+      },
     }
 </script>
 
