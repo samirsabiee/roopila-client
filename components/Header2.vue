@@ -3,10 +3,10 @@
     <div class="container">
       <!-- Logo container-->
       <div>
-        <a class="logo" href="index.html">روپیلا</a>
+        <nuxt-link class="logo" to="/">روپیلا</nuxt-link>
       </div>
       <div class="buy-button">
-        <a href="https://www.rtl-theme.com/author/TN_Plugin/?aff=TN_Plugin" target="_blank" class="btn btn-primary">ورود یا ثبت نام</a>
+        <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
       </div><!--end login button-->
       <!-- End Logo container-->
       <div class="menu-extras">
@@ -45,7 +45,7 @@
           </li>
         </ul><!--end navigation menu-->
         <div class="buy-menu-btn d-none">
-          <a href="https://www.rtl-theme.com/author/TN_Plugin/?aff=TN_Plugin" target="_blank" class="btn btn-primary">ورود یا ثبت نام</a>
+          <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
         </div><!--end login button-->
       </div><!--end navigation-->
     </div><!--end container-->
