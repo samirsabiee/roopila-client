@@ -1,11 +1,11 @@
 <template>
   <b-container fluid>
     <b-row class="bg-light p-3">
-      <b-col cols="1" class="text-center border border-primary rounded text-primary pt-1 pb-1 pr-3 pl-3">محل کار</b-col>
-      <b-col>اوغات فراغت</b-col>
-      <b-col>قدیمی</b-col>
-      <b-col>تقدیرات و گواهی ها</b-col>
-      <b-col>جدی</b-col>
+      <b-col class="text-center border border-primary rounded text-primary pt-1 pb-1 pr-3 pl-3">محل کار</b-col>
+      <b-col class="text-center">اوغات فراغت</b-col>
+      <b-col class="text-center">قدیمی</b-col>
+      <b-col class="text-center">تقدیرات و گواهی ها</b-col>
+      <b-col class="text-center">جدی</b-col>
       <b-col><i class="fas fa-plus-square"></i></b-col>
     </b-row>
     <b-row align="center" class="justify-content-center" >

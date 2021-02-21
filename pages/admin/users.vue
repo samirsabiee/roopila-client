@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid v-if="!$apollo.queries.users.loading">
+  <b-container fluid class="m-2 p-0 bg-light" v-if="!$apollo.queries.users.loading">
     <b-row>
       <b-col>
         <b-form-input class="m-3" placeholder="جستجوی کاربر"></b-form-input>
@@ -24,7 +24,7 @@
           </tr>
           </tbody>
         </table>
-        <b-pagination align="center" v-model="users.paginate.page" :total-rows="10" :per-page="users.paginate.pages"></b-pagination>
+        <b-pagination align="center" v-model="usersArgs.page" :total-rows="10" :per-page="users.paginate.pages"></b-pagination>
       </b-col>
     </b-row>
   </b-container>
@@ -40,7 +40,7 @@
         return {
           usersArgs: {
             page:1,
-            limit:15
+            limit:50
           }
         }
       },

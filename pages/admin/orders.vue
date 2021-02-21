@@ -1,9 +1,9 @@
 <template>
-  <b-container fluid>
-    <div class="col p-0 form-group mt-3">
+  <b-container fluid class="bg-light p-2 m-2">
+    <div class="col p-0 form-group">
       <input class="col form-control" type="text" placeholder="جستجو ...">
     </div>
-    <table class="table table-striped table-bordered p-3 text-center">
+    <table class="table table-striped table-bordered text-center">
       <thead>
       <tr>
         <th>#</th>

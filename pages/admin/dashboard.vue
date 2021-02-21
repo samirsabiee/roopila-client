@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="mt-5" v-if="!$apollo.queries.dashboard.loading">
+  <b-container fluid class="m-2 p-0" v-if="!$apollo.queries.dashboard.loading">
     <b-row no-gutters>
       <b-col class="bg-light rect-box rounded p-3 d-flex flex-column justify-content-center align-items-center">
         <h5>مجموع کاربران</h5>

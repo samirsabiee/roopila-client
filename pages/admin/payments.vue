@@ -1,6 +1,6 @@
 <template>
-  <b-container fluid>
-    <div class="form-group p-0 mt-3">
+  <b-container fluid class="bg-light p-2 m-2">
+    <div class="form-group p-0">
       <input class="form-control" type="text" name="search" id="search" placeholder="جستجو">
     </div>
     <table class="table table-bordered table-striped text-center">
