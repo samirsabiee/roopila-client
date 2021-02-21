@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="back-to-home rounded d-none d-sm-block">
-      <a href="index.html" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></a>
+      <nuxt-link to="/" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></nuxt-link>
     </div>
 
     <!-- Hero Start -->

@@ -26,22 +26,22 @@
       <div id="navigation">
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
-          <li><a href="index.html">صفحه اصلی</a></li>
+          <li><nuxt-link to="/">صفحه اصلی</nuxt-link></li>
           <li class="has-submenu">
-            <a href="javascript:void(0)">خدمات</a>
+            <nuxt-link to="/services">خدمات</nuxt-link>
           </li>
 
           <li class="has-submenu">
-            <a href="javascript:void(0)">ارسال درخواست</a>
+            <nuxt-link to="/requestForm">ارسال درخواست</nuxt-link>
           </li>
           <li class="has-submenu">
-            <a href="javascript:void(0)">آخرین اخبار</a>
+            <nuxt-link to="/news">آخرین اخبار</nuxt-link>
           </li>
           <li class="has-submenu">
-            <a href="javascript:void(0)">درباره ما</a>
+            <nuxt-link to="/aboutUs">درباره ما</nuxt-link>
           </li>
           <li class="has-submenu">
-            <a href="javascript:void(0)">تماس باما</a>
+            <nuxt-link to="/contactUs">تماس باما</nuxt-link>
           </li>
         </ul><!--end navigation menu-->
         <div class="buy-menu-btn d-none">
