@@ -124,7 +124,7 @@
 
 <script>
 export default {
-  name: "test",
+  name: "requestForm",
   layout: 'layout2'
 }
 </script>

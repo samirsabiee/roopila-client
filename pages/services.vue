@@ -333,7 +333,7 @@
 
 <script>
     export default {
-        name: "test3",
+        name: "services",
         layout:"layout2"
     }
 </script>

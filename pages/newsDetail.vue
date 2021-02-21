@@ -246,7 +246,7 @@
 
 <script>
     export default {
-        name: "test10",
+        name: "newsDetail",
         layout:"layout2"
     }
 </script>

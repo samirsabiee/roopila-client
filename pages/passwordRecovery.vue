@@ -50,7 +50,7 @@
 
 <script>
   export default {
-    name: "test8",
+    name: "passwordRecovery",
     layout: "layout2"
   }
 </script>
