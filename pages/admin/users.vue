@@ -36,13 +36,21 @@
     export default {
         name: "users",
       layout:"admin",
+      data() {
+        return {
+          usersArgs: {
+            page:1,
+            limit:15
+          }
+        }
+      },
       apollo: {
         users: {
           query:users,
           variables(){
             return{
-              page:1,
-              limit:20
+              page:this.usersArgs.page,
+              limit:this.usersArgs.limit
             }
           }
         }

@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const users = gql`
-        query users {
-          users {
+        query users($page: Int , $limit: Int) {
+          users(page:$page limit:$limit) {
             users{
               fname
               lname
