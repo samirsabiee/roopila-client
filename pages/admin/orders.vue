@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="bg-light p-2 m-2">
+  <b-container fluid class="bg-light p-2 m-2" v-if="!$apollo.queries.orders.loading">
     <div class="col p-0 form-group">
       <input class="col form-control" type="text" placeholder="جستجو ...">
     </div>
@@ -26,15 +26,18 @@
         <td>{{order.inquiryAmount}}</td>
         <td>{{order.finalAmount}}</td>
         <td>{{order.status}}</td>
-        <td><i class="fas fa-eye"></i></td>
+        <td><i @click="showMore(order.id)" class="fas fa-eye"></i></td>
       </tr>
       </tbody>
     </table>
+    <b-pagination align="center" v-model="ordersArgs.page" :total-rows="orders.paginate.total"
+                  :per-page="orders.paginate.limit"></b-pagination>
   </b-container>
 </template>
 
 <script>
   import {orders} from '../../graphql/orders'
+  import {orderById} from "../../graphql/orderById";
 
   export default {
     name: "orders",
@@ -57,7 +60,15 @@
           }
         }
       }
-    }
+    },
+    methods: {
+      showMore(orderId) {
+        this.$apollo.query({
+          query:orderById,
+          variables:{id:orderId}
+        })
+      }
+    },
   }
 </script>
 

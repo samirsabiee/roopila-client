@@ -4,6 +4,7 @@ export const orders = gql`
     query orders($page: Int , $limit: Int) {
           orders(page:$page limit:$limit) {
             orders{
+              id
               user{
                 fname
                 lname

@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="bg-light p-2 m-2">
+  <b-container fluid class="bg-light p-2 m-2" v-if="!$apollo.queries.payments.loading">
     <div class="form-group p-0">
       <input class="form-control" type="text" name="search" id="search" placeholder="جستجو">
     </div>
@@ -17,25 +17,48 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
+      <tr v-for="(payment,index) in payments.payments" :key="index">
+        <td>{{++index}}</td>
         <td>213225</td>
-        <td>254185</td>
-        <td>3652514</td>
-        <td>پرداخت موفق</td>
-        <td>علیپور</td>
-        <td>31،000،000</td>
-        <td>1399/11/08</td>
+        <td>{{payment.pursuitNumber}}</td>
+        <td>{{payment.order_id}}</td>
+        <td>{{payment.paymentStatus}}</td>
+        <td>{{payment.user.fname}} {{payment.user.lname}}</td>
+        <td>{{payment.amountPay}}</td>
+        <td>{{payment.createdAt}}</td>
       </tr>
       </tbody>
     </table>
+    <b-pagination align="center" v-model="paymentsArgs.page" :total-rows="payments.paginate.total"
+                  :per-page="payments.paginate.limit"></b-pagination>
   </b-container>
 </template>
 
 <script>
+  import {payments} from "../../graphql/payments";
+
   export default {
     name: "payments",
-    layout: "admin"
+    layout: "admin",
+    data() {
+      return {
+        paymentsArgs: {
+          page: 1,
+          limit: 10
+        }
+      }
+    },
+    apollo:{
+      payments:{
+        query:payments,
+        variables() {
+          return {
+            page: this.paymentsArgs.page,
+            limit: this.paymentsArgs.limit
+          }
+        }
+      }
+    }
   }
 </script>
 

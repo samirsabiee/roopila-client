@@ -25,7 +25,7 @@
           </tbody>
         </table>
         <b-pagination align="center" v-model="usersArgs.page" :total-rows="users.paginate.total"
-                      :per-page="users.paginate.limit" aria-controls="users_table"></b-pagination>
+                      :per-page="users.paginate.limit"></b-pagination>
       </b-col>
     </b-row>
   </b-container>
