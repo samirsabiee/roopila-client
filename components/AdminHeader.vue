@@ -7,7 +7,7 @@
         </div>
         <div class="col-3 d-flex flex-row justify-content-center align-items-center">
           <img class="circle-avatar img-fluid" src="~/assets/images/avatar.jpg" alt="avatar">
-          <h5 class="p-0 m-0 mr-3 text-center">سمیر سبیعی</h5>
+          <h5 class="pr-3 text-center">سمیر سبیعی</h5>
         </div>
       </div>
     </div>
