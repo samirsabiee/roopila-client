@@ -25,7 +25,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-
+    '~/plugins/axios.js',
+    '~/plugins/mixins/validation.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -33,6 +34,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -43,7 +45,14 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     '@nuxtjs/apollo',
+    'nuxt-izitoast'
   ],
+
+  router:{
+    middleware:[
+      'clearValidationErrors'
+    ]
+  },
 
   loading: '~/components/loading.vue',
 
@@ -95,7 +104,7 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:3001',
+    baseURL: process.env.API_BASE_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
