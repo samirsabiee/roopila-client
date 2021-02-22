@@ -7,26 +7,25 @@
       <thead>
       <tr>
         <th>#</th>
-        <th>شماره سفارش</th>
-        <th>وضعیت</th>
         <th>نام سفارش دهنده</th>
         <th>نام کالا</th>
         <th>تعداد</th>
         <th>قیمت استعلام</th>
         <th>قیمت نهایی</th>
+        <th>وضعیت</th>
         <th>عملیات</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>15142</td>
-        <td>انجام شده</td>
-        <td>علیپور</td>
-        <td>ایفون پرو</td>
-        <td>یک-1</td>
-        <td>34،000،000</td>
-        <td>31،000،000</td>
+      <tr v-for="(order,index) in orders.orders" :key="index">
+        <td>{{++index}}</td>
+        <td v-if="order.user !== null && order.user.fname !== null">{{order.user.fname}} {{order.user.lname}}</td>
+        <td v-else>-</td>
+        <td>{{order.itemName}}</td>
+        <td>{{order.itemCount}}</td>
+        <td>{{order.inquiryAmount}}</td>
+        <td>{{order.finalAmount}}</td>
+        <td>{{order.status}}</td>
         <td><i class="fas fa-eye"></i></td>
       </tr>
       </tbody>
@@ -35,9 +34,30 @@
 </template>
 
 <script>
+  import {orders} from '../../graphql/orders'
+
   export default {
     name: "orders",
-    layout: "admin"
+    layout: "admin",
+    data() {
+      return {
+        ordersArgs: {
+          page: 1,
+          limit: 10
+        }
+      }
+    },
+    apollo: {
+      orders:{
+        query: orders,
+        variables() {
+          return {
+            page: this.ordersArgs.page,
+            limit: this.ordersArgs.limit
+          }
+        }
+      }
+    }
   }
 </script>
 
