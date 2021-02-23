@@ -100,7 +100,7 @@
             image:this.newNewsData.image
           }
         })
-        console.log(news)
+        console.log(news.data.newNews.id)
       }
     },
     computed: {
