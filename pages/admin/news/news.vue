@@ -3,7 +3,7 @@
     <b-row align-h="center">
       <b-col cols="9" class="bg-light p-2">
         <b-row>
-          <b-col cols="3" v-for="(news , index) in news.news" :key="index">
+          <b-col cols="3" v-for="(news,index) in news.news" :key="index">
             <div class="news-box overflow-hidden rounded border border-success">
               <img class="img-cover-center img-fluid h-100" :src="imageUrl(index)" alt="news">
               <div class="darkLayer d-flex flex-column justify-content-end align-items-start w-100 p-2">
@@ -21,7 +21,7 @@
       <b-col cols="3" class="bg-light p-3">
         <h4 class="text-center">دسته بندی ها</h4>
         <hr class="mb-3">
-        <h5 v-for="(category , index) in newsCategories.categories" :key="index" class="btn btn-outline-success btn-block">{{category.name}}</h5>
+        <h5 v-for="(category , index) in newsCategories.categories" :key="index" @click="logClick(category.id)" class="btn btn-outline-success btn-block">{{category.name}}</h5>
       </b-col>
     </b-row>
   </b-container>
@@ -43,7 +43,8 @@
         newsCategoriesArgs:{
           page:1,
           limit:50
-        }
+        },
+        newsItems:[]
       }
     },
     apollo: {
@@ -69,6 +70,24 @@
     methods: {
       imageUrl(index) {
         return `http://localhost:3001${this.news.news[index].image}`;
+      },
+      logClick(id){
+        console.log(id)
+      },
+      getNewsItems(){
+        let newsItem = [];
+        this.news.news.filter(news => {
+          newsItem.push(
+            {
+              title:news.title,
+              content:news.content,
+              image:`http:localhost:3001${news.image}`,
+              category:news.category,
+              views:news.views
+            }
+          )
+        })
+        console.log(newsItem)
       }
     },
   }
