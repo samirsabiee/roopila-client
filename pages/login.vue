@@ -85,21 +85,16 @@
         }
       },
       methods: {
-        async login() {
-          try{
-            await this.$auth.loginWith('express',{data:this.form})
-            await this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
-            this.$auth.redirect('dashboard')
-            this.$bvToast.toast(`Welcome ${this.$auth.user.email}`,{
-              title:'Login Success',
-              noAutoHide:true
+        login() {
+          this.$auth.loginWith('express',{data:this.form})
+            .then(({data}) => {
+              console.log(data)
+              this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
+              this.$auth.redirect('dashboard')
+              this.$notify.success({
+                message:`Welcome ${this.$auth.user.name}`
+              })
             })
-          }catch (e) {
-            this.$bvToast.toast(e.message,{
-              title:'Login Failed',
-              noAutoHide:true
-            })
-          }
         }
       },
     }

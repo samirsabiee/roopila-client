@@ -8,7 +8,7 @@
       <b-col class="text-center">جدی</b-col>
       <b-col><i class="fas fa-plus-square"></i></b-col>
     </b-row>
-    <b-row align="center" class="justify-content-center" >
+    <b-row align="center" class="justify-content-start" >
       <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
       <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
       <b-col cols="2" class="gallery-box-item bg-light m-1 p-5"> cols="2" </b-col>
