@@ -32,7 +32,7 @@
                       <div class="form-group position-relative">
                         <label>نام خانوادگی <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <input type="text" class="form-control pl-5" placeholder="وارد کنید"v-model="form.lname">
+                        <input type="text" class="form-control pl-5" placeholder="وارد کنید" v-model="form.lname">
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -46,14 +46,16 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="وارد کنید" v-model="form.password">
+                        <input type="password" class="form-control pl-5" placeholder="وارد کنید"
+                               v-model="form.password">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>تایید رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="وارد کنید" v-model="form.retypePassword">
+                        <input type="password" class="form-control pl-5" placeholder="وارد کنید"
+                               v-model="form.retypePassword">
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -97,6 +99,8 @@
 </template>
 
 <script>
+  import auth from "../.nuxt/auth";
+
   export default {
     name: "register",
     layout: "layout2",
@@ -107,27 +111,25 @@
           lname: '',
           email: '',
           password: '',
-          retypePassword:''
+          retypePassword: ''
         }
       }
     },
     methods: {
-      async register() {
-        try {
-          await this.$axios.$post('/register', this.form)
-          await this.$auth.loginWith('express', {data: this.form})
-          await this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
-          this.$auth.redirect('dashboard')
-          this.$bvToast.toast(`Welcome ${this.$auth.user.email}`, {
-            title: 'Register Success',
-            noAutoHide: true
+      register() {
+        this.$axios.$post('/register', this.form)
+        .then( response => {
+          this.$auth.loginWith('express', {data: {email:this.form.email,password: this.form.password}}).then(() => {
+            this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
+            this.$auth.redirect('dashboard')
+            console.log(this.$auth.user)
+            this.$notify.success({
+              message:` خوش امدید ${this.$auth.user.fname} `
+            })
           })
-        } catch (e) {
-          this.$bvToast.toast(e.message, {
-            title: 'Register Not Completed',
-            noAutoHide: true
-          })
-        }
+
+        })
+
       }
     }
   }

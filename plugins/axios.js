@@ -1,9 +1,8 @@
 export default ({$axios, $notify, redirect, store}) => {
   $axios.onError(error => {
 
-    $axios.setBaseURL(process.env.API_BASE_URL)
+    $axios.setBaseURL('http://localhost:3001')
     $axios.setHeader('Accept','application/json')
-    $axios.setHeader('test','test1')
 
     switch (error.response.status) {
       case 422: // for Validation errors

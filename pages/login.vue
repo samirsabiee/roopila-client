@@ -91,7 +91,7 @@
               this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
               this.$auth.redirect('dashboard')
               this.$notify.success({
-                message:`Welcome ${this.$auth.user.name}`
+                message:` خوش امدید ${this.$auth.user.fname} `
               })
             })
         }
