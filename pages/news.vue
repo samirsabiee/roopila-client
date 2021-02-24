@@ -264,6 +264,7 @@
 
 <script>
   export default {
+    auth: false,
     name: "news",
     layout: "layout2"
   }

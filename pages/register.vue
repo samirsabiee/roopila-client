@@ -102,6 +102,7 @@
   import auth from "../.nuxt/auth";
 
   export default {
+    auth: "guest",
     name: "register",
     layout: "layout2",
     data() {
@@ -118,17 +119,16 @@
     methods: {
       register() {
         this.$axios.$post('/register', this.form)
-        .then( response => {
-          this.$auth.loginWith('express', {data: {email:this.form.email,password: this.form.password}}).then(() => {
-            this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
-            this.$auth.redirect('dashboard')
-            console.log(this.$auth.user)
-            this.$notify.success({
-              message:` خوش امدید ${this.$auth.user.fname} `
+          .then(({data}) => {
+            this.$auth.loginWith('express', {data: {email: this.form.email, password: this.form.password}}).then(() => {
+              this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
+              this.$auth.redirect('dashboard')
+              this.$notify.success({
+                message: ` خوش امدید ${this.$auth.user.fname} `
+              })
             })
-          })
 
-        })
+          })
 
       }
     }

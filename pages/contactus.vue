@@ -142,6 +142,7 @@
 
 <script>
   export default {
+    auth: false,
     name: "contactUs",
     layout: 'layout2'
   }

@@ -6,7 +6,8 @@
         <nuxt-link class="logo" to="/">روپیلا</nuxt-link>
       </div>
       <div class="buy-button">
-        <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
+        <nuxt-link to="/admin/dashboard" v-if="$auth.loggedIn" class="btn btn-primary">داشبورد</nuxt-link>
+        <nuxt-link to="/admin/dashboard" v-else class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
       </div><!--end login button-->
       <!-- End Logo container-->
       <div class="menu-extras">

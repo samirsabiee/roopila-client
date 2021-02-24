@@ -1,7 +1,7 @@
 export default ({$axios, $notify, redirect, store}) => {
   $axios.onError(error => {
 
-    $axios.setBaseURL('http://localhost:3001')
+    $axios.setBaseURL(process.env.API_BASE_URL)
     $axios.setHeader('Accept','application/json')
 
     switch (error.response.status) {

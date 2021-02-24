@@ -47,7 +47,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">طراحی و توسعه</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -60,7 +61,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">مدیریت و بازار یابی</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -73,7 +75,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">استراتژی و تحقیق</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -86,7 +89,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">استفاده آسان</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -99,7 +103,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">گزارش روزانه</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -112,7 +117,8 @@
 
               <div class="content mt-4">
                 <h4 class="title-2">منطقه زمان واقعی</h4>
-                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه.</p>
+                <p class="text-muted mb-0">تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
+                  متون بلکه روزنامه.</p>
               </div>
             </div>
           </div><!--end col-->
@@ -124,7 +130,8 @@
           <div class="col-12 text-center">
             <div class="section-title mb-60">
               <h4 class="title mb-4">نظرات مشتریان</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -142,7 +149,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -157,7 +165,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star-half text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -172,7 +181,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -187,7 +197,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -202,7 +213,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -217,7 +229,8 @@
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                     <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
                   </ul>
-                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه. "</p>
+                  <p class="text-muted mt-2">" تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    چاپگرها و متون بلکه روزنامه. "</p>
                   <h6 class="text-primary">- نام مشتری <small class="text-muted">مسئولیت</small></h6>
                 </div>
               </div>
@@ -235,7 +248,8 @@
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
               <h4 class="title mb-4">آخرین پروژه های ما</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -316,7 +330,8 @@
           <div class="col-12 text-center">
             <div class="section-title">
               <h4 class="title mb-4">همه چیز در مورد کارمند خود را در یک مکان ببینید.</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
 
               <div class="mt-3">
                 <a href="javascript:void(0)" class="btn btn-primary mt-2 mr-2">اکنون شروع کنید</a>
@@ -332,10 +347,11 @@
 </template>
 
 <script>
-    export default {
-        name: "services",
-        layout:"layout2"
-    }
+  export default {
+    auth: false,
+    name: "services",
+    layout: "layout2"
+  }
 </script>
 
 <style scoped>

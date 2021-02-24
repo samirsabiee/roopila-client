@@ -12,13 +12,19 @@
           <b-form-select v-model="newNewsData.optionSelected" :options="options"></b-form-select>
         </div>
         <div class="form-group col">
-          <input class="form-control" v-model="newNewsData.tags" type="text" placeholder="برچسب ها را با فاصله (اسپیس) از هم جدا کنید">
+          <b-form-tags
+            input-id="tags-separators"
+            v-model="newNewsData.tags"
+            separator=" "
+            placeholder="برچسب ها را با فاصله (اسپیس) از هم جدا کنید"
+            no-add-on-enter
+          ></b-form-tags>
         </div>
         <div class="form-group col">
           <b-form-file v-model="newNewsData.image" :state="Boolean(newNewsData.image)" placeholder="تصویر خبر را انتخاب کنید" drop-placeholder="فایل را روی این باکس بکشید"></b-form-file>
         </div>
-        <div class="form-group col-2">
-          <input  class="form-control" @click="addNews" value="ذخیره سازی">
+        <div class="form-group">
+          <b-button  class="btn btn-success" @click="addNews">ذخیره سازی</b-button>
         </div>
       </b-col>
       <b-col cols="3">
@@ -56,7 +62,7 @@
           title:'',
           content:'',
           optionSelected: null,
-          tags:'',
+          tags:[],
           image:null
         }
       }
@@ -96,18 +102,13 @@
             title:this.newNewsData.title,
             content:this.newNewsData.content,
             category_id:this.newNewsData.optionSelected,
-            tags:this.newNewsData.tags.split(' '),
+            tags:this.newNewsData.tags,
             image:this.newNewsData.image
           }
         })
         console.log(news.data.newNews.id)
       }
-    },
-    computed: {
-      splitTags() {
-        return this.newNewsData.tags.split(' ');
-      }
-    },
+    }
   }
 </script>
 

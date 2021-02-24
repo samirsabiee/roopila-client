@@ -124,6 +124,7 @@
 
 <script>
 export default {
+  auth: false,
   name: "requestForm",
   layout: 'layout2'
 }

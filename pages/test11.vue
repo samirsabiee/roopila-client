@@ -398,6 +398,7 @@
 
 <script>
   export default {
+    auth: false,
     name: "test11",
     layout: "layout2",
     mounted() {

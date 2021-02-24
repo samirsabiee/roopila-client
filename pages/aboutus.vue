@@ -53,8 +53,13 @@
           <div class="col-lg-7 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0">
             <div class="section-title ml-lg-4">
               <h4 class="title mb-4">داستان ما</h4>
-              <p class="text-muted">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند. متن ساختگی متنی است که در صنعت نشر یا طراحان وب برای اشغال فضای مورد استفاده قرار می گیرد که بعداً با محتوای "واقعی" پر می شود. این مورد زمانی لازم است که مثلاً متن نهایی هنوز در دسترس نباشد. متون ساختگی از قرن شانزدهم میلادی توسط نویسندگان مورد استفاده قرار گرفته است.</p>
-              <a href="javascript:void(0)" class="btn btn-primary mt-3">اکنون بخرید <i class="mdi mdi-chevron-right"></i></a>
+              <p class="text-muted">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می
+                تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند. متن ساختگی متنی است که در صنعت نشر
+                یا طراحان وب برای اشغال فضای مورد استفاده قرار می گیرد که بعداً با محتوای "واقعی" پر می شود. این مورد
+                زمانی لازم است که مثلاً متن نهایی هنوز در دسترس نباشد. متون ساختگی از قرن شانزدهم میلادی توسط نویسندگان
+                مورد استفاده قرار گرفته است.</p>
+              <a href="javascript:void(0)" class="btn btn-primary mt-3">اکنون بخرید <i
+                class="mdi mdi-chevron-right"></i></a>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -65,7 +70,8 @@
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
               <h4 class="title mb-4">ویژگی های کلیدی</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -187,7 +193,8 @@
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
               <h4 class="title mb-4">بزرگترین ذهن ما</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -198,10 +205,17 @@
               <div class="position-relative">
                 <img src="~/assets/images/client/01.jpg" class="img-fluid avatar avatar-ex-large rounded-pill" alt="">
                 <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="فیس بوک"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="اینستاگرام"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="توییتر"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="گوگل"></i></a></li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook"
+                                                                                               title="فیس بوک"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram"
+                                                                                               title="اینستاگرام"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter"
+                                                                                               title="توییتر"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                    class="mdi mdi-google-plus" title="گوگل"></i></a></li>
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
@@ -216,10 +230,17 @@
               <div class="position-relative">
                 <img src="~/assets/images/client/04.jpg" class="img-fluid avatar avatar-ex-large rounded-pill" alt="">
                 <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="فیس بوک"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="اینستاگرام"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="توییتر"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="گوگل"></i></a></li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook"
+                                                                                               title="فیس بوک"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram"
+                                                                                               title="اینستاگرام"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter"
+                                                                                               title="توییتر"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                    class="mdi mdi-google-plus" title="گوگل"></i></a></li>
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
@@ -234,10 +255,17 @@
               <div class="position-relative">
                 <img src="~/assets/images/client/02.jpg" class="img-fluid avatar avatar-ex-large rounded-pill" alt="">
                 <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="فیس بوک"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="اینستاگرام"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="توییتر"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="گوگل"></i></a></li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook"
+                                                                                               title="فیس بوک"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram"
+                                                                                               title="اینستاگرام"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter"
+                                                                                               title="توییتر"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                    class="mdi mdi-google-plus" title="گوگل"></i></a></li>
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
@@ -252,10 +280,17 @@
               <div class="position-relative">
                 <img src="~/assets/images/client/03.jpg" class="img-fluid avatar avatar-ex-large rounded-pill" alt="">
                 <ul class="list-unstyled social-icon team-icon mb-0 mt-4">
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="فیس بوک"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram" title="اینستاگرام"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter" title="توییتر"></i></a></li>
-                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-google-plus" title="گوگل"></i></a></li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook"
+                                                                                               title="فیس بوک"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-instagram"
+                                                                                               title="اینستاگرام"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-twitter"
+                                                                                               title="توییتر"></i></a>
+                  </li>
+                  <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                    class="mdi mdi-google-plus" title="گوگل"></i></a></li>
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
@@ -272,7 +307,8 @@
           <div class="col-12 text-center">
             <div class="section-title">
               <h4 class="title mb-4">همه چیز در مورد کارمند خود را در یک مکان ببینید.</h4>
-              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span> که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
+              <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک </span>
+                که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
 
               <div class="mt-3">
                 <a href="javascript:void(0)" class="btn btn-primary mt-2 mr-2">اکنون شروع کنید</a>
@@ -288,10 +324,11 @@
 </template>
 
 <script>
-    export default {
-        name: "aboutUs",
-        layout:'layout2'
-    }
+  export default {
+    auth: false,
+    name: "aboutUs",
+    layout: 'layout2'
+  }
 </script>
 
 <style scoped>
