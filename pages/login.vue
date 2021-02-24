@@ -88,7 +88,6 @@
         login() {
           this.$auth.loginWith('express',{data:this.form})
             .then(({data}) => {
-              console.log(data)
               this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
               this.$auth.redirect('dashboard')
               this.$notify.success({
