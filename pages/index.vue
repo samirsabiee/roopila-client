@@ -266,8 +266,7 @@
 <script>
   export default {
     auth: false,
-    name: "index",
-    layout: 'layout2'
+    name: "index"
   }
 </script>
 

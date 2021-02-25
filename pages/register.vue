@@ -104,7 +104,6 @@
   export default {
     auth: "guest",
     name: "register",
-    layout: "layout2",
     data() {
       return {
         form: {

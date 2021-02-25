@@ -281,8 +281,7 @@
 <script>
   export default {
     auth: false,
-    name: "newsDetail",
-    layout: "layout2"
+    name: "newsDetail"
   }
 </script>
 

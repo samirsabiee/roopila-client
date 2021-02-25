@@ -85,7 +85,6 @@
   export default {
     auth: "guest",
     name: "login",
-    layout: "layout2",
     data() {
       return {
         loading:false,

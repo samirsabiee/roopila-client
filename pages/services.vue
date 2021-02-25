@@ -349,8 +349,7 @@
 <script>
   export default {
     auth: false,
-    name: "services",
-    layout: "layout2"
+    name: "services"
   }
 </script>
 

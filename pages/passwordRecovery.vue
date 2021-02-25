@@ -51,8 +51,7 @@
 <script>
   export default {
     auth: "guest",
-    name: "passwordRecovery",
-    layout: "layout2"
+    name: "passwordRecovery"
   }
 </script>
 

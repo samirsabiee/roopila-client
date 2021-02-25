@@ -400,7 +400,6 @@
   export default {
     auth: false,
     name: "test11",
-    layout: "layout2",
     mounted() {
       import('~/assets/js/typed.js')
       import('~/assets/js/typed.init.js')
