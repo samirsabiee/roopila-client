@@ -62,9 +62,7 @@
                       <div class="form-group">
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="customCheck1">
-                          <label class="custom-control-label" for="customCheck1">من تایید میکنم <a href="#"
-                                                                                                   class="text-primary">شرایط
-                            و ضوابط را</a></label>
+                          <label class="custom-control-label" for="customCheck1">تایید شرایط و قوانین</label>
                         </div>
                       </div>
                     </div>
@@ -87,8 +85,8 @@
                       </ul><!--end icon-->
                     </div>
                     <div class="mx-auto">
-                      <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <a
-                        href="page-login.html" class="text-dark font-weight-bold">وارد شوید</a></p>
+                      <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <nuxt-link
+                        to="/login" class="text-dark font-weight-bold">وارد شوید</nuxt-link></p>
                     </div>
                   </div>
                 </div>

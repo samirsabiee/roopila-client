@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-            <a class="logo-footer" href="#">روپیلا</a>
+            <nuxt-link class="logo-footer" to="/">روپیلا</nuxt-link>
             <p class="mt-4">روپیلا وبسایتی برای تسهیل امور واردات</p>
             <ul class="list-unstyled social-icon social mb-0 mt-4">
               <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i class="mdi mdi-facebook" title="فیس بوک"></i></a></li>

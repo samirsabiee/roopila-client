@@ -38,8 +38,8 @@
                     </div>
 
                     <div class="col-lg-12">
-                      <p class="float-right forgot-pass"><a href="page-recovery-password.html"
-                                                            class="text-dark font-weight-bold">فراموشی رمز عبور؟</a></p>
+                      <p class="float-right forgot-pass"><nuxt-link to="/passwordRecovery"
+                                                            class="text-dark font-weight-bold">فراموشی رمز عبور؟</nuxt-link></p>
                       <div class="form-group">
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -49,8 +49,10 @@
                     </div>
                     <div align="center" class="col-lg-12 mb-0">
                       <b-button v-if="loading" variant="primary" disabled>
-                        <b-spinner small type="grow"></b-spinner>
-                        لطفا صبر کنید...
+                        <b-row>
+                          <b-spinner small type="grow" class="m-1"></b-spinner>
+                          <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                        </b-row>
                       </b-button>
                       <b-button v-else  @click="login" :disabled="loading" class="btn btn-primary w-100">ورود</b-button>
                     </div>

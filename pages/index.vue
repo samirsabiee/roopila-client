@@ -72,7 +72,7 @@
 
                 <div class="row">
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-devices text-primary"></i>
@@ -82,11 +82,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
 
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-details text-primary"></i>
@@ -96,11 +96,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
 
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-developer-board text-primary"></i>
@@ -110,11 +110,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
 
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-deviantart text-primary"></i>
@@ -124,11 +124,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
 
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-azure-devops text-primary"></i>
@@ -138,11 +138,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
 
                   <div class="col-lg-6 mt-4 pt-2">
-                    <a href="page-job-detail.html" class="text-dark">
+                    <nuxt-link to="/" class="text-dark">
                       <div class="key-feature d-flex p-3 bg-white rounded shadow">
                         <div class="icon text-center rounded-pill mr-3 mt-2">
                           <i class="mdi mdi-laptop text-primary"></i>
@@ -152,11 +152,11 @@
                           <p class="text-muted mb-0">ایران</p>
                         </div>
                       </div>
-                    </a>
+                    </nuxt-link>
                   </div><!--end col-->
                   <div class="col-12 mt-4 pt-2">
-                    <a href="page-jobs.html" class="btn btn-primary">نمایش همه شغل ها <i
-                      class="mdi mdi-chevron-right"></i></a>
+                    <nuxt-link to="/" class="btn btn-primary">نمایش همه شغل ها <i
+                      class="mdi mdi-chevron-right"></i></nuxt-link>
                   </div>
                 </div>
               </div>
