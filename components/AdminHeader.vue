@@ -18,7 +18,9 @@
         name: "AdminHeader",
       methods: {
         logout() {
-          this.$auth.logout()
+          this.$auth.logout().then(res => {
+            console.log(res)
+          })
         }
       },
     }

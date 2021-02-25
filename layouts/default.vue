@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Header2 v-if="this.$route.name !== 'login' && this.$route.name !== 'register' && this.$route.name !== 'passwordRecovery'"/>
+    <Header v-if="this.$route.name !== 'login' && this.$route.name !== 'register' && this.$route.name !== 'passwordRecovery'"/>
     <nuxt/>
-    <Footer2/>
+    <Footer/>
   </div>
 </template>
 <script>
-  import Header2 from "../components/Header2";
-  import Footer2 from "../components/Footer2";
+  import Header from "../components/Header";
+  import Footer from "../components/Footer";
   export default {
     name: "layout2",
-    components: {Footer2, Header2},
+    components: {Footer, Header},
     mounted() {
       import('~/assets/js/app.js')
     }

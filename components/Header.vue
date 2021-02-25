@@ -1,46 +1,62 @@
 <template>
- <div>
-   <ul class="col-12 bg-light d-flex flex-row justify-content-start align-items-center header fixed-top">
-     <li>
-       <nuxt-link to="/" ref="/index" class="header-item d-flex flex-row justify-content-center align-items-center mr-2">لگوی شرکت</nuxt-link>
-     </li>
-     <li class="menu-item">
-       <p class="header-item p-0 m-0 text-center">خدمات</p>
-       <ul class="subMenu bg-light d-flex flex-column">
-         <li>
-           <nuxt-link to="/consulting" class="header-item text-center">مشاوره</nuxt-link>
-         </li>
-         <li>
-           <nuxt-link to="/transport"  class="header-item text-center">حمل و نقل</nuxt-link>
-         </li>
-         <li>
-           <nuxt-link to="/clearance" class="header-item text-center">ترخیص کالا</nuxt-link>
-         </li>
-       </ul>
-     </li>
-     <li>
-       <nuxt-link to="/formRequest" class="header-item d-flex flex-row justify-content-center align-items-center">فرم سفارش</nuxt-link>
-     </li>
-     <li>
-       <nuxt-link to="/gallery" class="header-item d-flex flex-row justify-content-center align-items-center">گالری</nuxt-link>
-     </li>
-     <li>
-       <nuxt-link to="/news" class="header-item d-flex flex-row justify-content-center align-items-center">آخرین اخبار</nuxt-link>
-     </li>
-     <li>
-       <nuxt-link to="/aboutus" class="header-item d-flex flex-row justify-content-center align-items-center">درباره ما</nuxt-link>
-     </li>
-     <li>
-       <nuxt-link to="/contactus" class="header-item d-flex flex-row justify-content-center align-items-center">تماس با ما</nuxt-link>
-     </li>
-   </ul>
- </div>
+  <header id="topnav" class="defaultscroll sticky">
+    <div class="container">
+      <!-- Logo container-->
+      <div>
+        <nuxt-link class="logo" to="/">روپیلا</nuxt-link>
+      </div>
+      <div class="buy-button">
+        <nuxt-link to="/admin/dashboard" v-if="$auth.loggedIn" class="btn btn-primary">داشبورد</nuxt-link>
+        <nuxt-link to="/admin/dashboard" v-else class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
+      </div><!--end login button-->
+      <!-- End Logo container-->
+      <div class="menu-extras">
+        <div class="menu-item">
+          <!-- Mobile menu toggle-->
+          <a class="navbar-toggle">
+            <div class="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+          <!-- End mobile menu toggle-->
+        </div>
+      </div>
+
+      <div id="navigation">
+        <!-- Navigation Menu-->
+        <ul class="navigation-menu">
+          <li><nuxt-link to="/">صفحه اصلی</nuxt-link></li>
+          <li class="has-submenu">
+            <nuxt-link to="/services">خدمات</nuxt-link>
+          </li>
+
+          <li class="has-submenu">
+            <nuxt-link to="/requestForm">ارسال درخواست</nuxt-link>
+          </li>
+          <li class="has-submenu">
+            <nuxt-link to="/news">آخرین اخبار</nuxt-link>
+          </li>
+          <li class="has-submenu">
+            <nuxt-link to="/aboutUs">درباره ما</nuxt-link>
+          </li>
+          <li class="has-submenu">
+            <nuxt-link to="/contactUs">تماس باما</nuxt-link>
+          </li>
+        </ul><!--end navigation menu-->
+        <div class="buy-menu-btn d-none">
+          <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
+        </div><!--end login button-->
+      </div><!--end navigation-->
+    </div><!--end container-->
+  </header>
 </template>
 
 <script>
-    export default {
-        name: "Header"
-    }
+  export default {
+    name: "Header2"
+  }
 </script>
 
 <style scoped>
