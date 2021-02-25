@@ -66,8 +66,10 @@
                       </ul><!--end icon-->
                     </div>
                     <div class="col-12 text-center">
-                      <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <a
-                        href="#" class="text-dark font-weight-bold">وارد شوید</a></p>
+                      <p class="mb-0 mt-3">
+                        <small class="text-dark mr-2">قبلاً حساب دارید؟</small>
+                        <nuxt-link to="/register" class="text-dark font-weight-bold">ثبت نام کنید</nuxt-link>
+                      </p>
                     </div>
                   </div>
                 </div><!---->

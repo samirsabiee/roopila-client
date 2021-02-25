@@ -68,8 +68,12 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-12">
-                      <button @click="register" class="btn btn-primary w-100">ثبت نام</button>
+                    <div align="center" class="col-md-12">
+                      <b-button v-if="loading" variant="primary" disabled>
+                        <b-spinner small type="grow"></b-spinner>
+                        لطفا صبر کنید...
+                      </b-button>
+                      <b-button v-else :disabled="loading" @click="register" class="btn btn-primary w-100">ثبت نام</b-button>
                     </div>
                     <div class="col-lg-12 mt-4 text-center">
                       <h6>و یا ثبت نام از طریق</h6>
@@ -112,11 +116,13 @@
           email: '',
           password: '',
           retypePassword: ''
-        }
+        },
+        loading:false
       }
     },
     methods: {
       register() {
+        this.loading = true
         this.$axios.$post('/register', this.form)
           .then(({data}) => {
             this.$auth.loginWith('express', {data: {email: this.form.email, password: this.form.password}}).then(() => {
@@ -126,6 +132,9 @@
                 message: ` خوش امدید ${this.$auth.user.fname} `
               })
             })
+              .finally(() => {
+                this.loading = false
+              })
 
           })
 
