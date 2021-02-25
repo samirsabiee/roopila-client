@@ -3,6 +3,7 @@
     <div class="container">
       <!-- Logo container-->
       <div>
+
         <nuxt-link class="logo" to="/">روپیلا</nuxt-link>
       </div>
       <div class="buy-button">
@@ -55,7 +56,7 @@
 
 <script>
   export default {
-    name: "Header2"
+    name: "Header"
   }
 </script>
 

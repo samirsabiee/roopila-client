@@ -17,27 +17,26 @@
           <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
             <h4 class="text-light footer-head">شرکت</h4>
             <ul class="list-unstyled footer-list mt-4">
-              <li><a href="page-aboutus.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> درباره ما</a></li>
-              <li><a href="page-services.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> خدمات</a></li>
-              <li><a href="page-cover-login.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ورود</a></li>
+              <li><nuxt-link to="/aboutus" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> درباره ما</nuxt-link></li>
+              <li><nuxt-link to="/services" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> خدمات</nuxt-link></li>
             </ul>
           </div><!--end col-->
 
           <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
             <h4 class="text-light footer-head">فعالیت ها</h4>
             <ul class="list-unstyled footer-list mt-4">
-              <li><a href="page-terms.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ارسال در خواست</a></li>
-              <li><a href="page-privacy.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> پشتیبانی</a></li>
-              <li><a href="documentation.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ورود</a></li>
-              <li><a href="changelog.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ثبت نام</a></li>
+              <li><nuxt-link to="/requestForm" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ارسال در خواست</nuxt-link></li>
+              <li><nuxt-link to="/contactus" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> پشتیبانی</nuxt-link></li>
+              <li><nuxt-link to="/login" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ورود</nuxt-link></li>
+              <li><nuxt-link to="/register" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i> ثبت نام</nuxt-link></li>
             </ul>
           </div><!--end col-->
 
           <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
             <h4 class="text-light footer-head">آخرین اخبار</h4>
             <ul class="list-unstyled footer-list mt-4">
-              <li><a href="page-terms.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>پر بازدید ترین</a></li>
-              <li><a href="page-privacy.html" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>اقتصادی</a></li>
+              <li><nuxt-link to="/news" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>پر بازدید ترین</nuxt-link></li>
+              <li><nuxt-link to="/news" class="text-foot"><i class="mdi mdi-chevron-right mr-1"></i>اقتصادی</nuxt-link></li>
             </ul>
           </div><!--end col-->
         </div><!--end row-->
@@ -55,7 +54,7 @@
 
 <script>
   export default {
-    name: "Footer2"
+    name: "Footer"
   }
 </script>
 
