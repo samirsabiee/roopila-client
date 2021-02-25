@@ -57,12 +57,12 @@ export default {
     ]
   },
 
-  loading: '~/components/loading.vue',
+  loading: '~/components/Loading.vue',
 
   auth: {
     resetOnError: true,
     defaultStrategy: 'express',
-    scopeKey: 'rules',
+    scopeKey: 'roles',
     vuex: {
       namespace: 'auth', // Vuex store namespace for keeping state.
     },
@@ -92,8 +92,8 @@ export default {
     redirect: {
       login: '/login',
       logout: '/',
-      callback: '/',
-      home: '/admin/dashboard'
+      callback: '/login',
+      home: '/'
     },
   },
 

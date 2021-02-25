@@ -107,6 +107,9 @@
             this.$notify.success({
               message: ` خوش امدید ${this.$auth.user.fname} `
             })
+            if(this.$auth.hasScope('admin')){
+              this.$router.push('/admin/dashboard')
+            }
           }).finally(() => {
           this.loading = false
         })
