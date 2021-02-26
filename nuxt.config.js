@@ -1,5 +1,8 @@
 require('dotenv').config()
 export default {
+  // Global page headers: https://go.nuxtjs.dev/config-target
+  // The client-side rendered virtual DOM tree is not matching server-rendered
+  target:'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'roopila',
@@ -87,7 +90,7 @@ export default {
         user: {
           property: 'data',
         }
-      },
+      }
     },
     redirect: {
       login: '/login',

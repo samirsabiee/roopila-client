@@ -3,12 +3,21 @@
     <div class="container">
       <!-- Logo container-->
       <div>
-
         <nuxt-link class="logo" to="/">روپیلا</nuxt-link>
       </div>
-      <div class="buy-button">
-        <nuxt-link to="/admin/dashboard" v-if="$auth.loggedIn" class="btn btn-primary">داشبورد</nuxt-link>
-        <nuxt-link to="/admin/dashboard" v-else class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
+
+      <div v-if="$auth.loggedIn" class="buy-button">
+
+        <b-dropdown :text="$auth.user.fname" variant="outline-primary" class="m-2">
+          <b-dropdown-item v-if="$auth.hasScope('admin') || $auth.hasScope('superAdmin')" to="admin/dashboard">داشبورد</b-dropdown-item>
+          <b-dropdown-item to="/">سفارش های من</b-dropdown-item>
+          <b-dropdown-item to="/">پروفایل</b-dropdown-item>
+          <b-dropdown-item @click="$auth.logout()">خروج</b-dropdown-item>
+        </b-dropdown>
+      </div>
+
+      <div v-else class="buy-button">
+        <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
       </div><!--end login button-->
       <!-- End Logo container-->
       <div class="menu-extras">
@@ -28,7 +37,9 @@
       <div id="navigation">
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
-          <li><nuxt-link to="/">صفحه اصلی</nuxt-link></li>
+          <li>
+            <nuxt-link to="/">صفحه اصلی</nuxt-link>
+          </li>
           <li class="has-submenu">
             <nuxt-link to="/services">خدمات</nuxt-link>
           </li>
@@ -61,5 +72,7 @@
 </script>
 
 <style scoped>
-
+  .buy-button {
+    line-height: 25px !important;
+  }
 </style>

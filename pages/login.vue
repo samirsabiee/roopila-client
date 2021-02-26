@@ -56,17 +56,6 @@
                       </b-button>
                       <b-button v-else  @click="login" :disabled="loading" class="btn btn-primary w-100">ورود</b-button>
                     </div>
-                    <div class="col-lg-12 mt-4 text-center">
-                      <h6>و یا از طریق</h6>
-                      <ul class="list-unstyled social-icon mb-0 mt-3">
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-facebook" title="فیس بوک"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-google-plus" title="گوگل"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-github" title="گیتوب"></i></a></li>
-                      </ul><!--end icon-->
-                    </div>
                     <div class="col-12 text-center">
                       <p class="mb-0 mt-3">
                         <small class="text-dark mr-2">قبلاً حساب دارید؟</small>
@@ -94,7 +83,7 @@
         loading:false,
         form: {
           email: 'samirsabiee1@gmail.com',
-          password: 'A12345678z@'
+          password: 'A123456z@'
         }
       }
     },
@@ -107,7 +96,7 @@
             this.$notify.success({
               message: ` خوش امدید ${this.$auth.user.fname} `
             })
-            if(this.$auth.hasScope('admin')){
+            if(this.$auth.hasScope('admin') || this.$auth.hasScope('superAdmin') ){
               this.$router.push('/admin/dashboard')
             }
           }).finally(() => {

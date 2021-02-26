@@ -34,11 +34,9 @@ export default {
     finish() {
       this.loading = false
     },
-    fail(error) {
-      console.log(error)
-    },
+    fail(error) {},
     increase(num) {
-      // console.log(num)
+      // console.log('increase',num)
     },
   },
 }

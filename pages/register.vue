@@ -73,17 +73,6 @@
                       </b-button>
                       <b-button v-else :disabled="loading" @click="register" class="btn btn-primary w-100">ثبت نام</b-button>
                     </div>
-                    <div class="col-lg-12 mt-4 text-center">
-                      <h6>و یا ثبت نام از طریق</h6>
-                      <ul class="list-unstyled social-icon mb-0 mt-3">
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-google-plus" title="Google"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                          class="mdi mdi-github" title="Github"></i></a></li>
-                      </ul><!--end icon-->
-                    </div>
                     <div class="mx-auto">
                       <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <nuxt-link
                         to="/login" class="text-dark font-weight-bold">وارد شوید</nuxt-link></p>
