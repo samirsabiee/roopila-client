@@ -22,9 +22,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/custom.css',
     '@mdi/font/css/materialdesignicons.css',
     '~/assets/css/style-rtl.css'
   ],
+
+  bootstrapVue:{
+
+  },
 
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

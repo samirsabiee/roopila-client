@@ -3,7 +3,6 @@
     <div class="back-to-home rounded d-none d-sm-block">
       <nuxt-link to="/" class="text-white rounded d-inline-block text-center"><i class="mdi mdi-home"></i></nuxt-link>
     </div>
-
     <!-- Hero Start -->
     <section class="bg-home">
       <div class="home-center">
@@ -23,9 +22,15 @@
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="form-group position-relative">
-                        <label>ایمیل شما <span class="text-danger">*</span></label>
-                        <i class="mdi mdi-account ml-3 icons"></i>
-                        <input type="email" class="form-control pl-5" v-model="form.email" placeholder="ایمیل">
+                          <label>ایمیل شما <span class="text-danger">*</span></label>
+                          <i class="mdi mdi-account ml-3 icons"></i>
+                          <b-form-input type="email" class="form-control pl-5" v-model="form.email" placeholder="ایمیل"  :state="emailValidation"></b-form-input>
+                          <b-form-invalid-feedback :state="emailValidation">
+                            فرمت ایمیل مورد تایید نیست
+                          </b-form-invalid-feedback>
+                          <b-form-valid-feedback :state="emailValidation">
+                            فرمت ایمیل صحیح است
+                          </b-form-valid-feedback>
                       </div>
                     </div>
 
@@ -33,7 +38,13 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="رمز عبور" v-model="form.password">
+                        <b-form-input type="password" class="form-control pl-5" v-model="form.password" placeholder="رمز عبور" :state="passwordValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="passwordValidation">
+                          پسورد نباید کمتر از 8 رقم باشد
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback  :state="passwordValidation">
+                          طول پسورد معتبر است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
 
@@ -104,9 +115,16 @@
         })
       }
     },
+    computed: {
+      emailValidation() {
+        return this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null
+      },
+      passwordValidation(){
+        return this.form.password.length >= 8
+      }
+    },
   }
 </script>
 
 <style scoped>
-
 </style>
