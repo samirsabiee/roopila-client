@@ -8,13 +8,11 @@
             <div class="row justify-content-center">
               <div class="col-lg-12 text-center">
                 <div class="page-next-level">
-                  <h4 class="title"> کارها و نمونه کارها </h4>
+                  <h4 class="title"> آخرین اخبار به روایت از روپیلا </h4>
                   <ul class="page-next d-inline-block bg-white shadow p-2 pl-4 pr-4 rounded mb-0">
-                    <li><a href="index.html" class="text-uppercase font-weight-bold text-dark">خانه</a></li>
-                    <li><a href="#" class="text-uppercase font-weight-bold text-dark">صفحات</a></li>
-                    <li><a href="#" class="text-uppercase font-weight-bold text-dark">نمونه کار</a></li>
+                    <li><nuxt-link to="/" class="text-uppercase font-weight-bold text-dark">خانه</nuxt-link></li>
                     <li>
-                      <span class="text-uppercase text-primary font-weight-bold">کار گرید</span>
+                      <span class="text-uppercase text-primary font-weight-bold">آخرین اخبار</span>
                     </li>
                   </ul>
                 </div>
@@ -38,224 +36,40 @@
 
     <!-- Start Works -->
     <section class="section">
-      <div class="container">
+      <div class="container" v-if="!$apollo.queries.news.loading">
         <div class="row">
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
+
+          <div v-for="(n,i) in news.news" :key="i" class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
             <div class="work-container position-relative rounded">
               <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/1.jpg" class="img-fluid rounded" alt="work-image">
+                <img :src="n.image" class="img-fluid rounded" alt="work-image">
                 <div class="overlay-work"></div>
                 <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">چشم انداز تغییر</a>
-                  <small class="text-light">استودیو</small>
+                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">{{n.title}}</a>
+                  <small class="text-light">{{n.category.name}}</small>
                 </div>
                 <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
+                  <small class="text-light user d-block"><i class="mdi mdi-account"></i>سمیر سبیعی</small>
+                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i>{{jalali(n.createdAt)}}</small>
                 </div>
               </div>
             </div>
           </div><!--end col-->
 
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/2.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">رنگبندی سایت</a>
-                  <small class="text-light">طراحی وب</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/3.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">طراحی لوگو</a>
-                  <small class="text-light">لوگو ساز</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/4.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">ساخت اپلیکیشن</a>
-                  <small class="text-light">برندینگ</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/5.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">عکس ویرایش</a>
-                  <small class="text-light">عکاسی</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/6.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">سئوی سایت</a>
-                  <small class="text-light">شرکتی</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/7.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">چشم انداز تغییر</a>
-                  <small class="text-light">استودیو</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/8.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">رنگبندی سایت</a>
-                  <small class="text-light">طراحی وب</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/9.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">طراحی لوگو</a>
-                  <small class="text-light">لوگو ساز</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/10.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">ساخت اپلیکیشن</a>
-                  <small class="text-light">برندینگ</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/11.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">ویرایش عکس</a>
-                  <small class="text-light">عکاسی</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative shadow rounded">
-              <div class="position-relative overflow-hidden">
-                <img src="~/assets/images/work/12.jpg" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">سئوی سایت</a>
-                  <small class="text-light">شرکتی</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-                </div>
-              </div>
-            </div>
-          </div><!--end col-->
-
-          <!-- PAGINATION START -->
-          <div class="col-12">
-            <ul class="pagination justify-content-center mb-0 list-unstyled">
-              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">قبلی</a></li>
-              <li class="active"><a href="#" class="pr-3 pl-3 pt-2 pb-2">1</a></li>
-              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">2</a></li>
-              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">3</a></li>
-              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">بعدی</a></li>
-            </ul><!--end pagination-->
-          </div><!--end col-->
-          <!-- PAGINATION END -->
+<!--          &lt;!&ndash; PAGINATION START &ndash;&gt;-->
+<!--          <div class="col-12">-->
+<!--            <ul class="pagination justify-content-center mb-0 list-unstyled">-->
+<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">قبلی</a></li>-->
+<!--              <li class="active"><a href="#" class="pr-3 pl-3 pt-2 pb-2">1</a></li>-->
+<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">2</a></li>-->
+<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">3</a></li>-->
+<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">بعدی</a></li>-->
+<!--            </ul>&lt;!&ndash;end pagination&ndash;&gt;-->
+<!--          </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--          &lt;!&ndash; PAGINATION END &ndash;&gt;-->
         </div><!--end row-->
+        <b-pagination align="center" pills v-model="newsData.page" :total-rows="news.paginate.total"
+                      :per-page="newsData.limit"></b-pagination>
       </div><!--end container-->
     </section><!--end section-->
     <!-- End Works -->
@@ -263,9 +77,36 @@
 </template>
 
 <script>
+  import {news} from '../graphql/front/news'
+  import moment from "jalali-moment";
+
   export default {
     auth: false,
-    name: "news"
+    name: "news",
+    data() {
+      return {
+        newsData: {
+          page: 1,
+          limit: 20
+        },
+      }
+    },
+    apollo: {
+      news: {
+        query: news,
+        variables() {
+          return {
+            page: this.newsData.page,
+            limit: this.newsData.limit
+          }
+        }
+      }
+    },
+    methods: {
+      jalali(date){
+        return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
+      }
+    },
   }
 </script>
 
