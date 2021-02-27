@@ -55,7 +55,7 @@ a:hover,
 
 .gallery-box-item {
     width: 12rem;
-    height: 12rem;
+    height: auto;
     margin: 1rem;
     border-radius: 1rem;
     background-color:#21FF54 ;

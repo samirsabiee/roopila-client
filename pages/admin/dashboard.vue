@@ -90,7 +90,7 @@
           lastOrders: null,
           lastPayments:null
         }
-      }
+      },
     }
 </script>
 

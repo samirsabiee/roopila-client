@@ -25,37 +25,65 @@
                       <div class="form-group position-relative">
                         <label>نام کوچک <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <input type="text" class="form-control pl-5" placeholder="وارد کنید" v-model="form.fname">
+                        <b-form-input type="text" class="form-control pl-5" v-model="form.fname" placeholder="وارد کنید"  :state="fNameValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="fNameValidation">
+                          نام نباید کمتر از سه کارکتر باشد
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="fNameValidation">
+                          نام مورد تایید است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group position-relative">
                         <label>نام خانوادگی <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <input type="text" class="form-control pl-5" placeholder="وارد کنید" v-model="form.lname">
+                        <b-form-input type="text" class="form-control pl-5" v-model="form.lname" placeholder="وارد کنید"  :state="lNameValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="lNameValidation">
+                         نام خانوادگی نباید کمتر از سه کارکتر باشد
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="lNameValidation">
+                         نام خانوادگی مورد تایید است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>ایمیل شما <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <input type="email" class="form-control pl-5" placeholder="وارد کنید" v-model="form.email">
+                        <b-form-input type="email" class="form-control pl-5" v-model="form.email" placeholder="وارد کنید"  :state="emailValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="emailValidation">
+                          فرمت ایمیل مورد تایید نیست
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="emailValidation">
+                          فرمت ایمیل صحیح است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="وارد کنید"
-                               v-model="form.password">
+                        <b-form-input type="password" class="form-control pl-5" v-model="form.password" placeholder="وارد کنید"  :state="passwordValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="passwordValidation">
+                          پسورد نباید کمتر از هشت کارکتر باشد
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="passwordValidation">
+                          پسورد مورد تایید است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>تایید رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="وارد کنید"
-                               v-model="form.retypePassword">
+                        <b-form-input type="password" class="form-control pl-5" v-model="form.retypePassword" placeholder="وارد کنید"  :state="retypePasswordValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="retypePasswordValidation">
+                          {{validation.retypePasswordStatus}}
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="retypePasswordValidation">
+                          {{validation.retypePasswordStatus}}
+                        </b-form-valid-feedback>
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -104,6 +132,9 @@
           password: '',
           retypePassword: ''
         },
+        validation:{
+          retypePasswordStatus:''
+        },
         loading:false
       }
     },
@@ -126,7 +157,33 @@
           })
 
       }
-    }
+    },
+    computed: {
+      fNameValidation() {
+        return this.form.fname.length > 2
+      },
+      lNameValidation(){
+        return this.form.lname.length > 2
+      },
+      emailValidation() {
+        return this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null
+      },
+      passwordValidation(){
+        return this.form.password.length >= 8
+      },
+      retypePasswordValidation(){
+        if(!this.form.retypePassword){
+          this.validation.retypePasswordStatus = 'تایید رمز نباید خالی باشد'
+          return false
+        }else if(this.form.retypePassword === this.form.password){
+          this.validation.retypePasswordStatus = 'تایید رمز مطابقت دارد'
+          return true
+        }else{
+          this.validation.retypePasswordStatus = 'تایید رمز مطابقت ندارد'
+          return false
+        }
+      }
+    },
   }
 </script>
 

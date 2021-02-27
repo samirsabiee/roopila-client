@@ -28,8 +28,13 @@
                         <div class="form-group position-relative">
                           <label>آدرس ایمیل <span class="text-danger">*</span></label>
                           <i class="mdi mdi-account ml-3 icons"></i>
-                          <input type="email" class="form-control pl-5" placeholder="وارد کردن آدرس ایمیل" name="email"
-                                 required="">
+                          <b-form-input type="email" class="form-control pl-5" v-model="form.email" placeholder="وارد کردن آدرس ایمیل"  :state="emailValidation"></b-form-input>
+                          <b-form-invalid-feedback :state="emailValidation">
+                            فرمت ایمیل مورد تایید نیست
+                          </b-form-invalid-feedback>
+                          <b-form-valid-feedback :state="emailValidation">
+                            فرمت ایمیل صحیح است
+                          </b-form-valid-feedback>
                         </div>
                       </div>
                       <div class="col-lg-12">
@@ -51,7 +56,19 @@
 <script>
   export default {
     auth: "guest",
-    name: "passwordRecovery"
+    name: "passwordRecovery",
+    data() {
+      return {
+        form: {
+          email:''
+        }
+      }
+    },
+    computed: {
+      emailValidation() {
+        return this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null
+      },
+    },
   }
 </script>
 
