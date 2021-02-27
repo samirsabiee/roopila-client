@@ -8,12 +8,10 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
+  import('~/assets/js/app.js')
   export default {
     name: "layout2",
-    components: {Footer, Header},
-    mounted() {
-      import('~/assets/js/app.js')
-    }
+    components: {Footer, Header}
   }
 </script>
 

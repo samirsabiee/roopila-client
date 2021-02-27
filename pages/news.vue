@@ -56,17 +56,6 @@
             </div>
           </div><!--end col-->
 
-<!--          &lt;!&ndash; PAGINATION START &ndash;&gt;-->
-<!--          <div class="col-12">-->
-<!--            <ul class="pagination justify-content-center mb-0 list-unstyled">-->
-<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">قبلی</a></li>-->
-<!--              <li class="active"><a href="#" class="pr-3 pl-3 pt-2 pb-2">1</a></li>-->
-<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">2</a></li>-->
-<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">3</a></li>-->
-<!--              <li><a href="#" class="pr-3 pl-3 pt-2 pb-2">بعدی</a></li>-->
-<!--            </ul>&lt;!&ndash;end pagination&ndash;&gt;-->
-<!--          </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--          &lt;!&ndash; PAGINATION END &ndash;&gt;-->
         </div><!--end row-->
         <b-pagination align="center" pills v-model="newsData.page" :total-rows="news.paginate.total"
                       :per-page="newsData.limit"></b-pagination>

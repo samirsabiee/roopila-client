@@ -3,20 +3,6 @@
     <b-row align-h="center">
       <b-col cols="9" class="bg-light p-2">
         <b-row align="center" align-h="center">
-<!--          <b-col cols="3" v-for="(news,index) in news.news" :key="index">-->
-<!--            <div class="news-box overflow-hidden rounded border border-success">-->
-<!--              <img class="img-cover-center img-fluid h-100" :src="imageUrl(index)" alt="news">-->
-<!--              <div class="darkLayer d-flex flex-column justify-content-end align-items-start w-100 p-2">-->
-<!--                <div class="d-flex flex-row justify-content-between align-items-center w-100">-->
-<!--                  <h6 class="text-white border border-success p-1 category-font-size">{{news.category ? news.category.name : ''}}</h6>-->
-<!--                  <i class="far fa-eye" style="font-size: 1.5rem; color: greenyellow;"> {{news.views}}</i>-->
-<!--                </div>-->
-<!--                <h5 class="text-white">{{news.title}}</h5>-->
-<!--                <h6 class="date-font-size text-white">{{jalali(news.createdAt)}}</h6>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </b-col>-->
-
           <b-col cols="5" class="mt-4"  v-for="(news,index) in news.news" :key="index">
             <b-card no-body class="overflow-hidden" style="max-width: 540px; height: 250px">
               <b-row no-gutters class="h-100">

@@ -7,7 +7,6 @@
       </div>
 
       <div v-if="$auth.loggedIn" class="buy-button">
-
         <b-dropdown :text="$auth.user.fname" variant="outline-primary" class="m-2">
           <b-dropdown-item v-if="$auth.hasScope('admin') || $auth.hasScope('superAdmin')" to="admin/dashboard">داشبورد</b-dropdown-item>
           <b-dropdown-item to="/">سفارش های من</b-dropdown-item>
@@ -38,27 +37,30 @@
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
           <li>
-            <nuxt-link to="/">صفحه اصلی</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/">خانه</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link to="/services">خدمات</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/services">خدمات</nuxt-link>
           </li>
 
           <li class="has-submenu">
-            <nuxt-link to="/requestForm">ارسال درخواست</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/requestForm">ارسال درخواست</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link to="/news">آخرین اخبار</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/news">آخرین اخبار</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link to="/aboutUs">درباره ما</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/gallery">گالری تصاویر</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link to="/contactUs">تماس باما</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/aboutUs">درباره ما</nuxt-link>
+          </li>
+          <li class="has-submenu">
+            <nuxt-link class="text-nowrap" to="/contactUs">تماس باما</nuxt-link>
           </li>
         </ul><!--end navigation menu-->
         <div class="buy-menu-btn d-none">
-          <nuxt-link to="/login" class="btn btn-primary">ورود یا ثبت نام</nuxt-link>
+          <nuxt-link to="/login" class="btn btn-primary text-nowrap">ورود یا ثبت نام</nuxt-link>
         </div><!--end login button-->
       </div><!--end navigation-->
     </div><!--end container-->
