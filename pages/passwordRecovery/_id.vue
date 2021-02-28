@@ -63,20 +63,23 @@
       }
     },
     methods: {
-      async getInfo() {
-        let valid = await this.$axios.get(`/passwordRecovery/${this.$route.params.id}`)
-        if (valid.status === 200) {
+      getInfo() {
+        console.log('Page _id ----------------Info Method--------------------')
+        this.$axios.get(`/passwordRecovery/${this.$route.params.id}`).then(() => {
           this.loading = false
-        } else {
+        }).catch(() => {
           this.$router.push('/passwordRecovery')
-        }
+        })
+
       },
-      async changePassword() {
-        let result = await this.$axios.post('/changePassword', {
+      changePassword() {
+        this.$axios.post('/changePassword', {
           param: this.$route.params.id,
           password: this.form.password
+        }).then((data) => {
+          console.log(data)
         })
-        console.log(result)
+
       }
     },
     computed: {
