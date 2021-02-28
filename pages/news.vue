@@ -82,13 +82,7 @@
     },
     apollo: {
       news: {
-        query: news,
-        variables() {
-          return {
-            page: this.newsData.page,
-            limit: this.newsData.limit
-          }
-        }
+        query: news
       }
     },
     methods: {

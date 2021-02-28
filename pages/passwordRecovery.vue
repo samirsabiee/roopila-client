@@ -15,12 +15,11 @@
                   <img src="~/assets/images/user/recovery.png" class="img-fluid d-block mx-auto" alt="">
                 </div>
               </div>
-              <div class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+              <div v-if="$route.params.id === undefined" class="col-lg-5 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <div class="login_page bg-white shadow rounded p-4">
                   <div class="text-center">
                     <h4 class="mb-4">بازیابی حساب</h4>
                   </div>
-                  <form class="login-form">
                     <div class="row">
                       <div class="col-lg-12">
                         <p class="text-muted">لطفا آدرس ایمیل خود را وارد کنید. برای ایجاد گذرواژه جدید از طریق ایمیل
@@ -38,18 +37,27 @@
                         </div>
                       </div>
                       <div class="col-lg-12">
-                        <button class="btn btn-primary w-100">ارسال</button>
+                        <button @click="recover" class="btn btn-primary w-100">ارسال</button>
                       </div>
                     </div>
-                  </form>
                 </div>
               </div> <!--end col-->
+              <nuxt-child v-else/>
             </div><!--end row-->
           </div> <!--end container-->
         </div>
       </div>
     </section><!--end section-->
     <!-- Hero End -->
+
+    <b-modal id="modal-recovery" hide-footer hide-header>
+      <h5 class="text-success text-center w-100">عملیات موفق</h5>
+      <div class="d-block text-center">
+        <p class="text-center" v-text="responseMessage"></p>
+      </div>
+      <b-button class="mt-3" variant="primary" block @click="$bvModal.hide('modal-recovery')">اوکی</b-button>
+    </b-modal>
+
   </div>
 </template>
 
@@ -61,12 +69,22 @@
       return {
         form: {
           email:''
-        }
+        },
+        responseMessage:''
       }
     },
     computed: {
       emailValidation() {
         return this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null
+      },
+    },
+    methods: {
+      async recover() {
+        const result =  await this.$axios.post('/passwordRecovery',{to:this.form.email})
+        this.responseMessage = result.data.message
+        console.log('--------------RESULT-----------',result.data.message)
+        this.$bvModal.show('modal-recovery')
+
       },
     },
   }
