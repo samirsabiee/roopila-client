@@ -120,8 +120,14 @@
                 </div><!--end col-->
               </div><!--end row-->
               <div class="row">
-                <div class="col-sm-12">
-                  <input type="submit" @click="notRegisteredUserAskedRequest" class="submitBnt btn btn-primary"
+                <div align="center" class="col-sm-12">
+                  <b-button v-if="loading" variant="primary" disabled>
+                    <b-row>
+                      <b-spinner small type="grow" class="m-1"></b-spinner>
+                      <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                    </b-row>
+                  </b-button>
+                  <input type="submit" v-else :disabled="loading" @click="notRegisteredUserAskedRequest" class="submitBnt btn btn-primary"
                          value="ارسال سفارش">
                 </div><!--end col-->
               </div><!--end row-->
@@ -220,8 +226,14 @@
                 </div><!--end col-->
               </div><!--end row-->
               <div class="row">
-                <div class="col-sm-12">
-                  <input type="submit" @click="loggedInUserAskedRequest" class="submitBnt btn btn-primary"
+                <div align="center" class="col-sm-12">
+                  <b-button v-if="loading" variant="primary" disabled>
+                    <b-row>
+                      <b-spinner small type="grow" class="m-1"></b-spinner>
+                      <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                    </b-row>
+                  </b-button>
+                  <input type="submit" v-else :disabled="loading" @click="loggedInUserAskedRequest" class="submitBnt btn btn-primary"
                          value="ارسال سفارش">
                 </div><!--end col-->
               </div><!--end row-->
@@ -254,11 +266,13 @@
           itemVolume: '',
           description: '',
           samples: null
-        }
+        },
+        loading:false
       }
     },
     methods: {
       loggedInUserAskedRequest() {
+        this.loading =true
         const data = {
           user_id: this.$auth.user._id,
           itemName: this.form.itemName,
@@ -273,11 +287,14 @@
           variables: data
         }).then(() => {
           this.$notify.success({message: 'درخواست شما با موفقیت ثبت شد لطفا سفارش های خود را بررسی نمایید'})
+          this.loading = false
         }).catch(({message}) => {
           this.$notify.error({message})
+          this.loading = false
         })
       },
       notRegisteredUserAskedRequest() {
+        this.loading = true
         const data = {
           fName: this.getFName,
           lName: this.getLName,
@@ -295,8 +312,10 @@
           variables: data
         }).then(() => {
           this.$notify.success({message: 'درخواست شما با موفقیت ثبت شد لطفا ایمیل خود را بررسی نمایید'})
+          this.loading = false
         }).catch(({message}) => {
           this.$notify.error({message})
+          this.loading = false
         })
       }
     },
