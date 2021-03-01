@@ -10,7 +10,7 @@
                 <div class="page-next-level">
                   <h4 class="title"> فرم درخواست واردات کالا </h4>
                   <ul class="page-next d-inline-block bg-white shadow p-2 pl-4 pr-4 rounded mb-0">
-                    <li><a href="index.html" class="text-uppercase font-weight-bold text-dark">خانه</a></li>
+                    <li><nuxt-link to="/" class="text-uppercase font-weight-bold text-dark">خانه</nuxt-link></li>
                     <li>
                       <span class="text-uppercase text-primary font-weight-bold">ارسال درخواست</span>
                     </li>
