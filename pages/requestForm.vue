@@ -262,7 +262,7 @@
         const data = {
           user_id: this.$auth.user._id,
           itemName: this.form.itemName,
-          itemCount: this.form.itemCount,
+          itemCount: parseInt(this.form.itemCount),
           itemWeight: this.form.itemWeight,
           itemVolume: this.form.itemVolume,
           description: this.form.description,
