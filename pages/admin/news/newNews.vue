@@ -21,7 +21,7 @@
           ></b-form-tags>
         </div>
         <div class="form-group col">
-          <b-form-file v-model="newNewsData.image" :state="Boolean(newNewsData.image)" placeholder="تصویر خبر را انتخاب کنید" drop-placeholder="فایل را روی این باکس بکشید"></b-form-file>
+          <b-form-file class="text-center" v-model="newNewsData.image" :state="Boolean(newNewsData.image)" placeholder="تصویر خبر را انتخاب کنید" drop-placeholder="فایل را روی این باکس بکشید"></b-form-file>
         </div>
         <div class="form-group">
           <b-button  class="btn btn-success" @click="addNews">ذخیره سازی</b-button>
