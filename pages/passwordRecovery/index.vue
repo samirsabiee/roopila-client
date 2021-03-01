@@ -20,26 +20,33 @@
                   <div class="text-center">
                     <h4 class="mb-4">بازیابی حساب</h4>
                   </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <p class="text-muted">لطفا آدرس ایمیل خود را وارد کنید. برای ایجاد گذرواژه جدید از طریق ایمیل
-                          پیوند دریافت خواهید کرد.</p>
-                        <div class="form-group position-relative">
-                          <label>آدرس ایمیل <span class="text-danger">*</span></label>
-                          <i class="mdi mdi-account ml-3 icons"></i>
-                          <b-form-input type="email" class="form-control pl-5" v-model="form.email" placeholder="وارد کردن آدرس ایمیل"  :state="emailValidation"></b-form-input>
-                          <b-form-invalid-feedback :state="emailValidation">
-                            فرمت ایمیل مورد تایید نیست
-                          </b-form-invalid-feedback>
-                          <b-form-valid-feedback :state="emailValidation">
-                            فرمت ایمیل صحیح است
-                          </b-form-valid-feedback>
-                        </div>
-                      </div>
-                      <div class="col-lg-12">
-                        <button @click="recover" class="btn btn-primary w-100">ارسال</button>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <p class="text-muted">لطفا آدرس ایمیل خود را وارد کنید. برای ایجاد گذرواژه جدید از طریق ایمیل
+                        پیوند دریافت خواهید کرد.</p>
+                      <div class="form-group position-relative">
+                        <label>آدرس ایمیل <span class="text-danger">*</span></label>
+                        <i class="mdi mdi-account ml-3 icons"></i>
+                        <b-form-input type="email" class="form-control pl-5" v-model="form.email"
+                                      placeholder="وارد کردن آدرس ایمیل" :state="emailValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="emailValidation">
+                          فرمت ایمیل مورد تایید نیست
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="emailValidation">
+                          فرمت ایمیل صحیح است
+                        </b-form-valid-feedback>
                       </div>
                     </div>
+                    <div align="center" class="col-lg-12">
+                      <b-button v-if="loading" variant="primary" disabled>
+                        <b-row>
+                          <b-spinner small type="grow" class="m-1"></b-spinner>
+                          <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                        </b-row>
+                      </b-button>
+                      <button @click="recover" :disabled="loading" v-else class="btn btn-primary w-100">ارسال</button>
+                    </div>
+                  </div>
                 </div>
               </div> <!--end col-->
               <nuxt-child v-else/>
@@ -68,9 +75,10 @@
     data() {
       return {
         form: {
-          email:''
+          email: ''
         },
-        responseMessage:''
+        loading: false,
+        responseMessage: ''
       }
     },
     computed: {
@@ -79,11 +87,16 @@
       },
     },
     methods: {
-      async recover() {
-        const result =  await this.$axios.post('/passwordRecovery',{to:this.form.email})
-        this.responseMessage = result.data.message
-        console.log('--------------RESULT-----------',result.data.message)
-        this.$bvModal.show('modal-recovery')
+      recover() {
+        this.loading = true
+        this.$axios.post('/passwordRecovery', {to: this.form.email})
+          .then(({data}) => {
+            this.responseMessage = data.message
+            this.$bvModal.show('modal-recovery')
+            this.loading = false
+          }).catch(({message}) => {
+          this.$notify.error({message})
+        })
 
       },
     },

@@ -50,8 +50,14 @@
                         </b-form-valid-feedback>
                       </div>
                     </div>
-                    <div class="col-lg-12">
-                      <button @click="changePassword" class="btn btn-primary w-100">تایید</button>
+                    <div align="center" class="col-lg-12">
+                      <b-button v-if="buttonLoading" variant="primary" disabled>
+                        <b-row>
+                          <b-spinner small type="grow" class="m-1"></b-spinner>
+                          <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                        </b-row>
+                      </b-button>
+                      <button @click="changePassword" :disabled="buttonLoading" v-else class="btn btn-primary w-100">تایید</button>
                     </div>
                   </div>
                 </div>
@@ -76,6 +82,7 @@
           confirmPassword: ''
         },
         loading: true,
+        buttonLoading:false,
         validation: {
           confirmPasswordStatus: ''
         }
@@ -97,6 +104,7 @@
 
       },
       changePassword() {
+        this.buttonLoading = true
         this.$axios.post('/changePassword', {
           param: this.$route.params.id,
           password: this.form.password
@@ -104,8 +112,10 @@
           this.$notify.success({
             message: data.message
           })
+          this.buttonLoading = false
           this.$router.push('/login')
         }).catch(({message}) => {
+          this.$notify.error({message})
           console.log(message)
         })
 
