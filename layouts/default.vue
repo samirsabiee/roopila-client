@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header v-if="this.$route.name !== 'login' && this.$route.name !== 'register' && this.$route.name !== 'passwordRecovery'"/>
+    <Header v-if="showOrNotHeader"/>
     <nuxt/>
-    <Footer/>
+    <Footer v-if="showOrNotFooter"/>
   </div>
 </template>
 <script>
@@ -13,7 +13,17 @@
     components: {Footer, Header},
     mounted() {
       import('~/assets/js/app.js')
-    }
+    },
+    computed: {
+      showOrNotHeader() {
+        let blockPages = ['login','register','passwordRecovery']
+        return !blockPages.includes(this.$route.name)
+      },
+      showOrNotFooter() {
+        let blockPages = ['login','register','passwordRecovery','myOrders']
+        return !blockPages.includes(this.$route.name)
+      }
+    },
   }
 </script>
 

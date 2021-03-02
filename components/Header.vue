@@ -9,7 +9,7 @@
       <div v-if="$auth.loggedIn" class="buy-button">
         <b-dropdown :text="$auth.user.fname" variant="outline-primary" class="m-2">
           <b-dropdown-item v-if="$auth.hasScope('admin') || $auth.hasScope('superAdmin')" to="admin/dashboard">داشبورد</b-dropdown-item>
-          <b-dropdown-item to="/">سفارش های من</b-dropdown-item>
+          <b-dropdown-item to="/myOrders">سفارش های من</b-dropdown-item>
           <b-dropdown-item to="/">پروفایل</b-dropdown-item>
           <b-dropdown-item @click="$auth.logout()">خروج</b-dropdown-item>
         </b-dropdown>
