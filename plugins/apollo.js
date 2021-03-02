@@ -1,8 +1,12 @@
-export default (context) => {
-  return {
-    httpEndpoint: 'http://localhost:3001/roopila',
-    // httpLinkOptions: {
-    //   headers: {'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMWUyMWI1YWNkNzc2MTk3MGJjYjY1MCIsInJvbGUiOjIsImlhdCI6MTYxMzUzNzU5OCwiZXhwIjoxNjEzNjIzOTk4fQ.uOCC94kwpz-gihuCP_hVaTR5F6oiLjXRjg3HARW_Pio'}
-    // }
-  }
-}
+import { onError } from 'apollo-link-error';
+onError(({ graphQLErrors, networkError, operation, forward }) => {
+  console.log(operation)
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    );
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+  return forward(operation)
+});
