@@ -16,9 +16,9 @@
       <b-col cols="2">
         <b-row align-h="center" class="p-3 max-height">
           <b-col cols="12" class="text-center m-1 p-2 border border-success d-flex flex-row justify-content-center align-items-center"><i class="fas fa-plus-square"></i></b-col>
-          <b-col cols="12" class="text-center m-1 p-2 border border-success">همه</b-col>
+          <b-col cols="12" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
           <b-col v-for="(category,index) in categoryItems" :key="index" @click="galleryImageByCategoryId(category.id)" cols="12" class="text-center m-1 p-2">
-            <b-button block variant="bg-light" :class="(index === 0)?'bg-success text-white':' border border-success'">{{category.name}}</b-button>
+            <b-button block variant="bg-light" class="border border-success'">{{category.name}}</b-button>
           </b-col>
         </b-row>
       </b-col>

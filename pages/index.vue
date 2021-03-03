@@ -14,18 +14,18 @@
                 <div class="text-center py-5 border-bottom">
                   <img src="~/assets/images/job/Circleci.svg" class="avatar avatar-medium mx-auto rounded-pill d-block"
                        alt="">
-                  <h5 class="mt-3 mb-0">بیمه ایران</h5>
-                  <p class="text-muted mb-0">خدمات فروش</p>
+                  <h5 class="mt-3 mb-0">روپیلا</h5>
+                  <p class="text-muted mb-0">خدمات تجاری واردات</p>
                 </div>
 
                 <div class="p-4">
                   <h5>جزئیات شرکت :</h5>
                   <ul class="list-unstyled feature-list mb-4">
                     <li class="h5"><i class="mdi mdi-map-marker mdi-18px text-warning mr-2"></i><span
-                      class="text-muted">موقعیت :</span> تبریز
+                      class="text-muted">موقعیت :</span> بوشهر
                     </li>
                     <li class="h5"><i class="mdi mdi-link-variant mdi-18px text-warning mr-2"></i><span
-                      class="text-muted">شرکت :</span> بیمه ایران
+                      class="text-muted">شرکت :</span> روپیلا
                     </li>
                     <li class="h5"><i class="mdi mdi-currency-usd mdi-18px text-warning mr-2"></i><span
                       class="text-muted">درآمد :</span> ماه / 5 میلیون تومان
@@ -34,8 +34,6 @@
                       200
                     </li>
                   </ul>
-                  <a href="javascipt:void(0)" data-toggle="modal" data-target="#ApplyNow"
-                     class="btn btn-block btn-primary">انجام دهید</a>
                 </div>
               </div>
 
