@@ -12,7 +12,7 @@
               <th scope="col" style="max-width: 150px;">قیمیت پیشنهادی</th>
               <th scope="col" style="max-width: 150px;">قیمیت نهایی</th>
               <th scope="col" style="max-width: 350px;">توضیحات</th>
-              <th scope="col" style="max-width: 150px;">وضعبت</th>
+              <th class="min-width" scope="col" style="max-width: 150px;">وضعبت</th>
               <th scope="col" style="max-width: 150px;">عملیات</th>
             </tr>
             </thead>
@@ -26,8 +26,8 @@
               <td>{{order.inquiryAmount}} تومان</td>
               <td>{{order.finalAmount}} تومان</td>
               <td><p>{{order.description}}</p></td>
-              <td><span class="bg-info shadow shadow-sm p-2 rounded text-white">درحال بررسی</span></td>
-              <td><a href="javascript:void(0)" class="btn btn-danger">لغو درخواست</a></td>
+              <td><i title="در حال بررسی" class="fa fa-spinner fa-spin"></i></td>
+              <td><b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button></td>
             </tr>
             </tbody>
           </table><!--end table-->
@@ -70,4 +70,8 @@
  .table th, .table td {
    vertical-align: baseline;
  }
+
+  .min-width{
+    width: 180px;
+  }
 </style>

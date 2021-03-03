@@ -114,9 +114,8 @@
           })
           this.buttonLoading = false
           this.$router.push('/login')
-        }).catch(({message}) => {
-          this.$notify.error({message})
-          console.log(message)
+        }).catch(() => {
+          this.buttonLoading = false
         })
 
       }
