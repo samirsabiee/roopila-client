@@ -20,7 +20,7 @@
             <td v-if="user.profile !== null && user.profile.melicode !== null"> {{user.profile.melicode}}</td>
             <td v-else> -</td>
             <td v-if="user.orders !== null">{{user.orders.length}}</td>
-            <td><i class="fas fa-eye"></i></td>
+            <td><nuxt-link to="/admin/userDetail"><i class="fas fa-eye"></i></nuxt-link> </td>
           </tr>
           </tbody>
         </table>
