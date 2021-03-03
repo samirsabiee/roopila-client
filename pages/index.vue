@@ -38,9 +38,8 @@
               </div>
 
               <div class="map mt-4 pt-2">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7915.525673176609!2d46.32542404246615!3d38.06389198146334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzUzLjgiTiA0NsKwMTknMzkuNCJF!5e0!3m2!1sen!2s!4v1545664085241"
-                  width="1348" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe class="rounded shadow shadow-sm" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4440.8808957541305!2d50.851947616016275!3d28.958922107875246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fb44889f3600073%3A0x36b6b5c76706e5d8!2sMofid%20Securities!5e0!3m2!1sen!2snl!4v1614767647646!5m2!1sen!2snl"
+                        width="1348" height="500" style="border:0;" allowfullscreen loading="lazy"></iframe>
               </div>
             </div>
           </div><!--end col-->
@@ -61,7 +60,7 @@
                 به تیمها اجازه می دهد تا با خودکار کردن مراحل ساخت ، آزمایش و تحویل ، کدی را که به آنها اعتماد دارند را
                 آزاد کنند. هزاران شرکت پیشرو ، از جمله سامسونگ .</p>
 
-              <h4 class="mt-lg-5 mt-4">به تیم بپیوندید :</h4>
+              <h4 class="mt-lg-5 mt-4">اشاره ای به خدمات ما :</h4>
               <div class="contact_map mt-60">
 
                 <p class="text-muted mb-0">در سال 2011 شروع به کار کردیم ، ما به بیش از 200 کارمند در سراسر جهان افزایش
@@ -76,8 +75,8 @@
                           <i class="mdi mdi-devices text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">توسعه دهنده ارشد وب</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">واردات قطعات الکترونیکی</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
@@ -90,8 +89,8 @@
                           <i class="mdi mdi-details text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">توسعه فرانت اند</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">واردات کالا های بهداشتی</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
@@ -104,8 +103,8 @@
                           <i class="mdi mdi-developer-board text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">توسعه بک اند</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">واردات کالاهای پزشکی</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
@@ -118,8 +117,8 @@
                           <i class="mdi mdi-deviantart text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">طراح رابط کاربری</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">واردات مواد غذایی</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
@@ -132,8 +131,8 @@
                           <i class="mdi mdi-azure-devops text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">طراح تجربه کاربری</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">امور ترخیص کالا</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
@@ -146,16 +145,12 @@
                           <i class="mdi mdi-laptop text-primary"></i>
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">برنامه نویس پی اچ پی</h4>
-                          <p class="text-muted mb-0">ایران</p>
+                          <h4 class="title mb-0">بیمه اجناس</h4>
+                          <p class="text-muted mb-0">دبی، چین و کشورهای اروپایی</p>
                         </div>
                       </div>
                     </nuxt-link>
                   </div><!--end col-->
-                  <div class="col-12 mt-4 pt-2">
-                    <nuxt-link to="/" class="btn btn-primary">نمایش همه شغل ها <i
-                      class="mdi mdi-chevron-right"></i></nuxt-link>
-                  </div>
                 </div>
               </div>
             </div><!--end col-->
@@ -163,99 +158,6 @@
         </div><!--end container-->
       </div>
     </section><!--end section-->
-
-    <!-- Modal Content Start -->
-    <div class="modal fade" id="ApplyNow" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content rounded shadow border-0">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">اکنون انجام دهید </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body p-4">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group position-relative">
-                    <label>نام شما :<span class="text-danger">*</span></label>
-                    <i class="mdi mdi-account ml-3 icons"></i>
-                    <input name="name" id="name" type="text" class="form-control pl-5" required placeholder="نام :">
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-6">
-                  <div class="form-group position-relative">
-                    <label>ایمیل شما :<span class="text-danger">*</span></label>
-                    <i class="mdi mdi-email ml-3 icons"></i>
-                    <input name="email" id="email" type="email" class="form-control pl-5" required
-                           placeholder="ایمیل :">
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-6">
-                  <div class="form-group position-relative">
-                    <label>شماره تلفن. :<span class="text-danger">*</span></label>
-                    <i class="mdi mdi-phone ml-3 icons"></i>
-                    <input name="number" id="number" type="number" class="form-control pl-5" required
-                           placeholder="شماره تلفن. :">
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-6">
-                  <div class="form-group position-relative">
-                    <label>عنوان شغل :</label>
-                    <i class="mdi mdi-book ml-3 icons"></i>
-                    <input name="subject" id="subject" class="form-control pl-5" required placeholder="عنوان :">
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>انواع مشاغل :</label>
-                    <select class="form-control custom-select" id="Sortbylist-job">
-                      <option>همه مشاغل</option>
-                      <option>تمام وقت</option>
-                      <option>پاره وقت</option>
-                      <option>راه دور</option>
-                      <option>نمایندگی</option>
-                    </select>
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-12">
-                  <div class="form-group position-relative">
-                    <label>توضیحات :</label>
-                    <i class="mdi mdi-comment-text-outline ml-3 icons"></i>
-                    <textarea name="comments" id="comments" rows="4" class="form-control pl-5" required
-                              placeholder="توضیحاتی در مورد شغل :"></textarea>
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-12">
-                  <div class="form-group position-relative">
-                    <label>رزومه / رزومه کاری خود را بارگذاری کنید :</label>
-                    <input type="file" class="form-control-file" required id="fileupload">
-                  </div>
-                </div><!--end col-->
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label" for="customCheck1">من تایید میکنم <a href="#"
-                                                                                               class="text-primary">شرایط
-                        و ضوابط را</a></label>
-                    </div>
-                  </div>
-                </div><!--end col-->
-              </div><!--end row-->
-              <div class="row">
-                <div class="col-sm-12">
-                  <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="انجام بده">
-                </div><!--end col-->
-              </div><!--end row-->
-            </form><!--end form-->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal Content End -->
     <!-- Company Detail End -->
 
   </div>

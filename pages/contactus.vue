@@ -83,9 +83,8 @@
 
           <div class="col-lg-8 col-md-6 pl-md-3 pr-md-3 mt-4 pt-2">
             <div class="map map-height-two rounded map-gray">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7915.525673176609!2d46.32542404246615!3d38.06389198146334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzUzLjgiTiA0NsKwMTknMzkuNCJF!5e0!3m2!1sen!2s!4v1545664085241"
-                style="border:0" class="rounded" allowfullscreen=""></iframe>
+              <iframe class="rounded shadow shadow-sm" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4440.8808957541305!2d50.851947616016275!3d28.958922107875246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fb44889f3600073%3A0x36b6b5c76706e5d8!2sMofid%20Securities!5e0!3m2!1sen!2snl!4v1614767647646!5m2!1sen!2snl"
+                       style="border:0;" allowfullscreen loading="lazy"></iframe>
             </div>
           </div><!--end col-->
         </div><!--end row-->
@@ -100,7 +99,7 @@
               </div>
               <div class="content mt-3">
                 <h4 class="title font-weight-bold">تلفن</h4>
-                <p class="text-muted">شروع به کار با لندریک کنید که می تواند همه چیز را فراهم کند</p>
+                <p class="text-muted">شروع به کار با روپیلا کنید که می تواند همه چیز را فراهم کند</p>
                 <a href="tel:+152534-468-854" class="text-primary">**********</a>
               </div>
             </div>
@@ -113,7 +112,7 @@
               </div>
               <div class="content mt-3">
                 <h4 class="title font-weight-bold">ایمیل</h4>
-                <p class="text-muted">شروع به کار با لندریک کنید که می تواند همه چیز را فراهم کند</p>
+                <p class="text-muted">شروع به کار با روپیلا کنید که می تواند همه چیز را فراهم کند</p>
                 <a href="mailto:contact@example.com" class="text-primary">contact@example.com</a>
               </div>
             </div>
@@ -126,7 +125,7 @@
               </div>
               <div class="content mt-3">
                 <h4 class="title font-weight-bold">موقعیت</h4>
-                <p class="text-muted">خیابان امام کوچه 17, <br>ارومیه</p>
+                <p class="text-muted">خیابان مطهری ربرو بانک ملی, <br>بوشهر</p>
                 <a
                   href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7915.525673176609!2d46.32542404246615!3d38.06389198146334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzUzLjgiTiA0NsKwMTknMzkuNCJF!5e0!3m2!1sen!2s!4v1545664085241"
                   class="video-play-icon h6 text-primary">نمایش روی نقشه گوگل</a>

@@ -150,22 +150,6 @@
         </div><!--end col-->
       </div><!--end row-->
     </div><!--end container-->
-
-    <div class="container mt-100 mt-60">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center">
-          <div class="section-title">
-            <h4 class="title mb-4">بیایید در مورد نمونه کارها خود صحبت کنیم</h4>
-            <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary font-weight-bold">لندریک</span>
-              که می تواند همه چیز را برای ایجاد آگاهی ، ترافیک رانندگی ، اتصال فراهم کند.</p>
-
-            <div class="mt-3">
-              <a href="javascript:void(0)" class="btn btn-primary">شروع کنید</a>
-            </div>
-          </div>
-        </div><!--end col-->
-      </div><!--end row-->
-    </div>
   </section><!--end section-->
   <!-- Work End -->
 </template>
