@@ -212,7 +212,12 @@
               <td>{{order.inquiryAmount}} تومان</td>
               <td>{{order.finalAmount}} تومان</td>
               <td><p>{{order.description}}</p></td>
-              <td><span class="bg-info shadow shadow-sm p-2 rounded text-white">درحال بررسی</span></td>
+              <td>
+                <b-form-select
+                  v-model="orderStatusSelected"
+                  :options="orderStatusOptions"
+                ></b-form-select>
+              </td>
               <td><b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button></td>
             </tr>
             </tbody>
@@ -231,7 +236,15 @@
     layout: 'admin',
     data() {
       return {
-        user: {}
+        user: {},
+        orderStatusSelected:['در انتظار بررسی'],
+        orderStatusOptions:[
+          {value:'در انتظار بررسی',text:'در انتظار بررسی'},
+          {value:'در حال بررسی',text:'در حال بررسی'},
+          {value:'تایید شده',text:'تایید شده'},
+          {value:'در حال استعلام قیمت',text:'در حال استعلام قیمت'},
+          {value:'انجام شده',text:'انجام شده'},
+        ]
       }
     },
     apollo: {
