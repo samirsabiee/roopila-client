@@ -90,14 +90,14 @@
                         <i class="mdi mdi-phone float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">شماره تماس :</h6>
-                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.mobile}}</a>
+                          <a href="javascript:void(0)" class="text-muted">{{profileInfo.user.mobile}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
                         <i class="mdi mdi-email float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">ایمیل :</h6>
-                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.email}}</a>
+                          <a href="javascript:void(0)" class="text-muted">{{profileInfo.user.email}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
@@ -216,7 +216,7 @@
     },
     computed: {
       fullName() {
-        return `${this.$auth.user.fname} ${this.$auth.user.lname}`;
+        return `${this.profileInfo.user.fname} ${this.profileInfo.user.lname}`;
       }
     },
   }

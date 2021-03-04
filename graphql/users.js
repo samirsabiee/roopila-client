@@ -4,6 +4,7 @@ export const users = gql`
         query users($page: Int , $limit: Int) {
           users(page:$page limit:$limit) {
             users{
+              id
               fname
               lname
               profile{

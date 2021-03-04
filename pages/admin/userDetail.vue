@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid v-if="!$apollo.queries.user.loading">
     <!-- Hero Start -->
     <section class="bg-profile pt-0">
       <div class="home-center">
@@ -7,18 +7,18 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <div class="public-profile position-relative p-4 bg-white overflow-hidden rounded shadow"
+                <div class="public-profile position-relative top-position p-4 bg-white overflow-hidden rounded shadow"
                      style="z-index: 1;">
                   <div class="row align-items-center">
                     <div class="col-lg-2 col-md-3 text-md-left text-center">
-                      <b-img-lazy src="profileInfo.avatar" class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
+                      <b-img-lazy :src="user.profile.avatar" class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
                     </div><!--end col-->
 
                     <div class="col-lg-10 col-md-9">
                       <div class="row align-items-center">
                         <div class="col-md-7 text-md-left text-center mt-4 mt-sm-0">
-                          <h3 class="title mb-0">fullname</h3>
-                          <small class="text-muted h6 mr-2">profileInfo.businessField</small>
+                          <h3 class="title mb-0">{{fullName}}</h3>
+                          <small class="text-muted h6 mr-2">{{user.profile.businessField}}</small>
                           <ul class="list-inline mb-0 mt-3">
                             <li class="list-inline-item mr-2"><a href="javascript:void(0)" class="text-muted"
                                                                  title="لینکدین"><i class="mdi mdi-instagram mr-2"></i>samir</a>
@@ -33,9 +33,6 @@
                               class="mdi mdi-email" title="پیام ها"></i></a></li>
                             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i
                               class="mdi mdi-bell" title="اعلانات"></i></a></li>
-                            <li class="list-inline-item"><nuxt-link to="/editProfile"
-                                                                    class="rounded-pill bg-dark"><i
-                              class="mdi mdi-tools text-light" title="ویرایش پروفایل"></i></nuxt-link></li>
                           </ul><!--end icon-->
                         </div><!--end col-->
                       </div><!--end row-->
@@ -50,7 +47,7 @@
     </section><!--end section-->
     <!-- Hero End -->
     <!-- Profile Start -->
-    <section class="section mt-60">
+    <section class="section p-0">
       <div class="container mt-lg-3">
         <div class="row">
           <div class="col-lg-4 col-md-5 col-12">
@@ -70,8 +67,8 @@
           <div class="col-lg-8 col-md-7 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
             <div class="ml-lg-3">
               <div class="border-bottom pb-4">
-                <h5>fullName</h5>
-                <p class="text-muted mb-0">profileInfo.bio</p>
+                <h5>{{fullName}}</h5>
+                <p class="text-muted mb-0">{{user.profile.bio}}</p>
               </div>
 
               <div class="border-bottom pb-4">
@@ -83,28 +80,28 @@
                         <i class="mdi mdi-email float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">کدملی :</h6>
-                          <a href="javascript:void(0)" class="text-muted">profileInfo.melicode</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.profile.melicode}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
                         <i class="mdi mdi-phone float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">شماره تماس :</h6>
-                          <a href="javascript:void(0)" class="text-muted">$auth.user.mobile</a>
+                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.mobile}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
                         <i class="mdi mdi-email float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">ایمیل :</h6>
-                          <a href="javascript:void(0)" class="text-muted">$auth.user.email</a>
+                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.email}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
                         <i class="mdi mdi-book float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">جنسیت :</h6>
-                          <a href="javascript:void(0)" class="text-muted">profileInfo.gender</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.profile.gender}}</a>
                         </div>
                       </li>
 
@@ -112,7 +109,7 @@
                         <i class="mdi mdi-google float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">تاریخ تولد :</h6>
-                          <a href="javascript:void(0)" class="text-muted">profileInfo.birthDate</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.profile.birthDate}}</a>
                         </div>
                       </li>
 
@@ -120,7 +117,7 @@
                         <i class="mdi mdi-earth float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">وب سایت :</h6>
-                          <a href="javascript:void(0)" class="text-muted">profileInfo.website</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.profile.website}}</a>
                         </div>
                       </li>
 
@@ -128,7 +125,7 @@
                         <i class="mdi mdi-cake-variant float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">زمینه فعالیت :</h6>
-                          <p class="text-muted mb-0">profileInfo.businessField</p>
+                          <p class="text-muted mb-0">{{user.profile.businessField}}</p>
                         </div>
                       </li>
 
@@ -136,7 +133,7 @@
                         <i class="mdi mdi-map-marker float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">محل زندگی :</h6>
-                          <a href="javascript:void(0)" class="text-muted">profileInfo.address[0]</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.profile.address[0]}}</a>
                         </div>
                       </li>
                     </ul>
@@ -151,9 +148,9 @@
                           <img src="" class="avatar avatar-ex-sm" alt="">
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">نام شرکت: </h4>
+                          <h4 class="title mb-0">نام شرکت: {{user.profile.companyName}}</h4>
                           <p class="text-muted mb-0">سابقه کاری</p>
-                          <p class="text-muted mb-0">شناسه شرکت: </p>
+                          <p class="text-muted mb-0">شناسه شرکت: {{user.profile.companyId}}</p>
                         </div>
                       </li>
 
@@ -162,8 +159,8 @@
                           <img src="" class="avatar avatar-ex-sm" alt="">
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">مدیرعامل: </h4>
-                          <p class="text-muted mb-0">زمینه فعالیت: </p>
+                          <h4 class="title mb-0">مدیرعامل: {{user.profile.companyManagerName}}</h4>
+                          <p class="text-muted mb-0">زمینه فعالیت: {{user.profile.companyField}}</p>
                           <p class="text-muted mb-0">میزان تحصیلات</p>
                         </div>
                       </li>
@@ -173,9 +170,9 @@
                           <img src="" class="avatar avatar-ex-sm" alt="">
                         </div>
                         <div class="content">
-                          <h4 class="title mb-0">آدرس شرکت: </h4>
-                          <p class="text-muted mb-0">شماره تلفن: </p>
-                          <p class="text-muted mb-0">شماره فکس:</p>
+                          <h4 class="title mb-0">آدرس شرکت: {{user.profile.companyBranchAddress[0]}}</h4>
+                          <p class="text-muted mb-0">شماره تلفن: {{user.profile.companyPhone}}</p>
+                          <p class="text-muted mb-0">شماره فکس: {{user.profile.companyFax}}</p>
                         </div>
                       </li>
                     </ul>
@@ -206,17 +203,17 @@
             </tr>
             </thead>
             <tbody class="text-center">
-            <tr>
-              <td scope="row">index+1</td>
+            <tr v-for="(order,index) in user.orders" :key="index">
+              <td scope="row">{{index+1}}</td>
               <td>
-                <p class="font-weight-bold">order.itemName</p>
+                <p class="font-weight-bold">{{order.itemName}}</p>
               </td>
-              <td class="text-success">order.itemCount</td>
-              <td> تومان</td>
-              <td> تومان</td>
-              <td><p></p></td>
+              <td class="text-success">{{order.itemCount}}</td>
+              <td>{{order.inquiryAmount}} تومان</td>
+              <td>{{order.finalAmount}} تومان</td>
+              <td><p>{{order.description}}</p></td>
               <td><span class="bg-info shadow shadow-sm p-2 rounded text-white">درحال بررسی</span></td>
-              <td><a href="javascript:void(0)" class="btn btn-danger">لغو درخواست</a></td>
+              <td><b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button></td>
             </tr>
             </tbody>
           </table><!--end table-->
@@ -227,13 +224,43 @@
 </template>
 
 <script>
-    export default {
-        name: "userDetail"
-    }
+  import {user} from "../../graphql/user";
+
+  export default {
+    name: "userDetail",
+    layout: 'admin',
+    data() {
+      return {
+        user: {}
+      }
+    },
+    apollo: {
+      user:{
+        query:user,
+        variables(){
+          return {
+            id:this.$route.query.id
+          }
+        },
+        result({data}){
+          this.user = data.user
+        }
+      }
+    },
+    computed: {
+      fullName() {
+        return `${this.user.fname} ${this.user.lname}`;
+      }
+    },
+  }
 </script>
 
 <style scoped>
   .table th, .table td {
     vertical-align: baseline;
+  }
+
+  .top-position {
+    top: 10px !important;
   }
 </style>

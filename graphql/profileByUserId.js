@@ -3,6 +3,12 @@ export const profileByUserId = gql`
     query profileByUserId($user_id:String!){
         profileByUserId(user_id:$user_id){
           id
+          user{
+            fname
+            lname
+            mobile
+            email
+          }
           address
           melicode
           gender
