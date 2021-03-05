@@ -40,6 +40,7 @@
   import {orderById} from "../../graphql/orderById";
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "orders",
     layout: "admin",
     data() {

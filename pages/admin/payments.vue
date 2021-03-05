@@ -38,6 +38,7 @@
   import {payments} from "../../graphql/payments";
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "payments",
     layout: "admin",
     data() {

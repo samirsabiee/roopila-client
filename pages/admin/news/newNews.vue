@@ -48,6 +48,7 @@
   import {newNews} from "../../../graphql/mutation/newNews";
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "newNews",
     layout: "admin",
     data() {

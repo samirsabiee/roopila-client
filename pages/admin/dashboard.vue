@@ -73,7 +73,7 @@
     import {dashboard} from "../../graphql/dashboard";
 
     export default {
-      middleware:['admin'],
+      middleware:['adminOrSuperAdmin'],
         name: "dashboard",
         layout:"admin",
       apollo:{

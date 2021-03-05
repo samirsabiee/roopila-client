@@ -28,7 +28,7 @@
                       class="text-muted">شرکت :</span> روپیلا
                     </li>
                     <li class="h5"><i class="mdi mdi-currency-usd mdi-18px text-warning mr-2"></i><span
-                      class="text-muted">درآمد :</span> ماه / 5 میلیون تومان
+                      class="text-muted">درآمد :</span> ماه / 50 میلیون تومان
                     </li>
                     <li class="h5"><i class="mdi mdi-account mdi-18px text-warning mr-2"></i><span class="text-muted">تعداد کارمندان :</span>
                       200

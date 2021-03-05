@@ -38,6 +38,7 @@
   import moment from 'jalali-moment'
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "news",
     layout: "admin",
     data() {
