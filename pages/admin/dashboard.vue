@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="m-2 p-0" v-if="!$apollo.queries.dashboard.loading">
     <b-row no-gutters>
-      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column justify-content-center align-items-center">
+      <b-col class="bg-light rect-box rounded p-3 d-flex flex-column mr-1 justify-content-center align-items-center">
         <h5>مجموع کاربران</h5>
         <h1 class="text-left">{{dashboard.totalUsers}}</h1>
       </b-col>
