@@ -52,14 +52,14 @@
                   <div class="form-group position-relative">
                     <label>نام کوچک</label>
                     <i class="mdi mdi-account ml-3 icons"></i>
-                    <input v-model="user.fname" type="text" class="form-control pl-5" placeholder="نام کوچک :">
+                    <input v-model="profileInfo.user.fname" type="text" class="form-control pl-5" placeholder="نام کوچک :">
                   </div>
                 </div><!--end col-->
                 <div class="col-md-6">
                   <div class="form-group position-relative">
                     <label>نام خانوادگی</label>
                     <i class="mdi mdi-account-plus ml-3 icons"></i>
-                    <input v-model="user.lname" type="text" class="form-control pl-5" placeholder="نام خانوادگی :">
+                    <input v-model="profileInfo.user.lname" type="text" class="form-control pl-5" placeholder="نام خانوادگی :">
                   </div>
                 </div><!--end col-->
                 <div class="col-md-6">
@@ -172,7 +172,7 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور قبلی :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="رمز عبور قبلی" required="">
+                        <input v-model="changePassword.oldPassword"  type="password" class="form-control pl-5" placeholder="رمز عبور قبلی" required>
                       </div>
                     </div><!--end col-->
 
@@ -180,7 +180,7 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور جدید :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="رمز عبور جدید" required="">
+                        <input v-model="changePassword.password" type="password" class="form-control pl-5" placeholder="رمز عبور جدید" required="">
                       </div>
                     </div><!--end col-->
 
@@ -188,12 +188,18 @@
                       <div class="form-group position-relative">
                         <label>تایید رمز عبور جدید :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input type="password" class="form-control pl-5" placeholder="تایید رمز عبور جدید" required="">
+                        <input v-model="changePassword.retypePassword" type="password" class="form-control pl-5" placeholder="تایید رمز عبور جدید" required="">
                       </div>
                     </div><!--end col-->
 
                     <div class="col-lg-12 mt-2 mb-0">
-                      <button class="btn btn-primary">ذخیره رمز عبور</button>
+                      <b-button v-if="loading" variant="primary" disabled>
+                        <b-row>
+                          <b-spinner small type="grow" class="m-1"></b-spinner>
+                          <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                        </b-row>
+                      </b-button>
+                      <button v-else :disabled="loading" @click="editPassword" class="btn btn-primary">ذخیره رمز عبور</button>
                     </div><!--end col-->
                   </div><!--end row-->
 
@@ -314,6 +320,8 @@
 <script>
   import {profileByUserId} from "../graphql/profileByUserId";
   import {editProfile} from "../graphql/mutation/editProfile";
+  import {editUser} from "../graphql/mutation/editUser";
+  import {changePassword} from "../graphql/mutation/changePassword";
 
   export default {
     name: "editProfile",
@@ -342,7 +350,12 @@
           mobile: this.$auth.user.mobile,
           email: this.$auth.user.email
         },
-        profileInfo: {}
+        profileInfo: {},
+        changePassword:{
+          oldPassword:'',
+          password:'',
+          retypePassword:''
+        }
       }
     },
     apollo: {
@@ -362,6 +375,15 @@
     methods: {
       async editPersonalData() {
         this.loading = true
+        let result  = await this.$apollo.mutate({
+          mutation:editUser,
+          variables:{
+            id:this.$auth.user._id,
+            fname:this.profileInfo.user.fname,
+            lname:this.profileInfo.user.lname
+          }
+        })
+        console.log(result)
         let id = await this.$apollo.mutate({
           mutation: editProfile,
           variables: {
@@ -393,6 +415,20 @@
           }
         })
         console.log(id)
+        this.loading = false
+      },
+      async editPassword(){
+        this.loading = true
+        let result = await this.$apollo.mutate({
+          mutation:changePassword,
+          variables:{
+            id:this.$auth.user._id,
+            oldPassword:this.changePassword.oldPassword,
+            password:this.changePassword.password,
+            retypePassword:this.changePassword.retypePassword
+          }
+        })
+        console.log(result)
         this.loading = false
       }
     },
