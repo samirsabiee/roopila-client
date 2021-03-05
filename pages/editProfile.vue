@@ -52,14 +52,16 @@
                   <div class="form-group position-relative">
                     <label>نام کوچک</label>
                     <i class="mdi mdi-account ml-3 icons"></i>
-                    <input v-model="profileInfo.user.fname" type="text" class="form-control pl-5" placeholder="نام کوچک :">
+                    <input v-model="profileInfo.user.fname" type="text" class="form-control pl-5"
+                           placeholder="نام کوچک :">
                   </div>
                 </div><!--end col-->
                 <div class="col-md-6">
                   <div class="form-group position-relative">
                     <label>نام خانوادگی</label>
                     <i class="mdi mdi-account-plus ml-3 icons"></i>
-                    <input v-model="profileInfo.user.lname" type="text" class="form-control pl-5" placeholder="نام خانوادگی :">
+                    <input v-model="profileInfo.user.lname" type="text" class="form-control pl-5"
+                           placeholder="نام خانوادگی :">
                   </div>
                 </div><!--end col-->
                 <div class="col-md-6">
@@ -172,7 +174,12 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور قبلی :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input v-model="changePassword.oldPassword"  type="password" class="form-control pl-5" placeholder="رمز عبور قبلی" required>
+                        <b-form-input v-model="changePassword.oldPassword"
+                                      type="password"
+                                      class="form-control pl-5"
+                                      placeholder="رمز عبور قبلی"
+                                      required></b-form-input>
+
                       </div>
                     </div><!--end col-->
 
@@ -180,7 +187,14 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور جدید :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input v-model="changePassword.password" type="password" class="form-control pl-5" placeholder="رمز عبور جدید" required="">
+                        <b-form-input v-model="changePassword.password" type="password" class="form-control pl-5"
+                                      placeholder="رمز عبور جدید" required :state="passwordValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="passwordValidation">
+                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="passwordValidation">
+                          رمز عبور مورد تایید است
+                        </b-form-valid-feedback>
                       </div>
                     </div><!--end col-->
 
@@ -188,7 +202,15 @@
                       <div class="form-group position-relative">
                         <label>تایید رمز عبور جدید :</label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <input v-model="changePassword.retypePassword" type="password" class="form-control pl-5" placeholder="تایید رمز عبور جدید" required="">
+                        <b-form-input v-model="changePassword.retypePassword" type="password" class="form-control pl-5"
+                                      placeholder="تایید رمز عبور جدید" required
+                                      :state="retypePasswordValidation"></b-form-input>
+                        <b-form-invalid-feedback :state="retypePasswordValidation">
+                          {{validation.retypePassword}}
+                        </b-form-invalid-feedback>
+                        <b-form-valid-feedback :state="retypePasswordValidation">
+                          {{validation.retypePassword}}
+                        </b-form-valid-feedback>
                       </div>
                     </div><!--end col-->
 
@@ -199,7 +221,8 @@
                           <span class="ml-2 p-0">لطفا صبر کنید...</span>
                         </b-row>
                       </b-button>
-                      <button v-else :disabled="loading" @click="editPassword" class="btn btn-primary">ذخیره رمز عبور</button>
+                      <button v-else :disabled="loading" @click="editPassword" class="btn btn-primary">ذخیره رمز عبور
+                      </button>
                     </div><!--end col-->
                   </div><!--end row-->
 
@@ -304,7 +327,8 @@
                       <span class="ml-2 p-0">لطفا صبر کنید...</span>
                     </b-row>
                   </b-button>
-                  <input v-else :disabled="loading" @click="editBusinessData" class="btn btn-primary" value="ذخیره تنظیمات">
+                  <input v-else :disabled="loading" @click="editBusinessData" class="btn btn-primary"
+                         value="ذخیره تنظیمات">
                 </div><!--end col-->
               </div><!--end row-->
 
@@ -331,7 +355,7 @@
         gender: {
           selected: null,
           options: [
-            {value: null, text: 'جنسیت',notEnabled:true},
+            {value: null, text: 'جنسیت', notEnabled: true},
             {value: 'مرد', text: 'مرد'},
             {value: 'زن', text: 'زن'},
           ]
@@ -351,10 +375,14 @@
           email: this.$auth.user.email
         },
         profileInfo: {},
-        changePassword:{
-          oldPassword:'',
-          password:'',
-          retypePassword:''
+        changePassword: {
+          oldPassword: '',
+          password: '',
+          retypePassword: ''
+        },
+        validation: {
+          password: '',
+          retypePassword: ''
         }
       }
     },
@@ -375,12 +403,12 @@
     methods: {
       async editPersonalData() {
         this.loading = true
-        let result  = await this.$apollo.mutate({
-          mutation:editUser,
-          variables:{
-            id:this.$auth.user._id,
-            fname:this.profileInfo.user.fname,
-            lname:this.profileInfo.user.lname
+        let result = await this.$apollo.mutate({
+          mutation: editUser,
+          variables: {
+            id: this.$auth.user._id,
+            fname: this.profileInfo.user.fname,
+            lname: this.profileInfo.user.lname
           }
         })
         console.log(result)
@@ -417,19 +445,36 @@
         console.log(id)
         this.loading = false
       },
-      async editPassword(){
+      async editPassword() {
         this.loading = true
         let result = await this.$apollo.mutate({
-          mutation:changePassword,
-          variables:{
-            id:this.$auth.user._id,
-            oldPassword:this.changePassword.oldPassword,
-            password:this.changePassword.password,
-            retypePassword:this.changePassword.retypePassword
+          mutation: changePassword,
+          variables: {
+            id: this.$auth.user._id,
+            oldPassword: this.changePassword.oldPassword,
+            password: this.changePassword.password,
+            retypePassword: this.changePassword.retypePassword
           }
         })
         console.log(result)
         this.loading = false
+      }
+    },
+    computed: {
+      passwordValidation() {
+        return (this.changePassword.password.length >= 8 && this.changePassword.password.match('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,30}$') !== null)
+      },
+      retypePasswordValidation() {
+        if (!this.changePassword.retypePassword) {
+          this.validation.retypePassword = 'تایید رمز نباید خالی باشد'
+          return false
+        } else if (this.changePassword.retypePassword === this.changePassword.password) {
+          this.validation.retypePassword = 'تایید رمز مطابقت دارد'
+          return true
+        } else {
+          this.validation.retypePassword = 'تایید رمز مطابقت ندارد'
+          return false
+        }
       }
     },
   }
