@@ -66,7 +66,7 @@
                         <i class="mdi mdi-key ml-3 icons"></i>
                         <b-form-input type="password" class="form-control pl-5" v-model="form.password" placeholder="وارد کنید"  :state="passwordValidation"></b-form-input>
                         <b-form-invalid-feedback :state="passwordValidation">
-                          پسورد نباید کمتر از هشت کارکتر باشد
+                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
                         </b-form-invalid-feedback>
                         <b-form-valid-feedback :state="passwordValidation">
                           پسورد مورد تایید است
@@ -166,10 +166,10 @@
         return this.form.lname.length > 2
       },
       emailValidation() {
-        return this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null
+        return (this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null)
       },
       passwordValidation(){
-        return this.form.password.length >= 8
+        return (this.form.password.length >= 8 && this.form.password.match('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,30}$') !== null)
       },
       retypePasswordValidation(){
         if(!this.form.retypePassword){

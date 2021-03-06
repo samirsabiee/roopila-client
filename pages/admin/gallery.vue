@@ -33,6 +33,7 @@
   import {galleryImageByCategoryId} from "../../graphql/galleryImageByCategoryId";
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "gallery",
     layout: "admin",
     data() {

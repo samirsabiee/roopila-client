@@ -232,6 +232,7 @@
   import {user} from "../../graphql/user";
 
   export default {
+    middleware:['adminOrSuperAdmin'],
     name: "userDetail",
     layout: 'admin',
     data() {

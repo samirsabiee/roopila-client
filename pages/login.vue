@@ -101,6 +101,7 @@
     methods: {
       login() {
         this.loading = true
+        //todo this.rememberMe()
         this.$auth.loginWith('express', {data: this.form})
           .then(({data}) => {
             this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
@@ -113,6 +114,9 @@
           }).finally(() => {
           this.loading = false
         })
+      },
+      rememberMe(){
+        this.$store.dispatch('rememberMe/setFormData',this.form)
       }
     },
     computed: {
