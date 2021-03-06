@@ -28,7 +28,8 @@
               <td><p>{{order.description}}</p></td>
               <td><i :title="order.status" :class="getStatusIcon(order.status)"></i></td>
               <td>
-                <b-button v-if="showCancelButton(order.status)" @click="showCancelModal(order.id)" title="لغو درخواست"
+                <b-button v-if="showCancelButton(order.status)" @click="showCancelModal(order.id,order.itemName)"
+                          title="لغو درخواست"
                           size="sm"
                           variant="danger"><i class="fa fa-2x fa-times"></i></b-button>
               </td>
@@ -118,6 +119,7 @@
             variables: {id: this.cancelModalData.cancelId, status: Canceled}
 
           })
+          this.hideCancelModal()
         } catch (e) {
           console.log(e)
         }
@@ -127,9 +129,10 @@
         return status !== Canceled;
 
       },
-      showCancelModal(id) {
+      showCancelModal(id, itemName) {
         this.$bvModal.show('cancelModal')
         this.cancelModalData.cancelId = id
+        this.cancelModalData.content = `آیا از لغو درخواست ${itemName} اطمینان دارید؟`
       },
       hideCancelModal() {
         this.$bvModal.hide('cancelModal')

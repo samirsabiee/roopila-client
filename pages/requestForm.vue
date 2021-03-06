@@ -270,6 +270,9 @@
         loading:false
       }
     },
+    mounted() {
+      console.log(this.validMobile)
+    },
     methods: {
       loggedInUserAskedRequest() {
         this.loading =true
@@ -330,6 +333,10 @@
           lName += `${fullNamePart[i]} `
         }
         return lName
+      },
+      validMobile(){
+        let mobile = '009362633788'
+        return mobile.match(/^(0[1-9]{10}|\+98[1-9]{10}|9[1-9]{9})$/) !== null
       }
     },
   }
