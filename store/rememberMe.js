@@ -1,18 +1,28 @@
 export const state = () => ({
-  form: {}
+  loginForm: {},
+  requestForm:{}
 })
 
 export const mutations = {
-  SET_FORM_DATA(state, form) {
-    state.form = form
-  }
+  SET_LOGIN_FORM_DATA(state, form) {
+    state.loginForm = form
+  },
+  SET_REQUEST_FORM_DATA(state, form) {
+    state.requestForm = form
+  },
 }
 
 export const actions = {
-  setFormData({ commit }, form) {
-    commit('SET_FORM_DATA', form)
+  setLoginFormData({ commit }, form) {
+    commit('SET_LOGIN_FORM_DATA', form)
   },
-  clearFormData({ commit }) {
-    commit('SET_FORM_DATA', {})
-  }
+  clearLoginFormData({ commit }) {
+    commit('SET_LOGIN_FORM_DATA', {})
+  },
+  setRequestFormData({ commit }, form) {
+    commit('SET_REQUEST_FORM_DATA', form)
+  },
+  clearRequestFormData({ commit }) {
+    commit('SET_REQUEST_FORM_DATA', {})
+  },
 }

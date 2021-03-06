@@ -53,8 +53,16 @@
                                                             class="text-dark font-weight-bold">فراموشی رمز عبور؟</nuxt-link></p>
                       <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="customCheck1">
-                          <label class="custom-control-label" for="customCheck1">مرا به خاطر بسپار</label>
+<!--                          <input type="checkbox" class="custom-control-input" id="customCheck1">-->
+<!--                          <label class="custom-control-label" for="customCheck1">مرا به خاطر بسپار</label>-->
+
+                          <b-form-checkbox
+                            v-model="acceptRules"
+                            :value="true"
+                            :unchecked-value="false">
+                            مرا به خاطر بسپار
+                          </b-form-checkbox>
+
                         </div>
                       </div>
                     </div>
@@ -93,21 +101,25 @@
       return {
         loading:false,
         form: {
-          email: 'samirsabiee1@gmail.com',
-          password: 'A123456z@'
-        }
+          email: '',
+          password: ''
+        },
+        acceptRules:false
       }
+    },
+    mounted() {
+      this.loadStore()
     },
     methods: {
       login() {
         this.loading = true
-        //todo this.rememberMe()
         this.$auth.loginWith('express', {data: this.form})
           .then(({data}) => {
             this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
             this.$notify.success({
               message: ` خوش امدید ${this.$auth.user.fname} `
             })
+            if(this.acceptRules) this.rememberMe()
             if(this.$auth.hasScope('admin') || this.$auth.hasScope('superAdmin') ){
               this.$router.push('/admin/dashboard')
             }
@@ -116,7 +128,16 @@
         })
       },
       rememberMe(){
-        this.$store.dispatch('rememberMe/setFormData',this.form)
+        this.$store.dispatch('rememberMe/setLoginFormData',this.form)
+      },
+      loadStore(){
+        let email = this.$store.state.rememberMe.loginForm.email
+        let password = this.$store.state.rememberMe.loginForm.password
+        if(email !== undefined && password !== undefined){
+          this.acceptRules = true
+          this.form.email = email
+          this.form.password = password
+        }
       }
     },
     computed: {
