@@ -1,7 +1,7 @@
 <template>
-  <b-container fluid class="container section border-top mt-74px">
+  <b-container fluid class="section border-top mt-74px p-0 pt-3">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
+      <div class="col-11">
         <div class="table-responsive crypto-table bg-white shadow rounded m-0">
           <table class="table mb-0 table-center">
             <thead>
@@ -11,8 +11,8 @@
               <th scope="col" style="max-width: 150px;">تعداد</th>
               <th scope="col" style="max-width: 150px;">قیمیت پیشنهادی</th>
               <th scope="col" style="max-width: 150px;">قیمیت نهایی</th>
-              <th scope="col" style="max-width: 350px;">توضیحات</th>
-              <th class="min-width" scope="col" style="max-width: 150px;">وضعبت</th>
+              <th scope="col" style="width: 450px;">توضیحات</th>
+              <th scope="col" style="width: 40px;">وضعبت</th>
               <th scope="col" style="max-width: 150px;">عملیات</th>
             </tr>
             </thead>
@@ -28,11 +28,27 @@
               <td><p>{{order.description}}</p></td>
               <td><i :title="order.status" :class="getStatusIcon(order.status)"></i></td>
               <td>
-                <b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button>
+                <b-button v-if="showCancelButton(order.status)" @click="showCancelModal(order.id)" title="لغو درخواست"
+                          size="sm"
+                          variant="danger"><i class="fa fa-2x fa-times"></i></b-button>
               </td>
             </tr>
             </tbody>
           </table><!--end table-->
+          <b-modal id="cancelModal">
+            <template #modal-header>لغو درخواست</template>
+            <template #default>{{cancelModalData.content}}</template>
+            <template #modal-footer="{ok , cancel}">
+
+              <b-button size="sm" variant="danger" @click="cancelRequest">
+                تایید
+              </b-button>
+              <b-button size="sm" variant="info" @click="hideCancelModal">
+                لغو
+              </b-button>
+
+            </template>
+          </b-modal>
         </div>
       </div><!--end col-->
     </div><!--end row-->
@@ -42,12 +58,18 @@
 <script>
   import {ordersByUserId} from "../graphql/ordersByUserId";
   import orderStatics from "../services/orderStatics"
+  import {editOrder} from "../graphql/mutation/editOrder";
 
   export default {
     name: "myOrders",
     data() {
       return {
         orders: [],
+        cancelModalData: {
+          title: 'لغو درخواست',
+          content: '',
+          cancelId: null
+        }
       }
     },
     apollo: {
@@ -87,6 +109,30 @@
             break
 
         }
+      },
+      async cancelRequest() {
+        try {
+          const {Canceled} = orderStatics
+          let result = await this.$apollo.mutate({
+            mutation: editOrder,
+            variables: {id: this.cancelModalData.cancelId, status: Canceled}
+
+          })
+        } catch (e) {
+          console.log(e)
+        }
+      },
+      showCancelButton(status) {
+        const {Canceled} = orderStatics
+        return status !== Canceled;
+
+      },
+      showCancelModal(id) {
+        this.$bvModal.show('cancelModal')
+        this.cancelModalData.cancelId = id
+      },
+      hideCancelModal() {
+        this.$bvModal.hide('cancelModal')
       }
     },
   }
@@ -94,14 +140,10 @@
 
 <style scoped>
   .mt-74px {
-    margin-top: 74px;
+    margin: 74px 0 0 0;
   }
 
   .table th, .table td {
-    vertical-align: baseline;
-  }
-
-  .min-width {
-    width: 180px;
+    vertical-align: middle;
   }
 </style>

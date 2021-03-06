@@ -188,7 +188,7 @@
     <!-- Profile End -->
 
     <div class="row justify-content-center mb-5">
-      <div class="col-12 col-lg-10">
+      <div class="col-11">
         <div class="table-responsive crypto-table bg-white shadow rounded m-0">
           <table class="table mb-0 table-center">
             <thead>
@@ -198,7 +198,7 @@
               <th scope="col" style="max-width: 150px;">تعداد</th>
               <th scope="col" style="max-width: 150px;">قیمیت پیشنهادی</th>
               <th scope="col" style="max-width: 150px;">قیمیت نهایی</th>
-              <th scope="col" style="max-width: 350px;">توضیحات</th>
+              <th scope="col" style="width: 350px;">توضیحات</th>
               <th scope="col" style="max-width: 150px;">وضعبت</th>
             </tr>
             </thead>
@@ -282,7 +282,7 @@
 
 <style scoped>
   .table th, .table td {
-    vertical-align: baseline;
+    vertical-align: middle;
   }
 
   .top-position {
