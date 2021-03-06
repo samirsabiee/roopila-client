@@ -11,7 +11,8 @@
                      style="z-index: 1;">
                   <div class="row align-items-center">
                     <div class="col-lg-2 col-md-3 text-md-left text-center">
-                      <b-img-lazy :src="user.profile.avatar" class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
+                      <b-img-lazy :src="user.profile.avatar"
+                                  class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
                     </div><!--end col-->
 
                     <div class="col-lg-10 col-md-9">
@@ -87,14 +88,14 @@
                         <i class="mdi mdi-phone float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">شماره تماس :</h6>
-                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.mobile}}</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.mobile}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
                         <i class="mdi mdi-email float-left text-muted mr-2"></i>
                         <div class="overflow-hidden d-block">
                           <h6 class="text-primary mb-0">ایمیل :</h6>
-                          <a href="javascript:void(0)" class="text-muted">{{$auth.user.email}}</a>
+                          <a href="javascript:void(0)" class="text-muted">{{user.email}}</a>
                         </div>
                       </li>
                       <li class="mt-3">
@@ -199,7 +200,6 @@
               <th scope="col" style="max-width: 150px;">قیمیت نهایی</th>
               <th scope="col" style="max-width: 350px;">توضیحات</th>
               <th scope="col" style="max-width: 150px;">وضعبت</th>
-              <th scope="col" style="max-width: 150px;">عملیات</th>
             </tr>
             </thead>
             <tbody class="text-center">
@@ -214,11 +214,11 @@
               <td><p>{{order.description}}</p></td>
               <td>
                 <b-form-select
-                  v-model="orderStatusSelected"
+                  v-model="order.status"
                   :options="orderStatusOptions"
+                  @change="saveOrderStatus(order.id,order.status)"
                 ></b-form-select>
               </td>
-              <td><b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button></td>
             </tr>
             </tbody>
           </table><!--end table-->
@@ -230,33 +230,34 @@
 
 <script>
   import {user} from "../../graphql/user";
+  import {editOrder} from "../../graphql/mutation/editOrder";
 
   export default {
-    middleware:['adminOrSuperAdmin'],
+    middleware: ['adminOrSuperAdmin'],
     name: "userDetail",
     layout: 'admin',
     data() {
       return {
         user: {},
-        orderStatusSelected:['در انتظار بررسی'],
-        orderStatusOptions:[
-          {value:'در انتظار بررسی',text:'در انتظار بررسی'},
-          {value:'در حال بررسی',text:'در حال بررسی'},
-          {value:'تایید شده',text:'تایید شده'},
-          {value:'در حال استعلام قیمت',text:'در حال استعلام قیمت'},
-          {value:'انجام شده',text:'انجام شده'},
+        orderStatusOptions: [
+          {value: 'در انتظار بررسی', text: 'در انتظار بررسی'},
+          {value: 'در حال بررسی', text: 'در حال بررسی'},
+          {value: 'تایید شده', text: 'تایید شده'},
+          {value: 'در حال استعلام قیمت', text: 'در حال استعلام قیمت'},
+          {value: 'انجام شده', text: 'انجام شده'},
+          {value: 'لغو شده', text: 'لغو شده'},
         ]
       }
     },
     apollo: {
-      user:{
-        query:user,
-        variables(){
+      user: {
+        query: user,
+        variables() {
           return {
-            id:this.$route.query.id
+            id: this.$route.query.id
           }
         },
-        result({data}){
+        result({data}) {
           this.user = data.user
         }
       }
@@ -266,6 +267,16 @@
         return `${this.user.fname} ${this.user.lname}`;
       }
     },
+    methods: {
+      async saveOrderStatus(id, status) {
+        console.log(id, status)
+        let result = await this.$apollo.mutate({
+          mutation: editOrder,
+          variables: {id, status}
+        })
+        console.log(result)
+      }
+    }
   }
 </script>
 

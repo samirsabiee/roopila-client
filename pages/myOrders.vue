@@ -26,8 +26,10 @@
               <td>{{order.inquiryAmount}} تومان</td>
               <td>{{order.finalAmount}} تومان</td>
               <td><p>{{order.description}}</p></td>
-              <td><i title="در حال بررسی" class="fa fa-spinner fa-spin"></i></td>
-              <td><b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button></td>
+              <td><i :title="order.status" :class="getStatusIcon(order.status)"></i></td>
+              <td>
+                <b-button title="لغو درخواست" size="sm" variant="danger"><i class="fa fa-2x fa-times"></i></b-button>
+              </td>
             </tr>
             </tbody>
           </table><!--end table-->
@@ -39,6 +41,7 @@
 
 <script>
   import {ordersByUserId} from "../graphql/ordersByUserId";
+  import orderStatics from "../services/orderStatics"
 
   export default {
     name: "myOrders",
@@ -55,23 +58,50 @@
             user_id: this.$auth.user._id
           }
         },
-        result({data}){
+        result({data}) {
           this.orders = data.ordersByUserId.orders
         }
       }
-    }
+    },
+    methods: {
+      getStatusIcon(status) {
+        const {Awaiting_review, Pending, Accepted, Inquiring_prices, Done, Canceled} = orderStatics
+        switch (status) {
+          case Awaiting_review:
+            return "fa fa-spinner fa-spin"
+            break
+          case Pending:
+            return "fas fa-eye text-warning"
+            break
+          case Accepted:
+            return "fas fa-check text-success"
+            break
+          case Inquiring_prices:
+            return "fas fa-dollar-sign text-success"
+            break
+          case Done:
+            return "fas fa-check-double text-success"
+            break
+          case Canceled:
+            return "fas fa-times text-danger"
+            break
+
+        }
+      }
+    },
   }
 </script>
 
 <style scoped>
- .mt-74px{
-   margin-top: 74px;
- }
- .table th, .table td {
-   vertical-align: baseline;
- }
+  .mt-74px {
+    margin-top: 74px;
+  }
 
-  .min-width{
+  .table th, .table td {
+    vertical-align: baseline;
+  }
+
+  .min-width {
     width: 180px;
   }
 </style>
