@@ -25,7 +25,8 @@
                       <div class="form-group position-relative">
                         <label>نام کوچک <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <b-form-input type="text" class="form-control pl-5" v-model="form.fname" placeholder="وارد کنید"  :state="fNameValidation"></b-form-input>
+                        <b-form-input type="text" class="form-control pl-5" v-model="form.fname" placeholder="وارد کنید"
+                                      :state="fNameValidation"></b-form-input>
                         <b-form-invalid-feedback :state="fNameValidation">
                           نام نباید کمتر از سه کارکتر باشد
                         </b-form-invalid-feedback>
@@ -38,12 +39,13 @@
                       <div class="form-group position-relative">
                         <label>نام خانوادگی <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <b-form-input type="text" class="form-control pl-5" v-model="form.lname" placeholder="وارد کنید"  :state="lNameValidation"></b-form-input>
+                        <b-form-input type="text" class="form-control pl-5" v-model="form.lname" placeholder="وارد کنید"
+                                      :state="lNameValidation"></b-form-input>
                         <b-form-invalid-feedback :state="lNameValidation">
-                         نام خانوادگی نباید کمتر از سه کارکتر باشد
+                          نام خانوادگی نباید کمتر از سه کارکتر باشد
                         </b-form-invalid-feedback>
                         <b-form-valid-feedback :state="lNameValidation">
-                         نام خانوادگی مورد تایید است
+                          نام خانوادگی مورد تایید است
                         </b-form-valid-feedback>
                       </div>
                     </div>
@@ -51,7 +53,8 @@
                       <div class="form-group position-relative">
                         <label>ایمیل شما <span class="text-danger">*</span></label>
                         <i class="mdi mdi-account ml-3 icons"></i>
-                        <b-form-input type="email" class="form-control pl-5" v-model="form.email" placeholder="وارد کنید"  :state="emailValidation"></b-form-input>
+                        <b-form-input type="email" class="form-control pl-5" v-model="form.email"
+                                      placeholder="وارد کنید" :state="emailValidation"></b-form-input>
                         <b-form-invalid-feedback :state="emailValidation">
                           فرمت ایمیل مورد تایید نیست
                         </b-form-invalid-feedback>
@@ -64,9 +67,11 @@
                       <div class="form-group position-relative">
                         <label>رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <b-form-input type="password" class="form-control pl-5" v-model="form.password" placeholder="وارد کنید"  :state="passwordValidation"></b-form-input>
+                        <b-form-input type="password" class="form-control pl-5" v-model="form.password"
+                                      placeholder="وارد کنید" :state="passwordValidation"></b-form-input>
                         <b-form-invalid-feedback :state="passwordValidation">
-                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
+                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از
+                          هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
                         </b-form-invalid-feedback>
                         <b-form-valid-feedback :state="passwordValidation">
                           پسورد مورد تایید است
@@ -77,7 +82,8 @@
                       <div class="form-group position-relative">
                         <label>تایید رمز عبور <span class="text-danger">*</span></label>
                         <i class="mdi mdi-key ml-3 icons"></i>
-                        <b-form-input type="password" class="form-control pl-5" v-model="form.retypePassword" placeholder="وارد کنید"  :state="retypePasswordValidation"></b-form-input>
+                        <b-form-input type="password" class="form-control pl-5" v-model="form.retypePassword"
+                                      placeholder="وارد کنید" :state="retypePasswordValidation"></b-form-input>
                         <b-form-invalid-feedback :state="retypePasswordValidation">
                           {{validation.retypePasswordStatus}}
                         </b-form-invalid-feedback>
@@ -88,9 +94,10 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="customCheck1">
-                          <label class="custom-control-label" for="customCheck1">تایید شرایط و قوانین</label>
+                        <div class="custom-control custom-checkbox p-0">
+                          <b-form-checkbox v-model="acceptedRules" :value="true" :unchecked-value="false"
+                                           id="customCheck1">تایید شرایط و قوانین
+                          </b-form-checkbox>
                         </div>
                       </div>
                     </div>
@@ -99,11 +106,15 @@
                         <b-spinner small type="grow"></b-spinner>
                         لطفا صبر کنید...
                       </b-button>
-                      <b-button v-else :disabled="loading" @click="register" class="btn btn-primary w-100">ثبت نام</b-button>
+                      <b-button v-else :disabled="loading" @click="register" class="btn btn-primary w-100">ثبت نام
+                      </b-button>
                     </div>
                     <div class="mx-auto">
-                      <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small> <nuxt-link
-                        to="/login" class="text-dark font-weight-bold">وارد شوید</nuxt-link></p>
+                      <p class="mb-0 mt-3"><small class="text-dark mr-2">قبلاً حساب دارید؟</small>
+                        <nuxt-link
+                          to="/login" class="text-dark font-weight-bold">وارد شوید
+                        </nuxt-link>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -125,6 +136,7 @@
     name: "register",
     data() {
       return {
+        acceptedRules: false,
         form: {
           fname: '',
           lname: '',
@@ -132,53 +144,81 @@
           password: '',
           retypePassword: ''
         },
-        validation:{
-          retypePasswordStatus:''
+        validation: {
+          retypePasswordStatus: ''
         },
-        loading:false
+        loading: false
       }
     },
     methods: {
       register() {
-        this.loading = true
-        this.$axios.$post('/register', this.form)
-          .then(({data}) => {
+        if (this.checkValidationBeforeRegister()) {
+          this.loading = true
+          this.$axios.$post('/register', this.form).then(({data}) => {
             this.$auth.loginWith('express', {data: {email: this.form.email, password: this.form.password}}).then(() => {
               this.$apolloHelpers.onLogin(this.$auth.strategy.token.get())
               this.$auth.redirect('dashboard')
               this.$notify.success({
                 message: ` خوش امدید ${this.$auth.user.fname} `
               })
+            }).finally(() => {
+              this.loading = false
             })
-              .finally(() => {
-                this.loading = false
-              })
+            this.loading = false
 
           })
-
+        } else {
+          this.loading = false
+        }
+      },
+      checkValidationBeforeRegister() {
+        if (!this.fNameValidation) {
+          this.showErrorNotify('نام را به درستی وارد کنید')
+          return false
+        } else if (!this.lNameValidation) {
+          this.showErrorNotify('نام خانوادگی را به درستی وارد کنید')
+          return false
+        } else if (!this.emailValidation) {
+          this.showErrorNotify('ایمیل را به درستی وارد کنید')
+          return false
+        } else if (!this.passwordValidation) {
+          this.showErrorNotify('رمزعبور را به درستی وارد کنید')
+          return false
+        } else if (!this.retypePasswordValidation) {
+          this.showErrorNotify('تایید رمزعبور را به درستی وارد کنید')
+          return false
+        } else if (!this.acceptedRules) {
+          this.showErrorNotify('قوانین را باید تایید کنید')
+          return false
+        } else {
+          return true
+        }
+      },
+      showErrorNotify(message) {
+        this.$notify.error({message})
       }
     },
     computed: {
       fNameValidation() {
         return this.form.fname.length > 2
       },
-      lNameValidation(){
+      lNameValidation() {
         return this.form.lname.length > 2
       },
       emailValidation() {
         return (this.form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) !== null)
       },
-      passwordValidation(){
+      passwordValidation() {
         return (this.form.password.length >= 8 && this.form.password.match('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,30}$') !== null)
       },
-      retypePasswordValidation(){
-        if(!this.form.retypePassword){
+      retypePasswordValidation() {
+        if (!this.form.retypePassword) {
           this.validation.retypePasswordStatus = 'تایید رمز نباید خالی باشد'
           return false
-        }else if(this.form.retypePassword === this.form.password){
+        } else if (this.form.retypePassword === this.form.password) {
           this.validation.retypePasswordStatus = 'تایید رمز مطابقت دارد'
           return true
-        }else{
+        } else {
           this.validation.retypePasswordStatus = 'تایید رمز مطابقت ندارد'
           return false
         }

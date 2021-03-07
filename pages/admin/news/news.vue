@@ -8,7 +8,7 @@
             <b-card no-body class="overflow-hidden" style="max-width: 540px; height: 250px">
               <b-row no-gutters class="h-100">
                 <b-col md="6">
-                  <b-card-img :src="`https://picsum.photos/266/200?random=${index+1}`" height="100%" alt="Image"
+                  <b-card-img :src="news.image" height="100%" alt="Image"
                               class="rounded-0 img-full"></b-card-img>
                 </b-col>
                 <b-col md="6" class="relative-position">
@@ -24,6 +24,8 @@
           </b-col>
 
         </b-row>
+        <b-pagination class="mt-3" align="center" v-model="paginate.page" :total-rows="paginate.total"
+                      :per-page="paginate.limit"></b-pagination>
       </b-col>
       <b-col cols="3" class="bg-light p-3">
         <h4 class="text-center">دسته بندی ها</h4>
@@ -32,7 +34,7 @@
           <b-col cols="11" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
           <b-col v-for="(category , index) in newsCategories.categories" :key="index" @click="logClick(category.id)"
                  cols="11" class="text-center m-1 p-2">
-            <b-button @click="" block variant="bg-light" class="border border-success">{{category.name}}</b-button>
+            <b-button @click="logClick(category.id)" block variant="bg-light" class="border border-success">{{category.name}}</b-button>
           </b-col>
         </div>
       </b-col>
@@ -51,16 +53,15 @@
     layout: "admin",
     data() {
       return {
-        newsArgs: {
-          page: 1,
-          limit: 10
-        },
         newsCategoriesArgs: {
           page: 1,
           limit: 50
         },
         newsItems: [],
-        paginate:{}
+        paginate:{
+          page: 1,
+          limit: 100
+        }
       }
     },
     apollo: {
@@ -68,12 +69,11 @@
         query: news,
         variables() {
           return {
-            page: this.newsArgs.page,
-            limit: this.newsArgs.limit
+            page: this.paginate.page,
+            limit: this.paginate.limit
           }
         },
         result({data}) {
-          console.log(data.news.paginate)
           this.newsItems = data.news.news
           this.paginate = data.news.paginate
         }
@@ -90,7 +90,7 @@
     },
     methods: {
       logClick(id) {
-        console.log(id)
+        console.log('hello')
       },
       jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')

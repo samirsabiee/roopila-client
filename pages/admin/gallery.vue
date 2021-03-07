@@ -45,7 +45,7 @@
           page: 1,
           pages: 1,
           total: 1,
-          limit: 30
+          limit: 100
         },
         imageItems: [],
         categoryItems: [],
@@ -81,8 +81,8 @@
         let categories = await this.$apollo.query({
           query: galleryCategories,
           variables: {
-            page: this.galleryData.page,
-            limit: this.galleryData.limit
+            page: 1,
+            limit: 10
           }
         })
         this.categoryItems = categories.data.galleryCategories.galleryCategories
@@ -93,8 +93,8 @@
           query: galleryImageByCategoryId,
           variables: {
             category_id,
-            page: this.galleryData.page,
-            limit: this.galleryData.limit
+            page: 1,
+            limit: 10
           }
         })
         this.imageItems = images.data.galleryImageByCategoryId.images

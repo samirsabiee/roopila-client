@@ -341,7 +341,7 @@
       },
       validMobile(){
         let mobile = this.$auth.user.mobile
-        mobile = mobile.replace(' ','')
+        mobile = mobile.replace(/\s/gi,'')
         return mobile.match(/^(0[1-9]{10}|\+98[1-9]{10}|9[1-9]{9})$/) !== null
       }
     },
