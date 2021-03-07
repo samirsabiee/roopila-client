@@ -271,7 +271,12 @@
       }
     },
     mounted() {
-      console.log(this.validMobile)
+      if(this.$auth.loggedIn && !this.validMobile){
+        this.$router.push('/editProfile')
+        this.$notify.error({
+          message:'شماره موبایل معتبر نمی باشد'
+        })
+      }
     },
     methods: {
       loggedInUserAskedRequest() {
@@ -335,7 +340,8 @@
         return lName
       },
       validMobile(){
-        let mobile = '009362633788'
+        let mobile = this.$auth.user.mobile
+        mobile = mobile.replace(' ','')
         return mobile.match(/^(0[1-9]{10}|\+98[1-9]{10}|9[1-9]{9})$/) !== null
       }
     },
