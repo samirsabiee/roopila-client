@@ -40,20 +40,22 @@
         <div class="row">
 
           <div v-for="(n,i) in news.news" :key="i" class="col-lg-4 col-md-6 col-12 mb-4 pb-2">
-            <div class="work-container position-relative rounded">
-              <div class="position-relative overflow-hidden">
-                <img :src="n.image" class="img-fluid rounded" alt="work-image">
-                <div class="overlay-work"></div>
-                <div class="content">
-                  <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">{{n.title}}</a>
-                  <small class="text-light">{{n.category.name}}</small>
-                </div>
-                <div class="client">
-                  <small class="text-light user d-block"><i class="mdi mdi-account"></i>سمیر سبیعی</small>
-                  <small class="text-light date"><i class="mdi mdi-calendar-check"></i>{{jalali(n.createdAt)}}</small>
+            <nuxt-link :to="{name:'newsDetail',query:{id:n.id}}">
+              <div class="work-container position-relative rounded">
+                <div class="position-relative overflow-hidden">
+                  <img :src="n.image" class="img-fluid rounded" alt="work-image">
+                  <div class="overlay-work"></div>
+                  <div class="content">
+                    <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">{{n.title}}</a>
+                    <small class="text-light">{{n.category.name}}</small>
+                  </div>
+                  <div class="client">
+                    <small class="text-light user d-block"><i class="mdi mdi-account"></i>سمیر سبیعی</small>
+                    <small class="text-light date"><i class="mdi mdi-calendar-check"></i>{{jalali(n.createdAt)}}</small>
+                  </div>
                 </div>
               </div>
-            </div>
+            </nuxt-link>
           </div><!--end col-->
 
         </div><!--end row-->
