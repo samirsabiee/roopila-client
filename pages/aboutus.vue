@@ -208,7 +208,7 @@
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
-                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">جعفر عباسی</a></h5>
+                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">سمیر سبیعی</a></h5>
                 <small class="designation text-muted">توسعه دهنده</small>
               </div>
             </div>
@@ -233,7 +233,7 @@
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
-                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">جعفر عباسی</a></h5>
+                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">سمیر سبیعی</a></h5>
                 <small class="designation text-muted">توسعه دهنده</small>
               </div>
             </div>
@@ -258,7 +258,7 @@
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
-                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">جعفر عباسی</a></h5>
+                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">سمیر سبیعی</a></h5>
                 <small class="designation text-muted">توسعه دهنده</small>
               </div>
             </div>
@@ -283,7 +283,7 @@
                 </ul>
               </div>
               <div class="content pt-3 pb-3">
-                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">جعفر عباسی</a></h5>
+                <h5 class="mb-0"><a href="javascript:void(0)" class="name text-dark">سمیر سبیعی</a></h5>
                 <small class="designation text-muted">توسعه دهنده</small>
               </div>
             </div>

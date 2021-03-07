@@ -1,10 +1,10 @@
 <template>
   <!-- Work Start -->
-  <section class="section">
+  <section class="section" v-if="!loading">
     <div class="container">
-      <div class="row" v-if="!loading">
+      <div class="row" >
         <ul class="col container-filter list-unstyled categories-filter text-center" id="filter">
-          <li v-for="(category,index) in categoryItems" :key="index" class="list-inline-item"><a
+          <li v-for="(category,index) in categoryItems" :key="index" @click="setCategoryIndex(index)" class="list-inline-item"><a
             :class="`categories border d-block text-dark rounded ${(index === 0)? 'active':''}`">{{category.name}}</a>
           </li>
         </ul>
@@ -13,139 +13,13 @@
 
     <div class="container-fluid">
       <div class="row container-grid projects-wrapper">
-        <div class="col-lg-3 col-md-6 spacing designing">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/13.jpg" title="">
-              <img src="~/assets/images/work/13.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">چشم انداز تغییر</a>
-              <small class="text-light">استودیو</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
 
-        <div class="col-lg-3 col-md-6 spacing photography">
+        <div v-for="(image,index) in categoryItems[categoryIndex].images" class="col-lg-3 col-md-6 spacing designing">
           <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/14.jpg" title="">
-              <img src="~/assets/images/work/14.jpg" class="img-fluid rounded" alt="work-image">
+            <a class="mfp-image d-inline-block" title="">
+              <img :src="image.image" class="img-fluid rounded" alt="work-image">
               <div class="overlay-work"></div>
             </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">مجله رنگ</a>
-              <small class="text-light">طراحی وب</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing designing">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/15.jpg" title="">
-              <img src="~/assets/images/work/15.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">لوازم آرایشی اسپا</a>
-              <small class="text-light">توسعه</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing photography">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/16.jpg" title="">
-              <img src="~/assets/images/work/16.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">قهوه ریزر</a>
-              <small class="text-light">برندینگ</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing branding">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/17.jpg" title="">
-              <img src="~/assets/images/work/17.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">رقصیدن با خودم</a>
-              <small class="text-light">عکاسی</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing development">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/18.jpg" title="">
-              <img src="~/assets/images/work/18.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">روندهای جدید در سئو</a>
-              <small class="text-light">شرکتی</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing branding">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/19.jpg" title="">
-              <img src="~/assets/images/work/19.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">لوازم آرایشی اسپا</a>
-              <small class="text-light">توسعه</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
-          </div>
-        </div><!--end col-->
-
-        <div class="col-lg-3 col-md-6 spacing development">
-          <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
-            <a class="mfp-image d-inline-block" href="images/work/20.jpg" title="">
-              <img src="~/assets/images/work/20.jpg" class="img-fluid rounded" alt="work-image">
-              <div class="overlay-work"></div>
-            </a>
-            <div class="content personal-port">
-              <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">قهوه ریزر</a>
-              <small class="text-light">برندینگ</small>
-            </div>
-            <div class="client personal-port">
-              <small class="text-light user d-block"><i class="mdi mdi-account"></i> جعفر عباسی</small>
-              <small class="text-light date"><i class="mdi mdi-calendar-check"></i> بهمن 1398</small>
-            </div>
           </div>
         </div><!--end col-->
       </div><!--end row-->
@@ -167,7 +41,8 @@
           limit: 10
         },
         loading: true,
-        categoryItems: []
+        categoryItems: [],
+        categoryIndex:0
       }
     },
     mounted() {
@@ -181,6 +56,9 @@
         })
         this.categoryItems = categories.data.galleryCategories.galleryCategories
         this.loading = false
+      },
+      setCategoryIndex(index){
+        this.categoryIndex = index
       }
     },
   }
