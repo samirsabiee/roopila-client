@@ -15,10 +15,13 @@
       </b-col>
       <b-col cols="2">
         <b-row align-h="center" class="p-3 max-height">
-          <b-col cols="12" class="text-center m-1 p-2 border border-success d-flex flex-row justify-content-center align-items-center"><i class="fas fa-plus-square"></i></b-col>
+          <b-col cols="12"
+                 class="text-center m-1 p-2 border border-success d-flex flex-row justify-content-center align-items-center">
+            <i class="fas fa-plus-square"></i></b-col>
           <b-col cols="12" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
-          <b-col v-for="(category,index) in categoryItems" :key="index" @click="galleryImageByCategoryId(category.id)" cols="12" class="text-center m-1 p-2">
-            <b-button block variant="bg-light" class="border border-success'">{{category.name}}</b-button>
+          <b-col v-for="(category,index) in categoryItems" :key="index" @click="galleryImageByCategoryId(category.id)"
+                 cols="12" class="text-center m-1 p-2">
+            <b-button block variant="bg-light" class="border border-success">{{category.name}}</b-button>
           </b-col>
         </b-row>
       </b-col>
@@ -33,15 +36,15 @@
   import {galleryImageByCategoryId} from "../../graphql/galleryImageByCategoryId";
 
   export default {
-    middleware:['adminOrSuperAdmin'],
+    middleware: ['adminOrSuperAdmin'],
     name: "gallery",
     layout: "admin",
     data() {
       return {
         galleryData: {
           page: 1,
-          pages:1,
-          total:1,
+          pages: 1,
+          total: 1,
           limit: 30
         },
         imageItems: [],
@@ -74,7 +77,7 @@
         this.galleryData = images.data.galleryImages.paginate
         this.loading = false
       },
-      async galleryCategories(){
+      async galleryCategories() {
         let categories = await this.$apollo.query({
           query: galleryCategories,
           variables: {
@@ -84,14 +87,14 @@
         })
         this.categoryItems = categories.data.galleryCategories.galleryCategories
       },
-      async galleryImageByCategoryId(category_id){
+      async galleryImageByCategoryId(category_id) {
         this.$nuxt.$loading.start()
         let images = await this.$apollo.query({
-          query:galleryImageByCategoryId,
-          variables:{
+          query: galleryImageByCategoryId,
+          variables: {
             category_id,
-            page:this.galleryData.page,
-            limit:this.galleryData.limit
+            page: this.galleryData.page,
+            limit: this.galleryData.limit
           }
         })
         this.imageItems = images.data.galleryImageByCategoryId.images
@@ -113,8 +116,8 @@
 </script>
 
 <style scoped>
-.max-height{
-  max-height: 600px;
-  overflow: auto;
-}
+  .max-height {
+    max-height: 600px;
+    overflow: auto;
+  }
 </style>
