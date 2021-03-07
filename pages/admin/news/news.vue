@@ -4,7 +4,7 @@
     <b-row align-h="center">
       <b-col cols="9" class="bg-light p-2">
         <b-row align="center" align-h="center">
-          <b-col cols="5" class="mt-4" v-for="(news,index) in news.news" :key="index">
+          <b-col cols="5" class="mt-4" v-for="(news,index) in newsItems" :key="index">
             <b-card no-body class="overflow-hidden" style="max-width: 540px; height: 250px">
               <b-row no-gutters class="h-100">
                 <b-col md="6">
@@ -32,7 +32,7 @@
           <b-col cols="11" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
           <b-col v-for="(category , index) in newsCategories.categories" :key="index" @click="logClick(category.id)"
                  cols="11" class="text-center m-1 p-2">
-            <b-button block variant="bg-light" class="border border-success">{{category.name}}</b-button>
+            <b-button @click="" block variant="bg-light" class="border border-success">{{category.name}}</b-button>
           </b-col>
         </div>
       </b-col>
@@ -59,7 +59,8 @@
           page: 1,
           limit: 50
         },
-        newsItems: []
+        newsItems: [],
+        paginate:{}
       }
     },
     apollo: {
@@ -70,6 +71,11 @@
             page: this.newsArgs.page,
             limit: this.newsArgs.limit
           }
+        },
+        result({data}) {
+          console.log(data.news.paginate)
+          this.newsItems = data.news.news
+          this.paginate = data.news.paginate
         }
       },
       newsCategories: {
@@ -85,21 +91,6 @@
     methods: {
       logClick(id) {
         console.log(id)
-      },
-      getNewsItems() {
-        let newsItem = [];
-        this.news.news.filter(news => {
-          newsItem.push(
-            {
-              title: news.title,
-              content: news.content,
-              image: `http:localhost:3001${news.image}`,
-              category: news.category,
-              views: news.views
-            }
-          )
-        })
-        console.log(newsItem)
       },
       jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
@@ -121,29 +112,6 @@
 
   body {
     font-family: IRANSans, serif;
-  }
-
-  .news-box {
-    position: relative;
-    width: 18rem;
-    height: 12rem;
-    margin: 4px;
-  }
-
-  .darkLayer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-
-  .category-font-size {
-    font-size: 14px;
-  }
-
-  .date-font-size {
-    font-size: 12px;
   }
 
   .img-full {
