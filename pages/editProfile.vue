@@ -160,7 +160,13 @@
                     </div><!--end col-->
 
                     <div class="col-lg-12 mt-2 mb-0">
-                      <button class="btn btn-primary">افزودن</button>
+                      <b-button v-if="loading" variant="primary" disabled>
+                        <b-row>
+                          <b-spinner small type="grow" class="m-1"></b-spinner>
+                          <span class="ml-2 p-0">لطفا صبر کنید...</span>
+                        </b-row>
+                      </b-button>
+                      <button v-else :disabled="loading" @click="editContactData" class="btn btn-primary">ذخیره اطلاعات</button>
                     </div><!--end col-->
                   </div><!--end row-->
 
@@ -411,7 +417,6 @@
             lname: this.profileInfo.user.lname
           }
         })
-        console.log(result)
         let id = await this.$apollo.mutate({
           mutation: editProfile,
           variables: {
@@ -424,7 +429,6 @@
             bio: this.profileInfo.bio
           }
         })
-        console.log(id)
         this.loading = false
       },
       async editBusinessData() {
@@ -440,6 +444,27 @@
             companyPhone: this.profileInfo.companyPhone,
             companyFax: this.profileInfo.companyFax,
             companyBranchAddress: [this.profileInfo.companyBranchAddress[0]],
+          }
+        })
+        console.log(id)
+        this.loading = false
+      },
+      async editContactData(){
+        this.loading = true
+        let result = await this.$apollo.mutate({
+          mutation: editUser,
+          variables: {
+            id: this.$auth.user._id,
+            mobile: this.user.mobile,
+            email: this.user.email
+          }
+        })
+        console.log(result)
+        let id = await this.$apollo.mutate({
+          mutation: editProfile,
+          variables: {
+            user_id: this.$auth.user._id,
+            website: this.profileInfo.website
           }
         })
         console.log(id)
