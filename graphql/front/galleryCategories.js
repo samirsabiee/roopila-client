@@ -5,6 +5,10 @@ export const galleryCategories = gql`
               galleryCategories{
                   id
                   name
+                  images{
+                    id
+                    image
+                  }
               }
           }
       }

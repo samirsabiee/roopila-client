@@ -177,7 +177,7 @@
       async galleryCategories() {
         let categories = await this.$apollo.query({
           query: galleryCategories,
-          variables: {limit: 5}
+          variables: {limit: 8}
         })
         this.categoryItems = categories.data.galleryCategories.galleryCategories
         this.loading = false
