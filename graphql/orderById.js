@@ -2,20 +2,31 @@ import gql from 'graphql-tag'
 export const orderById = gql`
   query orderById($id:String!){
     orderById(id:$id){
-        user_id
         user{
+          id
           fname
           lname
+          mobile
+          email
+          createdAt
+          profile{
+          melicode
+          gender
+          businessField
+          address
+          }
         }
         payment{
           payments{
             id
           }
         }
+        id
         itemName
         itemCount
         itemWeight
         itemVolume
+        description
         itemSample
         status
         inquiryAmount

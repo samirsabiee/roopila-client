@@ -26,7 +26,9 @@
         <td>{{order.inquiryAmount}}</td>
         <td>{{order.finalAmount}}</td>
         <td>{{order.status}}</td>
-        <td><i @click="showMore(order.id)" class="fas fa-eye"></i></td>
+        <td>
+          <nuxt-link :to="{path:'/admin/orderDetail',query:{id:order.id}}"><i class="fas fa-eye"></i></nuxt-link>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -40,7 +42,7 @@
   import {orderById} from "../../graphql/orderById";
 
   export default {
-    middleware:['adminOrSuperAdmin'],
+    middleware: ['adminOrSuperAdmin'],
     name: "orders",
     layout: "admin",
     data() {
@@ -52,7 +54,7 @@
       }
     },
     apollo: {
-      orders:{
+      orders: {
         query: orders,
         variables() {
           return {
@@ -60,14 +62,6 @@
             limit: this.ordersArgs.limit
           }
         }
-      }
-    },
-    methods: {
-      showMore(orderId) {
-        this.$apollo.query({
-          query:orderById,
-          variables:{id:orderId}
-        })
       }
     },
   }

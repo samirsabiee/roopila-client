@@ -231,6 +231,7 @@
 <script>
   import {user} from "../../graphql/user";
   import {editOrder} from "../../graphql/mutation/editOrder";
+  import orderStatus from "../../services/orderStatus";
 
   export default {
     middleware: ['adminOrSuperAdmin'],
@@ -239,14 +240,7 @@
     data() {
       return {
         user: {},
-        orderStatusOptions: [
-          {value: 'در انتظار بررسی', text: 'در انتظار بررسی'},
-          {value: 'در حال بررسی', text: 'در حال بررسی'},
-          {value: 'تایید شده', text: 'تایید شده'},
-          {value: 'در حال استعلام قیمت', text: 'در حال استعلام قیمت'},
-          {value: 'انجام شده', text: 'انجام شده'},
-          {value: 'لغو شده', text: 'لغو شده'},
-        ]
+        orderStatusOptions: orderStatus
       }
     },
     apollo: {
@@ -269,7 +263,6 @@
     },
     methods: {
       async saveOrderStatus(id, status) {
-        console.log(id, status)
         let result = await this.$apollo.mutate({
           mutation: editOrder,
           variables: {id, status}
