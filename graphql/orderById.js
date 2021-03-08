@@ -19,6 +19,15 @@ export const orderById = gql`
         payment{
           payments{
             id
+            user_id
+            user_ip
+            pursuitNumber
+            amountPay
+            paymentStatus
+            cardNumber
+            cardShaba
+            bankPortId
+            createdAt
           }
         }
         id

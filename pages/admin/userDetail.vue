@@ -224,7 +224,7 @@
           </table><!--end table-->
         </div>
       </div><!--end col-->
-    </div><!--end row-->
+    </div>
   </b-container>
 </template>
 
