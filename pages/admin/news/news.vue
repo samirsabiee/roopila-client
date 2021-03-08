@@ -60,7 +60,7 @@
         newsItems: [],
         paginate:{
           page: 1,
-          limit: 100
+          limit: 10
         }
       }
     },
@@ -75,7 +75,9 @@
         },
         result({data}) {
           this.newsItems = data.news.news
-          this.paginate = data.news.paginate
+          this.paginate.page = data.news.paginate.page
+          this.paginate.limit = data.news.paginate.limit
+          this.paginate.total = data.news.paginate.total
         }
       },
       newsCategories: {

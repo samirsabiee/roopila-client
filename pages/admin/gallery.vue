@@ -45,7 +45,7 @@
           page: 1,
           pages: 1,
           total: 1,
-          limit: 100
+          limit: 18
         },
         imageItems: [],
         categoryItems: [],
@@ -74,7 +74,9 @@
           }
         })
         this.imageItems = images.data.galleryImages.images
-        this.galleryData = images.data.galleryImages.paginate
+        this.galleryData.page = images.data.galleryImages.paginate.page
+        this.galleryData.limit = images.data.galleryImages.paginate.limit
+        this.galleryData.total = images.data.galleryImages.paginate.total
         this.loading = false
       },
       async galleryCategories() {
@@ -98,7 +100,9 @@
           }
         })
         this.imageItems = images.data.galleryImageByCategoryId.images
-        this.galleryData = images.data.galleryImageByCategoryId.paginate
+        this.galleryData.page = images.data.galleryImageByCategoryId.paginate.page
+        this.galleryData.limit = images.data.galleryImageByCategoryId.paginate.limit
+        this.galleryData.total = images.data.galleryImageByCategoryId.paginate.total
         this.$nuxt.$loading.finish()
       }
     },
