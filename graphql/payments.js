@@ -4,15 +4,19 @@ export const payments = gql`
       query payments($page: Int , $limit: Int) {
           payments(page:$page limit:$limit) {
             payments{
+              user_ip
+              amountPay
               pursuitNumber
               order_id
               paymentStatus
+              cardNumber
+              cardShaba
+              bankPortId
+              createdAt
               user{
                 fname
                 lname
               }
-              amountPay
-              createdAt
             }
             paginate{
               page

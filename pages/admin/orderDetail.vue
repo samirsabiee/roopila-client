@@ -109,7 +109,7 @@
                 </li>
               </ul>
 
-              <b-row align="center">
+              <b-row align="center" v-if="showChangeAmountBox">
                 <div class="col-md-6">
                   <div class="form-group position-relative">
                     <label>تعیین قیمت استعلامی </label>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="col-md-6 d-flex align-items-center">
                   <b-form-select
-                    v-model="order.status"
+                    v-model="orderStatusSelected"
                     :options="orderStatusOptions"
                   ></b-form-select>
                 </div>
@@ -199,6 +199,7 @@
     data() {
       return {
         loading: true,
+        orderStatusSelected:'در انتظار بررسی',
         orderStatusOptions: orderStatus,
         order: {}
       }
@@ -215,6 +216,7 @@
           variables: {id: orderId}
         }).then(({data}) => {
           this.order = data.orderById
+          this.orderStatusSelected = data.orderById.status
           this.loading = false
         })
       },
@@ -228,11 +230,16 @@
             id,
             inquiryAmount: parseInt(this.order.inquiryAmount),
             finalAmount: parseInt(this.order.finalAmount),
-            status: this.order.status
+            status: this.orderStatusSelected
           }
         }).then(({data}) => {
-          console.log(data)
+         this.order.status = data.editOrder.status
         })
+      }
+    },
+    computed: {
+      showChangeAmountBox() {
+        return this.order.status !== 'انجام شده';
       }
     },
   }
