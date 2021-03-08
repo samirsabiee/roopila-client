@@ -43,6 +43,7 @@
 <script>
   import {payments} from "../../graphql/payments";
   import moment from "jalali-moment";
+  import search from "../../services/search";
 
   export default {
     middleware:['adminOrSuperAdmin'],
@@ -64,6 +65,10 @@
             page: this.paymentsArgs.page,
             limit: this.paymentsArgs.limit
           }
+
+        },
+        result({data}){
+          search(data.payments.payments,'')
         }
       }
     },

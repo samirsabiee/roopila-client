@@ -4,7 +4,7 @@
     <section class="bg-profile pt-0">
       <div class="home-center">
         <div class="home-desc-center">
-          <div class="container">
+          <div class="container-fluid">
             <div class="row">
               <div class="col-lg-12">
                 <div class="public-profile position-relative top-position p-4 bg-white overflow-hidden rounded shadow"
