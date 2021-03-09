@@ -40,6 +40,7 @@
 <script>
   import {orders} from '../../graphql/orders'
   import {orderById} from "../../graphql/orderById";
+  import search from "../../services/search";
 
   export default {
     middleware: ['adminOrSuperAdmin'],
@@ -61,6 +62,10 @@
             page: this.ordersArgs.page,
             limit: this.ordersArgs.limit
           }
+        },
+        result({data}){
+          //console.log(typeof data.orders.orders)
+          console.log(typeof search(data.orders.orders,'سمیر'))
         }
       }
     },

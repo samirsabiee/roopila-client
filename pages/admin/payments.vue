@@ -46,7 +46,7 @@
   import search from "../../services/search";
 
   export default {
-    middleware:['adminOrSuperAdmin'],
+    middleware: ['adminOrSuperAdmin'],
     name: "payments",
     layout: "admin",
     data() {
@@ -57,18 +57,18 @@
         }
       }
     },
-    apollo:{
-      payments:{
-        query:payments,
+    apollo: {
+      payments: {
+        query: payments,
         variables() {
           return {
             page: this.paymentsArgs.page,
             limit: this.paymentsArgs.limit
           }
-
         },
-        result({data}){
-          search(data.payments.payments,'')
+        result({data}) {
+          //console.log(typeof data.payments.payments)
+          console.log(typeof search(data.payments.payments,'همت'))
         }
       }
     },

@@ -33,6 +33,7 @@
 
 <script>
   import {users} from "../../graphql/users";
+  import search from "../../services/search";
 
   export default {
     middleware:['adminOrSuperAdmin'],
@@ -54,6 +55,10 @@
             page: this.usersArgs.page,
             limit: this.usersArgs.limit
           }
+        },
+        result({data}){
+          //console.log(typeof data.users.users)
+          console.log(typeof search(data.users.users,'سمیر'))
         }
       }
     },
