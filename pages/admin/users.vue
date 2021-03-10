@@ -83,11 +83,13 @@
             this.paginate.total = data.userSearch.paginate.total
           })
         } else {
+          //this.paginate.page = 1
+          //this.paginate.limit = 10
           this.$apollo.query({
             query: users,
             variables: {
-              page: 1,
-              limit: 10
+              page: this.paginate.page,
+              limit: this.paginate.limit
             }
           }).then(({data}) => {
             this.users = data.users.users
