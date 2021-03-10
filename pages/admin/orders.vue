@@ -64,8 +64,7 @@
           }
         },
         result({data}){
-          //console.log(typeof data.orders.orders)
-          console.log(typeof search(data.orders.orders,'سمیر'))
+          console.log(search(data.orders.orders,'سمیر'))
         }
       }
     },

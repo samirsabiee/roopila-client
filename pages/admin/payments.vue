@@ -67,8 +67,7 @@
           }
         },
         result({data}) {
-          //console.log(typeof data.payments.payments)
-          console.log(typeof search(data.payments.payments,'همت'))
+          console.log(search(data.payments.payments,'545.17'))
         }
       }
     },
