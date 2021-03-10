@@ -211,7 +211,7 @@
                     <label>نمونه / نمونه ای از کالای خود را بارگذاری کنید :</label>
                     <!--                     <input type="file" class="form-control-file">-->
                     <b-form-file class="text-center" v-model="form.samples" :state="Boolean(form.samples)"
-                                 placeholder="نمونه خود را با حجمی کتر از 10 مگابات انتخاب کنید"
+                                 placeholder="نمونه خود را با حجمی کمتر از 10 مگابایت انتخاب کنید"
                                  drop-placeholder="فایل را روی این باکس بکشید"></b-form-file>
                   </div>
                 </div><!--end col-->

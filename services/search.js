@@ -1,23 +1,22 @@
-export default (source, needle) => {
+export default (objectArray, stringItem) => {
   let result = Array()
-  if (Array.isArray(source)) {
-    for (const object of source) {
-      result.push(searchInObjectValues(object, needle))
+  if (Array.isArray(objectArray)) {
+    for (const object of objectArray) {
+      result.push(searchInObjectValues(object, stringItem))
     }
     return new Array(result)
   } else {
-    throw new Error('Source is Not Array')
+    throw new Error('objectArray is Not Array')
   }
 }
 
-function searchInObjectValues(object, needle) {
-  needle = needle.trim()
+function searchInObjectValues(object, stringItem) {
   for (const key in object) {
 
     if (isObject(object[key])){
-      return searchInObjectValues(object[key],needle)
+      return searchInObjectValues(object[key],stringItem.trim())
     }
-    if (Array.isArray(object[key].toString().match(new RegExp(needle)))) {
+    if (Array.isArray(object[key].toString().match(new RegExp(stringItem.trim())))) {
       return object
     }
   }

@@ -113,10 +113,11 @@
       },
       async cancelRequest() {
         try {
+          console.log(this.$auth.user._id)
           const {Canceled} = orderStatics
           let result = await this.$apollo.mutate({
             mutation: editOrder,
-            variables: {id: this.cancelModalData.cancelId, status: Canceled}
+            variables: {id: this.cancelModalData.cancelId, user_id: this.$auth.user._id, status: Canceled}
 
           })
           this.hideCancelModal()
