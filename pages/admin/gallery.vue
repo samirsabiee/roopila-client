@@ -3,7 +3,8 @@
     <b-row class="mt-2">
       <b-col cols="10" class="p-0">
         <b-row align="center" class="d-flex justify-content-center m-0 p-0">
-          <b-col v-for="(image , index) in imageItems" cols="2" :key="index" class="gallery-box-item bg-light p-1">
+          <b-col v-for="(image , index) in imageItems" cols="2" :key="index"
+                 class="gallery-box-item bg-light p-1 fadeIn-animation">
             <b-img-lazy v-bind="bImageProp" :src="image.image" alt="Gallery Image"></b-img-lazy>
           </b-col>
           <b-col cols="2" class="gallery-box-item bg-light m-1 p-5" style="font-size: 2rem;">
@@ -18,10 +19,18 @@
           <b-col cols="12"
                  class="text-center m-1 p-2 border border-success d-flex flex-row justify-content-center align-items-center">
             <i class="fas fa-plus-square"></i></b-col>
-          <b-col cols="12" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
+          <b-col cols="12" class="text-center m-1 p-2">
+            <b-button @click="galleryImages" block variant="bg-success"
+                      :class="(selectedCategoryId === 'all')?'text-center m-1 p-2  rounded btn btn-success':'border border-success'">
+              همه
+            </b-button>
+          </b-col>
           <b-col v-for="(category,index) in categoryItems" :key="index" @click="galleryImageByCategoryId(category.id)"
                  cols="12" class="text-center m-1 p-2">
-            <b-button block variant="bg-light" class="border border-success">{{category.name}}</b-button>
+            <b-button block variant="bg-light"
+                      :class="`border border-success ${(category.id === selectedCategoryId)?'text-center m-1 p-2  rounded btn btn-success':''}`">
+              {{category.name}}
+            </b-button>
           </b-col>
         </b-row>
       </b-col>
@@ -41,6 +50,7 @@
     layout: "admin",
     data() {
       return {
+        selectedCategoryId: null,
         galleryData: {
           page: 1,
           pages: 1,
@@ -61,37 +71,47 @@
       }
     },
     mounted() {
-      this.galleryImages()
+      this.galleryImages(true)
       this.galleryCategories()
     },
     methods: {
-      async galleryImages() {
-        let images = await this.$apollo.query({
+      galleryImages(isMounted = false) {
+        //this if for nextTick function
+        if (!isMounted) this.startLoading()
+        this.selectedCategoryId = 'all'
+        this.$apollo.query({
           query: galleryImages,
           variables: {
             page: this.galleryData.page,
             limit: this.galleryData.limit
           }
         })
-        this.imageItems = images.data.galleryImages.images
-        this.galleryData.page = images.data.galleryImages.paginate.page
-        this.galleryData.limit = images.data.galleryImages.paginate.limit
-        this.galleryData.total = images.data.galleryImages.paginate.total
-        this.loading = false
+          .then(({data}) => {
+            this.imageItems = data.galleryImages.images
+            this.galleryData.page = data.galleryImages.paginate.page
+            this.galleryData.limit = data.galleryImages.paginate.limit
+            this.galleryData.total = data.galleryImages.paginate.total
+            this.loading = false
+          }).finally(() => {
+          this.finishLoading()
+        })
       },
-      async galleryCategories() {
-        let categories = await this.$apollo.query({
+      galleryCategories() {
+        this.$apollo.query({
           query: galleryCategories,
           variables: {
             page: 1,
             limit: 10
           }
         })
-        this.categoryItems = categories.data.galleryCategories.galleryCategories
+          .then(({data}) => {
+            this.categoryItems = data.galleryCategories.galleryCategories
+          })
       },
-      async galleryImageByCategoryId(category_id) {
-        this.$nuxt.$loading.start()
-        let images = await this.$apollo.query({
+      galleryImageByCategoryId(category_id) {
+        this.selectedCategoryId = category_id
+        this.startLoading()
+        this.$apollo.query({
           query: galleryImageByCategoryId,
           variables: {
             category_id,
@@ -99,11 +119,14 @@
             limit: 10
           }
         })
-        this.imageItems = images.data.galleryImageByCategoryId.images
-        this.galleryData.page = images.data.galleryImageByCategoryId.paginate.page
-        this.galleryData.limit = images.data.galleryImageByCategoryId.paginate.limit
-        this.galleryData.total = images.data.galleryImageByCategoryId.paginate.total
-        this.$nuxt.$loading.finish()
+          .then(({data}) => {
+            this.imageItems = data.galleryImageByCategoryId.images
+            this.galleryData.page = data.galleryImageByCategoryId.paginate.page
+            this.galleryData.limit = data.galleryImageByCategoryId.paginate.limit
+            this.galleryData.total = data.galleryImageByCategoryId.paginate.total
+          }).finally(() => {
+          this.finishLoading()
+        })
       }
     },
     computed: {
