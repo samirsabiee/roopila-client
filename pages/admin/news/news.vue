@@ -4,12 +4,12 @@
     <b-row align-h="center">
       <b-col cols="9" class="bg-light p-2">
         <b-row align="center" align-h="center">
-          <b-col cols="5" class="mt-4" v-for="(news,index) in newsItems" :key="index">
+          <b-col cols="5" class="mt-4 fadeIn-animation" v-for="(news,index) in newsItems" :key="index">
             <b-card no-body class="overflow-hidden" style="max-width: 540px; height: 250px">
               <b-row no-gutters class="h-100">
                 <b-col md="6">
                   <b-card-img :src="news.image" height="100%" alt="Image"
-                              class="rounded-0 img-full"></b-card-img>
+                              class="rounded-0 img-full fadeIn-animation"></b-card-img>
                 </b-col>
                 <b-col md="6" class="relative-position">
                   <b-card-body :title="news.title">
@@ -31,10 +31,18 @@
         <h4 class="text-center">دسته بندی ها</h4>
         <hr class="mb-3">
         <div class="max-height">
-          <b-col cols="11" class="text-center m-1 p-2 border bg-success rounded text-white border-success">همه</b-col>
-          <b-col v-for="(category , index) in newsCategories.categories" :key="index" @click="logClick(category.id)"
+          <b-col cols="11" class="text-center m-1 p-2">
+            <b-button block @click="news" variant="bg-light"
+                      :class="(selectedCategoryId === 'all')?'text-center m-1 p-2  rounded btn btn-success':'border border-success'">
+              همه
+            </b-button>
+          </b-col>
+          <b-col v-for="(category , index) in newsCategories.categories" :key="index"
                  cols="11" class="text-center m-1 p-2">
-            <b-button @click="logClick(category.id)" block variant="bg-light" class="border border-success">{{category.name}}</b-button>
+            <b-button @click="newsByCategoryId(category.id)" block variant="bg-light"
+                      :class="`border border-success ${(category.id === selectedCategoryId)?'text-center m-1 p-2  rounded btn btn-success':''}`">
+              {{category.name}}
+            </b-button>
           </b-col>
         </div>
       </b-col>
@@ -46,6 +54,7 @@
   import {news} from '../../../graphql/news'
   import {newsCategories} from "../../../graphql/newsCategories";
   import moment from 'jalali-moment'
+  import {newsByCategoryId} from "../../../graphql/newsByCategoryId";
 
   export default {
     middleware: ['adminOrSuperAdmin'],
@@ -53,12 +62,13 @@
     layout: "admin",
     data() {
       return {
+        selectedCategoryId: null,
         newsCategoriesArgs: {
           page: 1,
           limit: 50
         },
         newsItems: [],
-        paginate:{
+        paginate: {
           page: 1,
           limit: 10
         }
@@ -78,6 +88,7 @@
           this.paginate.page = data.news.paginate.page
           this.paginate.limit = data.news.paginate.limit
           this.paginate.total = data.news.paginate.total
+          this.selectedCategoryId = 'all'
         }
       },
       newsCategories: {
@@ -91,8 +102,42 @@
       }
     },
     methods: {
-      logClick(id) {
-        console.log('hello')
+      news() {
+        this.selectedCategoryId = 'all'
+        this.startLoading()
+        this.$apollo.query({
+          query: news,
+          variables: {
+            page: this.paginate.page,
+            limit: this.paginate.limit
+          },
+        })
+          .then(({data}) => {
+            this.newsItems = data.news.news
+            this.paginate.page = data.news.paginate.page
+            this.paginate.limit = data.news.paginate.limit
+            this.paginate.total = data.news.paginate.total
+          }).finally(() => {
+          this.finishLoading()
+        })
+      },
+      newsByCategoryId(id) {
+        this.selectedCategoryId = id
+        this.startLoading()
+        this.$apollo.query({
+          query: newsByCategoryId,
+          variables: {
+            category_id: id
+          }
+        })
+          .then(({data}) => {
+            this.newsItems = data.newsByCategoryId.news
+            this.paginate.page = data.newsByCategoryId.paginate.page
+            this.paginate.limit = data.newsByCategoryId.paginate.limit
+            this.paginate.total = data.newsByCategoryId.paginate.total
+          }).finally(() => {
+          this.finishLoading()
+        })
       },
       jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
@@ -105,11 +150,6 @@
   @font-face {
     font-family: IRANSans;
     src: url("~static/fonts/IRANSans/IRANSans.ttf");
-  }
-
-  @font-face {
-    font-family: BMajidSh;
-    src: url("~static/fonts/BMajidSh/BMajidSh.ttf");
   }
 
   body {
