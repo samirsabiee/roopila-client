@@ -37,14 +37,13 @@
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
           <li>
-            <nuxt-link class="text-nowrap" to="/">خانه</nuxt-link>
+            <nuxt-link active-class="active" class="text-nowrap" to="/">خانه</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link class="text-nowrap" to="/services">خدمات</nuxt-link>
+            <nuxt-link active-class="active" class="text-nowrap" to="/services">خدمات</nuxt-link>
           </li>
-
           <li class="has-submenu">
-            <nuxt-link class="text-nowrap" :prefetch="true" to="/requestForm">ارسال درخواست</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/requestForm">ارسال درخواست</nuxt-link>
           </li>
           <li class="has-submenu">
             <nuxt-link class="text-nowrap" to="/news">آخرین اخبار</nuxt-link>
@@ -56,7 +55,7 @@
             <nuxt-link class="text-nowrap" to="/aboutUs">درباره ما</nuxt-link>
           </li>
           <li class="has-submenu">
-            <nuxt-link class="text-nowrap" to="/contactUs">تماس باما</nuxt-link>
+            <nuxt-link class="text-nowrap" to="/contactUs">تماس با ما</nuxt-link>
           </li>
         </ul><!--end navigation menu-->
         <div class="buy-menu-btn d-none">

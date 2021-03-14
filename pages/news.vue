@@ -46,7 +46,7 @@
                   <img :src="n.image" class="img-fluid rounded" alt="work-image">
                   <div class="overlay-work"></div>
                   <div class="content">
-                    <a href="page-work-detail.html" class="title text-white d-block font-weight-bold">{{n.title}}</a>
+                    <span  class="title text-white d-block font-weight-bold">{{n.title}}</span>
                     <small class="text-light">{{n.category.name}}</small>
                   </div>
                   <div class="client">
