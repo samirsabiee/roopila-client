@@ -497,6 +497,7 @@
       onAvatarSelected() {
         console.log(this.userProfileAvatar)
         console.log(this.imageValidation)
+
       }
     },
     computed: {
