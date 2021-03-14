@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-height-768">
     <!-- Hero Start -->
     <section class="bg-half bg-light">
       <div class="home-center">
@@ -12,7 +12,7 @@
                   <ul class="page-next d-inline-block bg-white shadow p-2 pl-4 pr-4 rounded mb-0">
                     <li><a href="index.html" class="text-uppercase font-weight-bold text-dark">خانه</a></li>
                     <li>
-                      <span class="text-uppercase text-primary font-weight-bold">درباره</span>
+                      <span class="text-uppercase text-primary font-weight-bold">درباره ما</span>
                     </li>
                   </ul>
                 </div>

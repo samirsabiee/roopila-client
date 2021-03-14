@@ -44,7 +44,7 @@
           </li>
 
           <li class="has-submenu">
-            <nuxt-link class="text-nowrap" prefetch to="/requestForm">ارسال درخواست</nuxt-link>
+            <nuxt-link class="text-nowrap" :prefetch="true" to="/requestForm">ارسال درخواست</nuxt-link>
           </li>
           <li class="has-submenu">
             <nuxt-link class="text-nowrap" to="/news">آخرین اخبار</nuxt-link>

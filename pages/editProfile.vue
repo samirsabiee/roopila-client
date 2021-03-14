@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!$apollo.queries.profileByUserId.loading">
+  <div v-if="!$apollo.queries.profileByUserId.loading" class="min-height-768">
     <!-- Hero Start -->
     <section class="bg-half bg-light">
       <div class="home-center">

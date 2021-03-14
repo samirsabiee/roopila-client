@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-height-768">
     <!-- Hero Start -->
     <section id="test2TopImage" class="bg-half-260"></section><!--end section-->
     <!-- Hero End -->

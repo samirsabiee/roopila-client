@@ -1,6 +1,6 @@
 <template>
   <!-- Work Start -->
-  <section class="section" v-if="!loading">
+  <section class="section min-height-768" v-if="!loading">
     <div class="container">
       <div class="row" >
         <ul class="col container-filter list-unstyled categories-filter text-center" id="filter">
@@ -17,7 +17,7 @@
         <div v-for="(image,index) in categoryItems[categoryIndex].images" class="col-lg-3 col-md-6 spacing designing fadeIn-animation">
           <div class="work-container position-relative d-block overflow-hidden rounded mt-3">
             <a class="mfp-image d-inline-block" title="">
-              <img :src="image.image" class="img-fluid rounded" alt="work-image">
+              <b-img-lazy :src="image.image" class="img-fluid rounded" alt="work-image"></b-img-lazy>
               <div class="overlay-work"></div>
             </a>
           </div>
@@ -46,11 +46,11 @@
       }
     },
     mounted() {
-      this.galleryCategories()
+      this.galleryCategories(true)
     },
     methods: {
-      async galleryCategories() {
-        this.startLoading()
+      async galleryCategories(isMounted = false) {
+        if(!isMounted) this.startLoading()
         let categories = await this.$apollo.query({
           query: galleryCategories,
           variables: {limit: 8}
