@@ -41,8 +41,14 @@
                      alt="">
 
                 <div class="mt-md-4 mt-3 mt-sm-0">
-                  <a href="javascript:void(0)" class="btn btn-primary mt-2">تغییر آواتار</a>
-                  <a href="javascript:void(0)" class="btn btn-outline-primary mt-2 ml-2">حذف</a>
+                  <span
+                    class="my-relative-position overflow-hidden cursor-pointer bg-primary text-center text-white rounded p-2 font-weight-bold shadow shadow-sm">
+                    <b-form-file @change="onAvatarSelected" v-model="userProfileAvatar" accept="image/jpeg, image/png"
+                                 :state="Boolean(userProfileAvatar)" class="my-absolute-position m-0 p-0" type="file"
+                                 style="opacity: 0"></b-form-file>
+                    <span>تغییر آواتار</span>
+                  </span>
+                  <a href="javascript:void(0)" class="btn btn-outline-primary my-2 ml-2">حذف</a>
                 </div>
               </div>
 
@@ -166,7 +172,9 @@
                           <span class="ml-2 p-0">لطفا صبر کنید...</span>
                         </b-row>
                       </b-button>
-                      <button v-else :disabled="loading" @click="editContactData" class="btn btn-primary">ذخیره اطلاعات</button>
+                      <button v-else :disabled="loading" @click="editContactData" class="btn btn-primary">ذخیره
+                        اطلاعات
+                      </button>
                     </div><!--end col-->
                   </div><!--end row-->
 
@@ -196,7 +204,8 @@
                         <b-form-input v-model="changePassword.password" type="password" class="form-control pl-5"
                                       placeholder="رمز عبور جدید" required :state="passwordValidation"></b-form-input>
                         <b-form-invalid-feedback :state="passwordValidation">
-                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
+                          رمز عبور بایک شامل یک کارکتر خاص، یک عدد، یک حرف بزرگ، یک حرف کوچک باشد و جمعا نباید کمتر از
+                          هشت کارکتر باشد زبان سیستم حتما انگلیسی باشد
                         </b-form-invalid-feedback>
                         <b-form-valid-feedback :state="passwordValidation">
                           رمز عبور مورد تایید است
@@ -358,6 +367,7 @@
     data() {
       return {
         loading: false,
+        userProfileAvatar: null,
         gender: {
           selected: null,
           options: [
@@ -449,7 +459,7 @@
         console.log(id)
         this.loading = false
       },
-      async editContactData(){
+      async editContactData() {
         this.loading = true
         let result = await this.$apollo.mutate({
           mutation: editUser,
@@ -483,6 +493,10 @@
         })
         console.log(result)
         this.loading = false
+      },
+      onAvatarSelected() {
+        console.log(this.userProfileAvatar)
+        console.log(this.imageValidation)
       }
     },
     computed: {
@@ -500,6 +514,12 @@
           this.validation.retypePassword = 'تایید رمز مطابقت ندارد'
           return false
         }
+      },
+      imageValidation() {
+        if (process.env.MAX_FILE_SIZE >= this.userProfileAvatar.size) {
+          console.log('========================IMAGE SIZE VALIDATE======================')
+          return true
+        }
       }
     },
   }
@@ -508,6 +528,27 @@
 <style scoped>
   .address-box-height {
     height: 56px !important;
+  }
+
+  .my-relative-position {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .my-absolute-position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cursor-pointer {
+    cursor: pointer !important;
+    z-index: 100000;
   }
 
   .custom-select {
