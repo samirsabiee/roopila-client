@@ -21,7 +21,7 @@ export const state = () => ({
   },
   adminGalleryPaginate: {
     page: 1,
-    limit: 10
+    limit: 18
   }
 })
 

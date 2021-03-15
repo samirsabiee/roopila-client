@@ -11,7 +11,8 @@
                      style="z-index: 1;">
                   <div class="row align-items-center">
                     <div class="col-lg-2 col-md-3 text-md-left text-center">
-                      <b-img-lazy :src="profileInfo.avatar" class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
+                      <b-img-lazy :src="assetsURL(profileInfo.avatar)"
+                                  class="avatar avatar-medium rounded-pill shadow d-block mx-auto" alt=""></b-img-lazy>
                     </div><!--end col-->
 
                     <div class="col-lg-10 col-md-9">
@@ -33,9 +34,11 @@
                               class="mdi mdi-email" title="پیام ها"></i></a></li>
                             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i
                               class="mdi mdi-bell" title="اعلانات"></i></a></li>
-                            <li class="list-inline-item"><nuxt-link to="/editProfile"
-                                                            class="rounded-pill bg-dark"><i
-                              class="mdi mdi-tools text-light" title="ویرایش پروفایل"></i></nuxt-link></li>
+                            <li class="list-inline-item">
+                              <nuxt-link to="/editProfile"
+                                         class="rounded-pill bg-dark"><i
+                                class="mdi mdi-tools text-light" title="ویرایش پروفایل"></i></nuxt-link>
+                            </li>
                           </ul><!--end icon-->
                         </div><!--end col-->
                       </div><!--end row-->
@@ -201,15 +204,15 @@
         profileInfo: {}
       }
     },
-    apollo:{
-      profileByUserId:{
-        query:profileByUserId,
-        variables(){
+    apollo: {
+      profileByUserId: {
+        query: profileByUserId,
+        variables() {
           return {
-            user_id:this.$auth.user._id
+            user_id: this.$auth.user._id
           }
         },
-        result({data}){
+        result({data}) {
           this.profileInfo = data.profileByUserId
         }
       }

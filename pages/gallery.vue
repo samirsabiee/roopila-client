@@ -36,7 +36,7 @@
     name: "gallery",
     data() {
       return {
-        galleryData: {
+        paginate: {
           page: 1,
           limit: 10
         },
@@ -62,7 +62,7 @@
       setCategoryIndex(index){
         this.categoryIndex = index
       }
-    },
+    }
   }
 </script>
 
