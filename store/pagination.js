@@ -18,6 +18,10 @@ export const state = () => ({
   adminPaymentsPaginate: {
     page: 1,
     limit: 10
+  },
+  adminGalleryPaginate: {
+    page: 1,
+    limit: 10
   }
 })
 
@@ -36,6 +40,9 @@ export const mutations = {
   },
   SET_ADMIN_PAYMENTS_PAGINATE_DATA(state, paginate) {
     state.adminPaymentsPaginate = paginate
+  },
+  SET_ADMIN_GALLERY_PAGINATE_DATA(state, paginate) {
+    state.adminGalleryPaginate = paginate
   }
 }
 
@@ -69,5 +76,11 @@ export const actions = {
   },
   clearAdminPaymentsPaginateData({commit}) {
     commit('SET_ADMIN_PAYMENTS_PAGINATE_DATA', {})
+  },
+  setAdminGalleryPaginateData({commit}, paginate) {
+    commit('SET_ADMIN_GALLERY_PAGINATE_DATA', paginate)
+  },
+  clearAdminGalleryPaginateData({commit}) {
+    commit('SET_ADMIN_GALLERY_PAGINATE_DATA', {})
   }
 }

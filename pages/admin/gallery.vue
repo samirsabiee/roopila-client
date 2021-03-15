@@ -11,8 +11,8 @@
             <i class="fas fa-plus-square"></i>
           </b-col>
         </b-row>
-        <b-pagination align="center" v-model="galleryData.page" :total-rows="galleryData.total"
-                      :per-page="galleryData.limit"></b-pagination>
+        <b-pagination align="center" v-model="paginate.page" :total-rows="paginate.total"
+                      :per-page="paginate.limit"></b-pagination>
       </b-col>
       <b-col cols="2">
         <b-row align-h="center" class="p-3 max-height">
@@ -51,7 +51,7 @@
     data() {
       return {
         selectedCategoryId: null,
-        galleryData: {
+        paginate: {
           page: 1,
           pages: 1,
           total: 1,
@@ -73,6 +73,7 @@
     mounted() {
       this.galleryImages(true)
       this.galleryCategories()
+      this.paginate.page = this.$store.state.pagination.adminGalleryPaginate.page
     },
     methods: {
       galleryImages(isMounted = false) {
@@ -82,15 +83,15 @@
         this.$apollo.query({
           query: galleryImages,
           variables: {
-            page: this.galleryData.page,
-            limit: this.galleryData.limit
+            page: this.paginate.page,
+            limit: this.paginate.limit
           }
         })
           .then(({data}) => {
             this.imageItems = data.galleryImages.images
-            this.galleryData.page = data.galleryImages.paginate.page
-            this.galleryData.limit = data.galleryImages.paginate.limit
-            this.galleryData.total = data.galleryImages.paginate.total
+            this.paginate.page = data.galleryImages.paginate.page
+            this.paginate.limit = data.galleryImages.paginate.limit
+            this.paginate.total = data.galleryImages.paginate.total
             this.loading = false
           }).finally(() => {
           this.finishLoading()
@@ -121,9 +122,9 @@
         })
           .then(({data}) => {
             this.imageItems = data.galleryImageByCategoryId.images
-            this.galleryData.page = data.galleryImageByCategoryId.paginate.page
-            this.galleryData.limit = data.galleryImageByCategoryId.paginate.limit
-            this.galleryData.total = data.galleryImageByCategoryId.paginate.total
+            this.paginate.page = data.galleryImageByCategoryId.paginate.page
+            this.paginate.limit = data.galleryImageByCategoryId.paginate.limit
+            this.paginate.total = data.galleryImageByCategoryId.paginate.total
           }).finally(() => {
           this.finishLoading()
         })
@@ -131,12 +132,13 @@
     },
     computed: {
       page() {
-        return this.galleryData.page;
+        return this.paginate.page;
       }
     },
     watch: {
       page(newValue, oldValue) {
         this.galleryImages()
+        this.$store.dispatch('pagination/setAdminGalleryPaginateData', {page: this.paginate.page})
       }
     },
   }
