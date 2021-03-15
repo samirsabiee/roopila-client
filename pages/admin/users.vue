@@ -54,7 +54,7 @@
       }
     },
     mounted() {
-      this.paginate.page = this.$store.state.pagination.paginate.page
+      this.paginate.page = this.$store.state.pagination.usersPaginate.page
     },
     apollo: {
       users: {
@@ -108,7 +108,7 @@
     },
     watch: {
       page(newValue, oldValue) {
-        this.$store.dispatch('pagination/setPaginateData', {page: this.paginate.page})
+        this.$store.dispatch('pagination/setUsersPaginateData', {page: this.paginate.page})
       }
     },
   }

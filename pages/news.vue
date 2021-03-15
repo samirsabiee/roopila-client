@@ -10,7 +10,9 @@
                 <div class="page-next-level">
                   <h4 class="title"> آخرین اخبار به روایت از روپیلا </h4>
                   <ul class="page-next d-inline-block bg-white shadow p-2 pl-4 pr-4 rounded mb-0">
-                    <li><nuxt-link to="/" class="text-uppercase font-weight-bold text-dark">خانه</nuxt-link></li>
+                    <li>
+                      <nuxt-link to="/" class="text-uppercase font-weight-bold text-dark">خانه</nuxt-link>
+                    </li>
                     <li>
                       <span class="text-uppercase text-primary font-weight-bold">آخرین اخبار</span>
                     </li>
@@ -46,7 +48,7 @@
                   <img :src="n.image" class="img-fluid rounded" alt="work-image">
                   <div class="overlay-work"></div>
                   <div class="content">
-                    <span  class="title text-white d-block font-weight-bold">{{n.title}}</span>
+                    <span class="title text-white d-block font-weight-bold">{{n.title}}</span>
                     <small class="text-light">{{n.category.name}}</small>
                   </div>
                   <div class="client">
@@ -59,8 +61,8 @@
           </div><!--end col-->
 
         </div><!--end row-->
-        <b-pagination align="center" pills v-model="newsData.page" :total-rows="news.paginate.total"
-                      :per-page="newsData.limit"></b-pagination>
+        <b-pagination align="center" pills v-model="paginate.page" :total-rows="news.paginate.total"
+                      :per-page="paginate.limit"></b-pagination>
       </div><!--end container-->
     </section><!--end section-->
     <!-- End Works -->
@@ -76,26 +78,39 @@
     name: "news",
     data() {
       return {
-        newsData: {
+        paginate: {
           page: 1,
           limit: 20
         },
       }
     },
+    mounted() {
+      this.paginate.page = this.$store.state.pagination.newsPaginate.page
+    },
     apollo: {
       news: {
         query: news,
-        variables(){
-          return{
-            page:this.newsData.page,
-            limit:this.newsData.limit
+        variables() {
+          return {
+            page: this.paginate.page,
+            limit: this.paginate.limit
           }
         }
       }
     },
     methods: {
-      jalali(date){
+      jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
+      }
+    },
+    computed: {
+      page() {
+        return this.paginate.page;
+      }
+    },
+    watch: {
+      page(newValue, oldValue) {
+        this.$store.dispatch('pagination/setNewsPaginateData', {page: this.paginate.page})
       }
     },
   }
@@ -104,5 +119,4 @@
 <style scoped>
   @import "assets/css/owl.carousel.min.css";
   @import "assets/css/owl.theme.default.min.css";
-
 </style>

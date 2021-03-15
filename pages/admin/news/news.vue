@@ -74,6 +74,9 @@
         }
       }
     },
+    mounted() {
+      this.paginate.page = this.$store.state.pagination.adminNewsPaginate.page
+    },
     apollo: {
       news: {
         query: news,
@@ -142,7 +145,17 @@
       jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
       }
-    }
+    },
+    computed: {
+      page() {
+        return this.paginate.page;
+      }
+    },
+    watch: {
+      page(newValue, oldValue) {
+        this.$store.dispatch('pagination/setAdminNewsPaginateData', {page: this.paginate.page})
+      }
+    },
   }
 </script>
 
