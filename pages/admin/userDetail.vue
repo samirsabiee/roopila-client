@@ -29,11 +29,13 @@
                           </ul>
                         </div><!--end col-->
                         <div class="col-md-5 text-md-right text-center">
-                          <ul class="list-unstyled profile-icons mb-0 mt-4">
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i
+                          <ul class="list-unstyled profile-icons mb-0 mt-4 d-flex flex-row justify-content-start">
+                            <li><a href="javascript:void(0)" class="rounded-pill"><i
                               class="mdi mdi-email" title="پیام ها"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded-pill"><i
+                            <li class="ml-1"><a href="javascript:void(0)" class="rounded-pill"><i
                               class="mdi mdi-bell" title="اعلانات"></i></a></li>
+                            <li class="list-inline-item ml-auto"><nuxt-link to="/admin/users" class="rounded-pill"><i
+                              class="mdi mdi-arrow-left" title="اعلانات"></i></nuxt-link></li>
                           </ul><!--end icon-->
                         </div><!--end col-->
                       </div><!--end row-->

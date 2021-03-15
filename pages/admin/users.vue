@@ -53,6 +53,9 @@
         search: ''
       }
     },
+    mounted() {
+      this.paginate.page = this.$store.state.pagination.paginate.page
+    },
     apollo: {
       users: {
         query: users,
@@ -83,8 +86,6 @@
             this.paginate.total = data.userSearch.paginate.total
           })
         } else {
-          //this.paginate.page = 1
-          //this.paginate.limit = 10
           this.$apollo.query({
             query: users,
             variables: {
@@ -98,6 +99,16 @@
             this.paginate.total = data.users.paginate.total
           })
         }
+      }
+    },
+    computed: {
+      page() {
+        return this.paginate.page
+      }
+    },
+    watch: {
+      page(newValue, oldValue) {
+        this.$store.dispatch('pagination/setPaginateData', {page: this.paginate.page})
       }
     },
   }
