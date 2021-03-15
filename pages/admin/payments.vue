@@ -35,7 +35,7 @@
       </tr>
       </tbody>
     </table>
-    <b-pagination align="center" v-model="paymentsArgs.page" :total-rows="payments.paginate.total"
+    <b-pagination align="center" v-model="paginate.page" :total-rows="payments.paginate.total"
                   :per-page="payments.paginate.limit"></b-pagination>
   </b-container>
 </template>
@@ -51,23 +51,23 @@
     layout: "admin",
     data() {
       return {
-        paymentsArgs: {
+        paginate: {
           page: 1,
           limit: 10
         }
       }
+    },
+    mounted() {
+      this.paginate.page = this.$store.state.pagination.adminPaymentsPaginate.page
     },
     apollo: {
       payments: {
         query: payments,
         variables() {
           return {
-            page: this.paymentsArgs.page,
-            limit: this.paymentsArgs.limit
+            page: this.paginate.page,
+            limit: this.paginate.limit
           }
-        },
-        result({data}) {
-          console.log(search(data.payments.payments,'545.17'))
         }
       }
     },
@@ -75,6 +75,16 @@
       jalali(date) {
         return moment(parseInt(date)).locale('fa').format('dddd، YYYY/MM/DD')
       },
+    },
+    computed: {
+      page() {
+        return this.paginate.page;
+      }
+    },
+    watch: {
+      page(newValue, oldValue) {
+        this.$store.dispatch('pagination/setAdminPaymentsPaginateData', {page: this.paginate.page})
+      }
     },
   }
 </script>

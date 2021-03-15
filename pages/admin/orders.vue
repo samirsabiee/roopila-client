@@ -32,7 +32,7 @@
       </tr>
       </tbody>
     </table>
-    <b-pagination align="center" v-model="ordersArgs.page" :total-rows="orders.paginate.total"
+    <b-pagination align="center" v-model="paginate.page" :total-rows="orders.paginate.total"
                   :per-page="orders.paginate.limit"></b-pagination>
   </b-container>
 </template>
@@ -48,24 +48,34 @@
     layout: "admin",
     data() {
       return {
-        ordersArgs: {
+        paginate: {
           page: 1,
           limit: 10
         }
       }
+    },
+    mounted() {
+      this.paginate.page = this.$store.state.pagination.adminOrdersPaginate.page
     },
     apollo: {
       orders: {
         query: orders,
         variables() {
           return {
-            page: this.ordersArgs.page,
-            limit: this.ordersArgs.limit
+            page: this.paginate.page,
+            limit: this.paginate.limit
           }
-        },
-        result({data}){
-          console.log(search(data.orders.orders,'سمیر'))
         }
+      }
+    },
+    computed: {
+      page() {
+        return this.paginate.page;
+      }
+    },
+    watch: {
+      page(newValue, oldValue) {
+        this.$store.dispatch('pagination/setAdminOrdersPaginateData', {page: this.paginate.page})
       }
     },
   }

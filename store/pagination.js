@@ -1,5 +1,5 @@
 export const state = () => ({
-  usersPaginate: {
+  adminUsersPaginate: {
     page: 1,
     limit: 10
   },
@@ -10,27 +10,41 @@ export const state = () => ({
   adminNewsPaginate: {
     page: 1,
     limit: 30
+  },
+  adminOrdersPaginate: {
+    page: 1,
+    limit: 10
+  },
+  adminPaymentsPaginate: {
+    page: 1,
+    limit: 10
   }
 })
 
 export const mutations = {
-  SET_USERS_PAGINATE_DATA(state, paginate) {
-    state.usersPaginate = paginate
+  SET_ADMIN_USERS_PAGINATE_DATA(state, paginate) {
+    state.adminUsersPaginate = paginate
   },
   SET_NEWS_PAGINATE_DATA(state, paginate) {
     state.newsPaginate = paginate
   },
   SET_ADMIN_NEWS_PAGINATE_DATA(state, paginate) {
     state.adminNewsPaginate = paginate
+  },
+  SET_ADMIN_ORDERS_PAGINATE_DATA(state, paginate) {
+    state.adminOrdersPaginate = paginate
+  },
+  SET_ADMIN_PAYMENTS_PAGINATE_DATA(state, paginate) {
+    state.adminPaymentsPaginate = paginate
   }
 }
 
 export const actions = {
-  setUsersPaginateData({commit}, paginate) {
-    commit('SET_USERS_PAGINATE_DATA', paginate)
+  setAdminUsersPaginateData({commit}, paginate) {
+    commit('SET_ADMIN_USERS_PAGINATE_DATA', paginate)
   },
-  clearUsersPaginateData({commit}) {
-    commit('SET_USERS_PAGINATE_DATA', {})
+  clearAdminUsersPaginateData({commit}) {
+    commit('SET_ADMIN_USERS_PAGINATE_DATA', {})
   },
   setNewsPaginateData({commit}, paginate) {
     commit('SET_NEWS_PAGINATE_DATA', paginate)
@@ -43,5 +57,17 @@ export const actions = {
   },
   clearAdminNewsPaginateData({commit}) {
     commit('SET_ADMIN_NEWS_PAGINATE_DATA', {})
+  },
+  setAdminOrdersPaginateData({commit}, paginate) {
+    commit('SET_ADMIN_ORDERS_PAGINATE_DATA', paginate)
+  },
+  clearAdminOrdersPaginateData({commit}) {
+    commit('SET_ADMIN_ORDERS_PAGINATE_DATA', {})
+  },
+  setAdminPaymentsPaginateData({commit}, paginate) {
+    commit('SET_ADMIN_PAYMENTS_PAGINATE_DATA', paginate)
+  },
+  clearAdminPaymentsPaginateData({commit}) {
+    commit('SET_ADMIN_PAYMENTS_PAGINATE_DATA', {})
   }
 }
