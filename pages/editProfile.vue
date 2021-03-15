@@ -36,19 +36,22 @@
             <div class="p-4 rounded shadow">
               <h5 class="text-md-left text-center">جزئیات شخصی :</h5>
 
-              <div class="mt-3 text-md-left text-center d-sm-flex">
-                <img :src="profileInfo.avatar" class="avatar float-md-left avatar-medium rounded-pill shadow mr-md-4"
+              <div class="text-md-left text-center d-sm-flex align-items-center">
+                <img :src="assetsURL(profileInfo.avatar)"
+                     class="avatar float-md-left avatar-medium rounded-pill shadow mr-md-4"
                      alt="">
 
-                <div class="mt-md-4 mt-3 mt-sm-0">
+                <div>
                   <span
                     class="my-relative-position overflow-hidden cursor-pointer bg-primary text-center text-white rounded p-2 font-weight-bold shadow shadow-sm">
-                    <b-form-file @change="onAvatarSelected" v-model="userProfileAvatar" accept="image/jpeg, image/png"
-                                 :state="Boolean(userProfileAvatar)" class="my-absolute-position m-0 p-0" type="file"
+                    <b-form-file capture @change="onAvatarSelected" v-model="userProfileAvatar"
+                                 accept="image/jpeg, image/png"
+                                 :state="Boolean(userProfileAvatar)" class="my-absolute-position m-0 p-0"
                                  style="opacity: 0"></b-form-file>
                     <span>تغییر آواتار</span>
                   </span>
-                  <a href="javascript:void(0)" class="btn btn-outline-primary my-2 ml-2">حذف</a>
+                  <span v-if="storeAvatarButton" href="javascript:void(0)" @click="saveNewAvatar"
+                        class="btn btn-outline-primary my-2 ml-2">ذخیره</span>
                 </div>
               </div>
 
@@ -247,7 +250,8 @@
               <h5 class="text-md-left text-center mt-4 pt-2">جزئیات حقوقی :</h5>
 
               <div class="mt-3 text-md-left text-center d-sm-flex">
-                <img :src="profileInfo.avatar" class="avatar float-md-left avatar-medium rounded-pill shadow mr-md-4"
+                <img :src="assetsURL(profileInfo.avatar)"
+                     class="avatar float-md-left avatar-medium rounded-pill shadow mr-md-4"
                      alt="">
 
                 <div class="mt-md-4 mt-3 mt-sm-0">
@@ -399,7 +403,8 @@
         validation: {
           password: '',
           retypePassword: ''
-        }
+        },
+        storeAvatarButton: false
       }
     },
     apollo: {
@@ -495,9 +500,26 @@
         this.loading = false
       },
       onAvatarSelected() {
-        console.log(this.userProfileAvatar)
-        console.log(this.imageValidation)
-
+        this.storeAvatarButton = true
+      },
+      saveNewAvatar() {
+        if (this.isValidAvatar) {
+          this.$apollo.mutate({
+            mutation: editProfile,
+            variables: {
+              user_id: this.$auth.user._id,
+              avatar: this.userProfileAvatar
+            }
+          })
+            .then(({data}) => {
+              this.$notify.success({message: 'آواتار با موفقیت تغییر یافت برای نمایش صفحه را رقرش نمایید'})
+            }).catch(e => {
+            this.$notify.error({message: 'ذخیره تصویر موفقیت آمیز نبود لطفا دوباره با تصویری دیگری تلاش نمایید'})
+          })
+        }else{
+          this.$notify.error({message: 'تصویر انتخاب شده مناسب نیست'})
+          this.storeAvatarButton = false
+        }
       }
     },
     computed: {
@@ -516,10 +538,14 @@
           return false
         }
       },
-      imageValidation() {
-        if (process.env.MAX_FILE_SIZE >= this.userProfileAvatar.size) {
-          console.log('========================IMAGE SIZE VALIDATE======================')
+      isValidAvatar() {
+        if(this.userProfileAvatar === null) return false
+        let image = this.userProfileAvatar
+        if (process.env.MAX_FILE_SIZE >= image.size && image.type === "image/jpeg" || image.type === "image/png") {
           return true
+        } else {
+          this.$notify.error({message: 'تصویر انتخاب شده مناسب نیست'})
+          this.storeAvatarButton = false
         }
       }
     },
