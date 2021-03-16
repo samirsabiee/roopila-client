@@ -78,7 +78,7 @@
       <b-card-header header-tag="header" class="p-0" role="tab">
         <b-row class="p-3" block v-b-toggle.accordion-7 variant="light">
           <i class="fas fa-camera" style="font-size: 1rem;"></i>
-          <nuxt-link class="pr-3" to="/admin/gallery">گالری</nuxt-link>
+          <nuxt-link class="pr-3" to="/admin/gallery/all">گالری</nuxt-link>
         </b-row>
       </b-card-header>
       <b-collapse id="accordion-7" accordion="my-accordion" role="tabpanel">
