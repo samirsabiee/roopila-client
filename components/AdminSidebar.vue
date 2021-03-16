@@ -1,9 +1,9 @@
 <template>
   <div class="accordion mt-2 p-0" role="tablist">
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1 ">
       <b-card-header header-tag="header" class="bg-color p-1" role="tab">
-        <b-row class="p-3" v-b-toggle.accordion-1 variant="light">
+        <b-row class="p-3 m-0" v-b-toggle.accordion-1 variant="light">
           <i class="fas fa-tachometer-alt" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/dashboard" >داشبورد</nuxt-link>
         </b-row>
@@ -15,9 +15,9 @@
       </b-collapse>
     </b-card>
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1 ">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-row class="p-3" block v-b-toggle.accordion-2 variant="light">
+        <b-row class="p-3 m-0" block v-b-toggle.accordion-2 variant="light">
           <i class="fas fa-users" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/users">کاربران</nuxt-link>
         </b-row>
@@ -29,9 +29,9 @@
       </b-collapse>
     </b-card>
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1 ">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-row class="p-3" block v-b-toggle.accordion-3 variant="light">
+        <b-row class="p-3 m-0" block v-b-toggle.accordion-3 variant="light">
           <i class="far fa-newspaper" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/news/news">اخبار</nuxt-link>
         </b-row>
@@ -44,9 +44,9 @@
       </b-collapse>
     </b-card>
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1 ">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-row class="p-3" block v-b-toggle.accordion-5 variant="light">
+        <b-row class="p-3 m-0" block v-b-toggle.accordion-5 variant="light">
           <i class="fab fa-first-order-alt" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/orders">سفارشات</nuxt-link>
         </b-row>
@@ -58,9 +58,9 @@
       </b-collapse>
     </b-card>
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1 ">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-row class="p-3" block v-b-toggle.accordion-6 variant="light">
+        <b-row class="p-3 m-0" block v-b-toggle.accordion-6 variant="light">
           <i class="far fa-money-bill-alt" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/payments">تراکنشات</nuxt-link>
         </b-row>
@@ -74,9 +74,9 @@
       </b-collapse>
     </b-card>
 
-    <b-card no-body class="mb-1 pr-3">
+    <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-0" role="tab">
-        <b-row class="p-3" block v-b-toggle.accordion-7 variant="light">
+        <b-row class="p-3 ml-2" block v-b-toggle.accordion-7 variant="light">
           <i class="fas fa-camera" style="font-size: 1rem;"></i>
           <nuxt-link class="pr-3" to="/admin/gallery/all">گالری</nuxt-link>
         </b-row>

@@ -11,7 +11,7 @@
             <i class="fas fa-plus-square"></i></b-col>
           <b-col cols="12" class="text-center m-1 p-2">
             <nuxt-link  to="/admin/gallery/all"
-                       :class="`w-100 ${($route.params.imagesChild === 'all')?'text-center m-1 p-2  rounded btn btn-success':'btn border border-success'}`">
+                       :class="`w-100 ${($route.params.imagesChild === 'all')?'text-center m-1 p-2 rounded btn btn-success':'btn border border-success'}`">
               همه
             </nuxt-link>
           </b-col>
