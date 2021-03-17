@@ -77,7 +77,7 @@ export default {
     strategies: {
       express: {
         provider: 'laravel/jwt',
-        url: 'http://localhost:3001',
+        url: process.env.API_BASE_URL,
         endpoints: {
           login: { url: '/login', method: 'post'},
           refresh: { url: '/refresh', method: 'get' },
@@ -108,7 +108,7 @@ export default {
   apollo:{
     clientConfigs:{
       default:{
-        httpEndpoint: 'http://localhost:3001/roopila'
+        httpEndpoint: process.env.APOLLO_HTTP_ENDPOINT
       }
     }
   },

@@ -57,7 +57,7 @@
 <!--                          <label class="custom-control-label" for="customCheck1">مرا به خاطر بسپار</label>-->
 
                           <b-form-checkbox
-                            v-model="acceptRules"
+                            v-model="form.rememberMe"
                             :value="true"
                             :unchecked-value="false">
                             مرا به خاطر بسپار
@@ -102,9 +102,9 @@
         loading:false,
         form: {
           email: '',
-          password: ''
+          password: '',
+          rememberMe:false
         },
-        acceptRules:false
       }
     },
     mounted() {
@@ -119,7 +119,7 @@
             this.$notify.success({
               message: ` خوش امدید ${this.$auth.user.fname} `
             })
-            if(this.acceptRules) this.rememberMe()
+            if(this.form.rememberMe) this.rememberMe()
             if(this.$auth.hasScope('admin') || this.$auth.hasScope('superAdmin') ){
               this.$router.push('/admin/dashboard')
             }
@@ -134,7 +134,7 @@
         let email = this.$store.state.rememberMe.loginForm.email
         let password = this.$store.state.rememberMe.loginForm.password
         if(email !== undefined && password !== undefined){
-          this.acceptRules = true
+          this.form.rememberMe = true
           this.form.email = email
           this.form.password = password
         }

@@ -9,7 +9,7 @@
         <i class="fas fa-plus-square"></i>
       </b-col>
     </b-row>
-    <b-pagination align="center" v-model="paginate.page" :total-rows="paginate.total"
+    <b-pagination  align="center" v-model="paginate.page" :total-rows="paginate.total"
                   :per-page="paginate.limit"></b-pagination>
   </b-container>
 </template>
@@ -41,6 +41,7 @@
       }
     },
     mounted() {
+      console.log('Mounted Called')
       this.paginate.page = this.$store.state.pagination.adminGalleryPaginate.page
       this.loadImages(this.imageParams.imagesChild, true)
     },
