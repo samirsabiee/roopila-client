@@ -43,6 +43,7 @@
     mounted() {
       this.paginate.page = this.$store.state.pagination.adminGalleryPaginate.page
       this.loadImages(this.imageParams.imagesChild, true)
+      this.$forceUpdate()
     },
     methods: {
       galleryImages(isMounted = false) {
