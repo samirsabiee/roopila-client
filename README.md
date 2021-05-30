@@ -1,6 +1,15 @@
 # roopila
 
 ## Build Setup
+![home](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/home.PNG)
+![request](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/request.PNG)
+![login](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/login.PNG)
+![register](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/register.PNG)
+![resetPassword](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/resetPassword.PNG)
+![lastNews](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/lastNews.PNG)
+![contactUs](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/contactUs.PNG)
+![dashboard](https://raw.githubusercontent.com/samsab1995/roopila-client/6f660c9e173ebfd95d093dea006fc45b2b7ab298/screenshot/dashboard.PNG)
+
 
 ```bash
 # install dependencies
